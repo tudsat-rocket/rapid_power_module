@@ -8,7 +8,7 @@ The battery boards for the FRoDO-rockets
 
 ## Version 2
 
-<img src="assets/69fc17f84e49772f28676bf87e165e84bd7ea957.jpg" title="" alt="battery-board" width="271">
+<img src="assets/frodo_power_modules.jpg" title="" alt="battery-board" width="271">
 
 The newest version of the battery developed for the FRoDO-M-rocket 
 
