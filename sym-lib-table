@@ -1,4 +1,6 @@
 (sym_lib_table
   (version 7)
   (lib (name "frodo_power_module")(type "KiCad")(uri "${KIPRJMOD}/frodo_power_module.kicad_sym")(options "")(descr ""))
+  (lib (name "bq25820")(type "Altium")(uri "/home/jan/Downloads/BQ25820/Components - 15.08.24 - 09.44.SchLib")(options "")(descr ""))
+  (lib (name "bq76952")(type "KiCad")(uri "${KIPRJMOD}/bq76952.kicad_sym")(options "")(descr ""))
 )

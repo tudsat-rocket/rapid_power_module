@@ -3,4 +3,6 @@
   (lib (name "frodo_power_module")(type "KiCad")(uri "${KIPRJMOD}/frodo_power_module.pretty")(options "")(descr ""))
   (lib (name "footprints")(type "KiCad")(uri "C:/Users/Ghul/Downloads/D3Z3V9BF_7/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "ZenerDiode")(type "KiCad")(uri "${KIPRJMOD}/ZenerDiode.pretty")(options "")(descr ""))
+  (lib (name "bq25820")(type "Altium Designer")(uri "/home/jan/Downloads/BQ25820/Components - 15.08.24 - 09.44.PcbLib")(options "")(descr ""))
+  (lib (name "bq76952")(type "KiCad")(uri "${KIPRJMOD}/bq76952.pretty")(options "")(descr ""))
 )
