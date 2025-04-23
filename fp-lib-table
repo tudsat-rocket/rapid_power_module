@@ -5,4 +5,5 @@
   (lib (name "ZenerDiode")(type "KiCad")(uri "${KIPRJMOD}/ZenerDiode.pretty")(options "")(descr ""))
   (lib (name "bq25820")(type "Altium Designer")(uri "/home/jan/Downloads/BQ25820/Components - 15.08.24 - 09.44.PcbLib")(options "")(descr ""))
   (lib (name "bq76952")(type "KiCad")(uri "${KIPRJMOD}/bq76952.pretty")(options "")(descr ""))
+  (lib (name "bq25750")(type "KiCad")(uri "${KIPRJMOD}/bq25750.pretty")(options "")(descr ""))
 )
