@@ -4,4 +4,5 @@
   (lib (name "bq25820")(type "Altium")(uri "/home/jan/Downloads/BQ25820/Components - 15.08.24 - 09.44.SchLib")(options "")(descr ""))
   (lib (name "bq76952")(type "KiCad")(uri "${KIPRJMOD}/bq76952.kicad_sym")(options "")(descr ""))
   (lib (name "bq25750")(type "KiCad")(uri "${KIPRJMOD}/bq25750.kicad_sym")(options "")(descr ""))
+  (lib (name "STM32F105RCT6")(type "KiCad")(uri "${KIPRJMOD}/STM32F105RCT6.kicad_sym")(options "")(descr ""))
 )
