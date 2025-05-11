@@ -33,20 +33,29 @@ The battery features a linear charging IC supporting up to 700 mA of charge curr
 
 Spanning liegt von außen an, geht durch Arming Circuit,
 
+## Version 3
 
+tdb...
 
 ### ToDos for Hyacinth
- - 3x 18650 lithium-ion cells in series
- - New Charging IC due to more Cells
- - Larger Board due to more Cells.
- - Are 18650 a requirement or might they be exchanged against softbody batteries known from drones? (smaller PCB possible)
- - Arming Schalter schaltet alles an.
- - 
- - 6 Pin durch 8 Pin ersetzen
 
- #### Possible new ICs
+- 3x 18650 lithium-ion cells in series
 
- - https://www.ti.com/lit/ds/symlink/bq25820.pdf?ts=1739830650898&ref_url=https%253A%252F%252Fwww.ti.com%252Fbattery-management%252Fcharger-ics%252Fproducts.html
+- New Charging IC due to more Cells
+
+- Larger Board due to more Cells.
+
+- Are 18650 a requirement or might they be exchanged against softbody batteries known from drones? (smaller PCB possible)
+
+- Arming Schalter schaltet alles an.
+
+- 
+
+- 6 Pin durch 8 Pin ersetzen
+  
+  #### Possible new ICs
+
+- https://www.ti.com/lit/ds/symlink/bq25820.pdf?ts=1739830650898&ref_url=https%253A%252F%252Fwww.ti.com%252Fbattery-management%252Fcharger-ics%252Fproducts.html
 
 #### Ideas for Cell Voltage balancing
 
