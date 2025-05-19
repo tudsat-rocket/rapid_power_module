@@ -4,4 +4,5 @@
   (lib (name "bq76952")(type "KiCad")(uri "${KIPRJMOD}/common/bq76952.kicad_sym")(options "")(descr ""))
   (lib (name "bq25750")(type "KiCad")(uri "${KIPRJMOD}/common/bq25750.kicad_sym")(options "")(descr ""))
   (lib (name "STM32F105RCT6")(type "KiCad")(uri "${KIPRJMOD}/common/STM32F105RCT6.kicad_sym")(options "")(descr ""))
+  (lib (name "bq25756")(type "KiCad")(uri "${KIPRJMOD}/common/bq25756.kicad_sym")(options "")(descr ""))
 )
