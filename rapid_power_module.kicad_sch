@@ -12321,6 +12321,16 @@
 		)
 		(uuid "04ddc936-7140-4ec6-bf43-868d4e811c3c")
 	)
+	(text "TODO: sollte der Interne LDO oder der vom pcb verwendet werden"
+		(exclude_from_sim no)
+		(at 402.336 286.004 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0f4cffb1-8ee3-4d2d-8074-a8a7b5d2f6bc")
+	)
 	(text "@todo add proper supply, decide if using regn is sufficient"
 		(exclude_from_sim no)
 		(at 57.404 159.004 0)
@@ -12514,9 +12524,9 @@
 		)
 		(uuid "635ec1bf-fcdc-42ff-94c6-03d0a0633b7f")
 	)
-	(text "An welchen STM Pin?"
+	(text "TODO: An welchen STM Pin für Interrupt?"
 		(exclude_from_sim no)
-		(at 423.672 325.628 0)
+		(at 428.498 322.834 0)
 		(effects
 			(font
 				(size 0.762 0.762)
@@ -12563,6 +12573,16 @@
 			)
 		)
 		(uuid "8129304f-f9c6-48c7-a8b5-239eaae2cde2")
+	)
+	(text "TODO: Change this according to the data sheet"
+		(exclude_from_sim no)
+		(at 505.968 167.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "81a24e09-7299-49da-b7a7-09d5b01bd2df")
 	)
 	(text "battery charging current sense"
 		(exclude_from_sim no)
@@ -12617,6 +12637,16 @@
 		)
 		(uuid "8af4f968-7b7c-44c2-aa69-564e1ef6402d")
 	)
+	(text "TODO: Figure out I and U min max. Calculate resistors according to data sheet"
+		(exclude_from_sim no)
+		(at 417.322 400.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8afad27e-5f06-4e6b-b711-74c13397d795")
+	)
 	(text "\"connect INT, STAT1, STAT2 and PG \nto a logic rail via 10k resistor\" \n-> (bq25750 man. page 5)"
 		(exclude_from_sim no)
 		(at 77.47 287.02 0)
@@ -12647,6 +12677,16 @@
 			)
 		)
 		(uuid "9b5645c3-e949-4d80-82ef-b66f12c5bc03")
+	)
+	(text "TODO: figure out on which voltage outputs diodes are needed"
+		(exclude_from_sim no)
+		(at 542.036 341.376 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a103b9d7-d06b-456d-950e-055400d89493")
 	)
 	(text "REG1 and REG2 can be configured\nto provide power to external stuff\nThe voltage level can be controlled via\nregisters of the chip (with one-time-programmable or at runtime)\n"
 		(exclude_from_sim no)
@@ -12793,6 +12833,16 @@
 		)
 		(uuid "d2e6cb2c-dfd3-4dfe-9017-c9c7d0dd1172")
 	)
+	(text "TODO: This is not 5V anymore due to PD"
+		(exclude_from_sim no)
+		(at 337.058 325.374 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d8d7c26c-3fe6-492e-a820-2cc74f8d4056")
+	)
 	(text "Bauteil zB DMP3098LSD-13 (4A Current)"
 		(exclude_from_sim no)
 		(at 401.828 245.11 0)
@@ -12875,6 +12925,16 @@
 			(justify left)
 		)
 		(uuid "fd46c742-65d3-4abf-ac90-ebb415a7f441")
+	)
+	(text "TODO: Change this according to the data sheet"
+		(exclude_from_sim no)
+		(at 534.416 58.928 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "fdfbf7c7-d707-4c3f-a4d1-738eb89cfe96")
 	)
 	(junction
 		(at 39.37 322.58)
@@ -22908,199 +22968,6 @@
 				(type solid)
 			)
 		)
-		(column_widths 5.08 8.89)
-		(row_heights 2.54 2.54 2.54 2.54 2.54)
-		(cells
-			(table_cell "A"
-				(exclude_from_sim no)
-				(at 170.18 186.69 0)
-				(size 5.08 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify top)
-				)
-				(uuid "650dcdaf-4028-4ba3-80ac-d2700c3f94f7")
-			)
-			(table_cell "1,25A"
-				(exclude_from_sim no)
-				(at 175.26 186.69 0)
-				(size 8.89 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "bc2c178f-e1b5-4259-a088-8ea9acab4f96")
-			)
-			(table_cell "B"
-				(exclude_from_sim no)
-				(at 170.18 189.23 0)
-				(size 5.08 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify top)
-				)
-				(uuid "90a8974b-3453-436a-8600-03523c8c83b8")
-			)
-			(table_cell "2,5A"
-				(exclude_from_sim no)
-				(at 175.26 189.23 0)
-				(size 8.89 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "68a05f2c-a6fd-44a5-b3e7-b0377d469daa")
-			)
-			(table_cell "C"
-				(exclude_from_sim no)
-				(at 170.18 191.77 0)
-				(size 5.08 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify top)
-				)
-				(uuid "6ae836c0-ea8c-451a-a635-72e1a9c54286")
-			)
-			(table_cell "5A"
-				(exclude_from_sim no)
-				(at 175.26 191.77 0)
-				(size 8.89 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "b44714ed-025f-4ab2-94e2-ff6715c95a28")
-			)
-			(table_cell "A,C"
-				(exclude_from_sim no)
-				(at 170.18 194.31 0)
-				(size 5.08 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify top)
-				)
-				(uuid "20c3fb48-62cb-464f-a704-9e7b647a4735")
-			)
-			(table_cell "6,25A"
-				(exclude_from_sim no)
-				(at 175.26 194.31 0)
-				(size 8.89 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "1aa53eff-3520-458c-a378-e1a16f1ff72a")
-			)
-			(table_cell "B,C"
-				(exclude_from_sim no)
-				(at 170.18 196.85 0)
-				(size 5.08 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify top)
-				)
-				(uuid "c7e514b1-c5d0-487f-a324-58db2bd55213")
-			)
-			(table_cell "7,5A"
-				(exclude_from_sim no)
-				(at 175.26 196.85 0)
-				(size 8.89 2.54)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "66fb8507-add8-4c76-ba9e-046ec852b110")
-			)
-		)
-	)
-	(table
-		(column_count 2)
-		(border
-			(external yes)
-			(header yes)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-		)
-		(separators
-			(rows yes)
-			(cols yes)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-		)
 		(column_widths 6.35 7.62)
 		(row_heights 2.54 2.54 2.54 2.54 2.54 2.54)
 		(cells
@@ -23307,6 +23174,199 @@
 					(justify left top)
 				)
 				(uuid "7cd96e2c-918f-4e14-b000-65e979b7d832")
+			)
+		)
+	)
+	(table
+		(column_count 2)
+		(border
+			(external yes)
+			(header yes)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+		)
+		(separators
+			(rows yes)
+			(cols yes)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+		)
+		(column_widths 5.08 8.89)
+		(row_heights 2.54 2.54 2.54 2.54 2.54)
+		(cells
+			(table_cell "A"
+				(exclude_from_sim no)
+				(at 170.18 186.69 0)
+				(size 5.08 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify top)
+				)
+				(uuid "650dcdaf-4028-4ba3-80ac-d2700c3f94f7")
+			)
+			(table_cell "1,25A"
+				(exclude_from_sim no)
+				(at 175.26 186.69 0)
+				(size 8.89 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "bc2c178f-e1b5-4259-a088-8ea9acab4f96")
+			)
+			(table_cell "B"
+				(exclude_from_sim no)
+				(at 170.18 189.23 0)
+				(size 5.08 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify top)
+				)
+				(uuid "90a8974b-3453-436a-8600-03523c8c83b8")
+			)
+			(table_cell "2,5A"
+				(exclude_from_sim no)
+				(at 175.26 189.23 0)
+				(size 8.89 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "68a05f2c-a6fd-44a5-b3e7-b0377d469daa")
+			)
+			(table_cell "C"
+				(exclude_from_sim no)
+				(at 170.18 191.77 0)
+				(size 5.08 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify top)
+				)
+				(uuid "6ae836c0-ea8c-451a-a635-72e1a9c54286")
+			)
+			(table_cell "5A"
+				(exclude_from_sim no)
+				(at 175.26 191.77 0)
+				(size 8.89 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "b44714ed-025f-4ab2-94e2-ff6715c95a28")
+			)
+			(table_cell "A,C"
+				(exclude_from_sim no)
+				(at 170.18 194.31 0)
+				(size 5.08 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify top)
+				)
+				(uuid "20c3fb48-62cb-464f-a704-9e7b647a4735")
+			)
+			(table_cell "6,25A"
+				(exclude_from_sim no)
+				(at 175.26 194.31 0)
+				(size 8.89 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "1aa53eff-3520-458c-a378-e1a16f1ff72a")
+			)
+			(table_cell "B,C"
+				(exclude_from_sim no)
+				(at 170.18 196.85 0)
+				(size 5.08 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify top)
+				)
+				(uuid "c7e514b1-c5d0-487f-a324-58db2bd55213")
+			)
+			(table_cell "7,5A"
+				(exclude_from_sim no)
+				(at 175.26 196.85 0)
+				(size 8.89 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "66fb8507-add8-4c76-ba9e-046ec852b110")
 			)
 		)
 	)
