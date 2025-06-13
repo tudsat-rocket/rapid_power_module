@@ -3120,6 +3120,156 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:D_Zener"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "D_Zener"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Zener diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "D_Zener_0_1"
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 1.27) (xy -0.762 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "D_Zener_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:FerriteBead"
 			(pin_numbers
 				(hide yes)
@@ -12255,16 +12405,6 @@
 		)
 		(uuid "3a86eab3-50d6-4bb8-808e-d0e865b02964")
 	)
-	(text "TODO: Do the voltage divider Values have to be changed with \nthe higher Voltage. What is the purpose?"
-		(exclude_from_sim no)
-		(at 377.444 347.98 0)
-		(effects
-			(font
-				(size 0.762 0.762)
-			)
-		)
-		(uuid "3de849a7-c7dd-43de-9a96-7785b051d349")
-	)
 	(text "C"
 		(exclude_from_sim no)
 		(at 181.61 152.4 0)
@@ -12673,7 +12813,7 @@
 		)
 		(uuid "d2e6cb2c-dfd3-4dfe-9017-c9c7d0dd1172")
 	)
-	(text "Resistors calculated for:\nU_min = 5V ; U_max = 15V\nI = 4A"
+	(text "Resistors calculated for:\nU_min = 15V ; U_max = 15V\nI = 4A"
 		(exclude_from_sim no)
 		(at 437.642 399.796 0)
 		(effects
@@ -13309,12 +13449,6 @@
 		(uuid "59dc91af-21e9-48a8-91ab-7ad2e5403ae6")
 	)
 	(junction
-		(at 410.21 379.73)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5b4acde9-eabb-4b6b-bb99-4f80d57d9f18")
-	)
-	(junction
 		(at 469.9 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -13891,6 +14025,12 @@
 		(uuid "ba18f7fa-fecc-4bb0-8060-080243d5460e")
 	)
 	(junction
+		(at 410.21 379.73)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bd6352f4-5699-470e-a1a5-8b026f98ee10")
+	)
+	(junction
 		(at 334.01 356.87)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -14293,10 +14433,6 @@
 		(uuid "2e542641-009f-4cd5-ad5c-73488a3b8be2")
 	)
 	(no_connect
-		(at 410.21 378.46)
-		(uuid "31fbc38d-306a-4bdd-a5dd-9b5213ce9c5c")
-	)
-	(no_connect
 		(at 162.56 311.15)
 		(uuid "3211f99a-50aa-47c1-858d-700d7259364f")
 	)
@@ -14363,10 +14499,6 @@
 	(no_connect
 		(at 127 313.69)
 		(uuid "99898218-2f74-4066-a826-69210adcc81a")
-	)
-	(no_connect
-		(at 410.21 370.84)
-		(uuid "af0994f5-798d-4e9b-8c91-0c4570de1796")
 	)
 	(no_connect
 		(at 162.56 316.23)
@@ -14836,7 +14968,7 @@
 	)
 	(wire
 		(pts
-			(xy 365.76 345.44) (xy 360.68 345.44)
+			(xy 363.22 345.44) (xy 360.68 345.44)
 		)
 		(stroke
 			(width 0)
@@ -15343,6 +15475,16 @@
 			(type default)
 		)
 		(uuid "16382912-3a78-4e95-a312-fe31420aca20")
+	)
+	(wire
+		(pts
+			(xy 360.68 354.33) (xy 360.68 355.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "175fe108-f53a-482d-a82a-a7ddbd4d5553")
 	)
 	(wire
 		(pts
@@ -16173,16 +16315,6 @@
 			(type default)
 		)
 		(uuid "31fe7609-b41f-4912-b0c5-b21e9a067cdd")
-	)
-	(wire
-		(pts
-			(xy 410.21 379.73) (xy 410.21 389.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "32252a5f-d46a-45b0-a2ce-7448e00d4f51")
 	)
 	(wire
 		(pts
@@ -17986,6 +18118,16 @@
 	)
 	(wire
 		(pts
+			(xy 410.21 379.73) (xy 410.21 381)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65bd4f0e-6d4a-4481-a75e-5c432b97ceac")
+	)
+	(wire
+		(pts
 			(xy 406.4 182.88) (xy 408.94 182.88)
 		)
 		(stroke
@@ -18283,6 +18425,16 @@
 			(type default)
 		)
 		(uuid "6cfb6d71-35ee-4559-b065-1dd8c9ed673f")
+	)
+	(wire
+		(pts
+			(xy 410.21 388.62) (xy 410.21 389.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d0164d0-a8b4-410d-9bce-152f8d4ca462")
 	)
 	(wire
 		(pts
@@ -20833,16 +20985,6 @@
 			(type default)
 		)
 		(uuid "bbb6fe6a-250b-4e74-81fd-d93748f1d397")
-	)
-	(wire
-		(pts
-			(xy 365.76 350.52) (xy 365.76 345.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc1b07ed-ebe3-40b1-8943-94b4196eb0f8")
 	)
 	(wire
 		(pts
@@ -25780,22 +25922,22 @@
 	)
 	(global_label "USB_FS_VBUS"
 		(shape input)
-		(at 365.76 350.52 270)
+		(at 363.22 345.44 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "92d2e972-2438-4838-a4ee-e19e938bdd13")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 365.76 366.4471 90)
+			(at 379.1471 345.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -32219,104 +32361,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 360.68 349.25 0)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "21b64bfb-3eb9-4a34-a23f-ad44d320d17e")
-		(property "Reference" "R63"
-			(at 359.1814 348.4153 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "10k"
-			(at 359.1814 350.9522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 360.68 349.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 360.68 349.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 360.68 349.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 360.68 349.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part#" "RC0603FR-0710KL"
-			(at 360.68 349.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C25744"
-			(at 360.68 349.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1419c77b-cbb4-4713-b42a-7709dc49f2c4")
-		)
-		(pin "2"
-			(uuid "560253f1-9900-4886-b109-96b39cd4116d")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "R63")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:VSS")
 		(at 256.54 323.85 0)
 		(mirror x)
@@ -32444,6 +32488,85 @@
 			(project "frodo_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
 					(reference "#PWR0138")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Zener")
+		(at 360.68 350.52 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "23d8e8c7-fbad-4362-84ea-fd9b48a254ac")
+		(property "Reference" "D24"
+			(at 363.22 349.2499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Vz = 3.6V"
+			(at 363.22 351.7899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Diode_SMD:Nexperia_CFP3_SOD-123W"
+			(at 360.68 350.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 360.68 350.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Zener diode"
+			(at 360.68 350.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C506594"
+			(at 360.68 350.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fdb01582-4468-4b5e-8194-da25c8bb88b2")
+		)
+		(pin "2"
+			(uuid "08290484-a7c0-46d0-8b05-adac6ec0a8b2")
+		)
+		(instances
+			(project ""
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
+					(reference "D24")
 					(unit 1)
 				)
 			)
@@ -39102,6 +39225,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 410.21 384.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "665c55fc-84b3-4344-9ad5-c38c21e7431b")
+		(property "Reference" "R19"
+			(at 412.75 383.5399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5k1"
+			(at 412.75 386.0799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 408.432 384.81 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 410.21 384.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 410.21 384.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9521ee1b-dcbd-40e7-ba53-54681863272c")
+		)
+		(pin "2"
+			(uuid "311e1261-aba8-419f-970d-ad1ddf2d96a7")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
+					(reference "R19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 63.5 55.88 0)
 		(mirror y)
@@ -39669,7 +39862,7 @@
 		(fields_autoplaced yes)
 		(uuid "6d02bd21-5c9d-4b39-b66a-db8a5e976390")
 		(property "Reference" "R45"
-			(at 359.1814 340.7953 0)
+			(at 358.14 340.3599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -39678,7 +39871,7 @@
 			)
 		)
 		(property "Value" "4k7"
-			(at 359.1814 343.3322 0)
+			(at 358.14 342.8999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -40512,6 +40705,76 @@
 			(project "frodo_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
 					(reference "Q5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 410.21 374.65 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "722d808c-4cf8-4bba-a7b5-0422a405a33f")
+		(property "Reference" "R18"
+			(at 412.75 373.3799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5k1"
+			(at 412.75 375.9199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 408.432 374.65 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 410.21 374.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 410.21 374.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "aa89f60d-f5ca-44b7-91c8-e485fb633ac0")
+		)
+		(pin "2"
+			(uuid "1df1be6c-e517-4c06-8ad1-6d10e955c8fe")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
+					(reference "R18")
 					(unit 1)
 				)
 			)
@@ -48483,7 +48746,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 360.68 351.79 0)
+		(at 360.68 355.6 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -48493,7 +48756,7 @@
 		(fields_autoplaced yes)
 		(uuid "bf57a709-20e1-45a7-8281-31de4c52599b")
 		(property "Reference" "#PWR081"
-			(at 360.68 358.14 0)
+			(at 360.68 361.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48502,7 +48765,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 360.68 356.2334 0)
+			(at 360.68 360.0434 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48510,7 +48773,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 360.68 351.79 0)
+			(at 360.68 355.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48519,7 +48782,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 360.68 351.79 0)
+			(at 360.68 355.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48528,7 +48791,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 360.68 351.79 0)
+			(at 360.68 355.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
