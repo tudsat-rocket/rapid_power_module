@@ -12452,12 +12452,6 @@
 		(uuid "e8775e23-d730-4d31-94bb-a45480c675f0")
 	)
 	(junction
-		(at 353.06 128.27)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ea2cc2c0-2426-4d4d-9116-364dd36b8162")
-	)
-	(junction
 		(at 95.25 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -13057,7 +13051,7 @@
 	)
 	(wire
 		(pts
-			(xy 346.71 128.27) (xy 353.06 128.27)
+			(xy 346.71 128.27) (xy 373.38 128.27)
 		)
 		(stroke
 			(width 0)
@@ -17047,16 +17041,6 @@
 	)
 	(wire
 		(pts
-			(xy 353.06 128.27) (xy 353.06 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a216122-dea4-4e04-8e17-2e5ebb3e8875")
-	)
-	(wire
-		(pts
 			(xy 528.32 308.61) (xy 529.59 308.61)
 		)
 		(stroke
@@ -18254,16 +18238,6 @@
 			(type default)
 		)
 		(uuid "bfff16e7-d0e1-49ef-ab6d-7da78ad47784")
-	)
-	(wire
-		(pts
-			(xy 353.06 128.27) (xy 373.38 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c065e60e-17f7-49cd-a7a3-c1341dacf114")
 	)
 	(wire
 		(pts
@@ -24983,7 +24957,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 405.13 124.46 0)
 			(effects
 				(font
@@ -25048,7 +25022,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 410.21 59.69 0)
 			(effects
 				(font
@@ -26384,7 +26358,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 349.25 96.52 0)
 			(effects
 				(font
@@ -26517,7 +26491,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 360.68 123.19 0)
 			(effects
 				(font
@@ -31259,7 +31233,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 394.97 52.07 0)
 			(effects
 				(font
@@ -35011,72 +34985,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VSS")
-		(at 353.06 130.81 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6f268343-9ccc-43f7-94ad-d203b4450b15")
-		(property "Reference" "#PWR019"
-			(at 353.06 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VSS"
-			(at 353.06 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 353.06 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 353.06 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VSS\""
-			(at 353.06 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bdc28f27-b948-4cc3-8e90-3ae6cc2a8870")
-		)
-		(instances
-			(project ""
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "#PWR019")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:VDC")
 		(at 278.13 214.63 0)
 		(unit 1)
@@ -36159,7 +36067,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 421.64 77.47 0)
 			(effects
 				(font
@@ -40271,7 +40179,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 461.01 92.71 0)
 			(effects
 				(font
@@ -40934,7 +40842,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 379.73 100.33 0)
 			(effects
 				(font
@@ -43080,7 +42988,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 330.2 97.79 0)
 			(effects
 				(font
@@ -47486,7 +47394,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VSS"
+		(property "Value" "PACK GND"
 			(at 358.14 96.52 0)
 			(effects
 				(font
