@@ -28507,7 +28507,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "BQ76952PFBR"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/bq76952.pdf"
 			(at 438.15 87.63 0)
 			(effects
 				(font
@@ -29926,7 +29926,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "2b5f3bbd-ade4-49e5-ad26-8001abdec4ad")
 		(property "Reference" "#PWR046"
 			(at 433.07 130.81 0)
@@ -29938,7 +29937,7 @@
 			)
 		)
 		(property "Value" "VSS"
-			(at 433.07 139.7 0)
+			(at 433.324 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
