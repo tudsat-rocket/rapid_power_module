@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Inductor Wuerth")(type "KiCad")(uri "${KIPRJMOD}/common/Inductor Wuerth.pretty")(options "")(descr ""))
+)

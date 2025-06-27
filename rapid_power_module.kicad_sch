@@ -30840,7 +30840,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor Wuerth:BAT_1043"
 			(at 349.25 126.746 90)
 			(effects
 				(font
@@ -41309,7 +41309,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor Wuerth:BAT_1043"
 			(at 349.25 101.346 90)
 			(effects
 				(font
@@ -48062,7 +48062,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor Wuerth:Wuerth 7443557560"
 			(at 127 88.9 0)
 			(effects
 				(font
@@ -48071,7 +48071,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/7443557560.pdf"
 			(at 127 88.9 0)
 			(effects
 				(font
@@ -49027,7 +49027,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor Wuerth:BAT_1043"
 			(at 349.25 114.046 90)
 			(effects
 				(font
