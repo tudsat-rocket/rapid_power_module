@@ -1,6 +1,4 @@
 (fp_lib_table
   (version 7)
-  (lib (name "frodo_power_module")(type "KiCad")(uri "${KIPRJMOD}/frodo_power_module.pretty")(options "")(descr ""))
-  (lib (name "footprints")(type "KiCad")(uri "C:/Users/Ghul/Downloads/D3Z3V9BF_7/KiCADv6/footprints.pretty")(options "")(descr ""))
-  (lib (name "ZenerDiode")(type "KiCad")(uri "${KIPRJMOD}/ZenerDiode.pretty")(options "")(descr ""))
+  (lib (name "Inductor Wuerth")(type "KiCad")(uri "${KIPRJMOD}/common/Inductor Wuerth.pretty")(options "")(descr ""))
 )
