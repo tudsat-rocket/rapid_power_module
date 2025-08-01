@@ -26733,10 +26733,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "111f29ef-10c9-4547-9adc-9d0bd2803224")
 		(property "Reference" "R12"
-			(at 360.68 114.3 90)
+			(at 360.68 118.618 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26744,7 +26743,7 @@
 			)
 		)
 		(property "Value" "20"
-			(at 360.68 116.84 90)
+			(at 360.68 122.682 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28932,10 +28931,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "22ca460a-e6c5-441f-a242-e2e57a9090fa")
 		(property "Reference" "R11"
-			(at 360.68 101.6 90)
+			(at 360.426 105.664 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28943,7 +28941,7 @@
 			)
 		)
 		(property "Value" "20"
-			(at 360.68 104.14 90)
+			(at 360.68 109.982 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -42742,7 +42740,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "b804e0e7-44b5-4787-bc06-b05cd7d0c4cd")
 		(property "Reference" "R20"
 			(at 360.68 139.7 90)
@@ -44680,7 +44677,7 @@
 		(dnp no)
 		(uuid "c686aff2-3d3f-4548-be91-9fd649f0b4a2")
 		(property "Reference" "R21"
-			(at 498.348 65.278 90)
+			(at 496.824 65.024 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -44688,7 +44685,7 @@
 			)
 		)
 		(property "Value" "100"
-			(at 498.348 69.596 90)
+			(at 497.332 69.85 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48980,7 +48977,7 @@
 			)
 		)
 		(property "Value" "20"
-			(at 360.68 91.44 90)
+			(at 360.68 97.282 90)
 			(effects
 				(font
 					(size 1.27 1.27)
