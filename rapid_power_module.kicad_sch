@@ -27744,7 +27744,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical"
 			(at 198.12 161.29 0)
 			(effects
 				(font
@@ -31794,7 +31794,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 52.578 54.61 90)
 			(effects
 				(font
@@ -32060,7 +32060,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:Diodes_SO-8EP"
 			(at 349.25 246.38 0)
 			(effects
 				(font
@@ -32080,6 +32080,15 @@
 		)
 		(property "Description" "P-MOSFET transistor"
 			(at 351.79 251.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C531177"
+			(at 351.79 251.46 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34635,7 +34644,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:AO_DFN-8-1EP_5.55x5.2mm_P1.27mm_EP4.12x4.6mm"
+		(property "Footprint" "Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm"
 			(at 134.62 81.28 0)
 			(effects
 				(font
@@ -34689,7 +34698,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C20266282"
+		(property "LCSC" "C501503"
 			(at 139.7 83.82 0)
 			(effects
 				(font
@@ -34744,7 +34753,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 283.21 71.12 0)
 			(effects
 				(font
@@ -35111,7 +35120,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:Diodes_SO-8EP"
 			(at 383.54 273.05 0)
 			(effects
 				(font
@@ -35131,6 +35140,15 @@
 		)
 		(property "Description" "P-MOSFET transistor"
 			(at 381 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C531177"
+			(at 381 278.13 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36797,7 +36815,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:AO_DFN-8-1EP_5.55x5.2mm_P1.27mm_EP4.12x4.6mm"
+		(property "Footprint" "Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm"
 			(at 119.38 81.28 0)
 			(effects
 				(font
@@ -36851,7 +36869,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C20266282"
+		(property "LCSC" "C501503"
 			(at 114.3 83.82 0)
 			(effects
 				(font
@@ -37570,7 +37588,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:Diodes_SO-8EP"
 			(at 349.25 273.05 0)
 			(effects
 				(font
@@ -37590,6 +37608,15 @@
 		)
 		(property "Description" "P-MOSFET transistor"
 			(at 351.79 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C531177"
+			(at 351.79 278.13 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -39406,7 +39433,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:AO_DFN-8-1EP_5.55x5.2mm_P1.27mm_EP4.12x4.6mm"
+		(property "Footprint" "Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm"
 			(at 134.62 92.71 0)
 			(effects
 				(font
@@ -39460,7 +39487,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C20266282"
+		(property "LCSC" "C501503"
 			(at 139.7 95.25 0)
 			(effects
 				(font
@@ -44533,7 +44560,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:AO_DFN-8-1EP_5.55x5.2mm_P1.27mm_EP4.12x4.6mm"
+		(property "Footprint" "Package_SON:Infineon_PG-TDSON-8_6.15x5.15mm"
 			(at 119.38 92.71 0)
 			(effects
 				(font
@@ -44587,7 +44614,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C20266282"
+		(property "LCSC" "C501503"
 			(at 114.3 95.25 0)
 			(effects
 				(font
@@ -47706,7 +47733,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:Diodes_SO-8EP"
 			(at 383.54 246.38 0)
 			(effects
 				(font
@@ -47726,6 +47753,15 @@
 		)
 		(property "Description" "P-MOSFET transistor"
 			(at 381 251.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C531177"
+			(at 381 251.46 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48084,7 +48120,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical"
 			(at 179.07 161.29 0)
 			(effects
 				(font

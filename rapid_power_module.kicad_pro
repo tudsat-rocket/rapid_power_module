@@ -56,16 +56,6 @@
           "gap": 0.0,
           "via_gap": 0.0,
           "width": 0.0
-        },
-        {
-          "gap": 0.15,
-          "via_gap": 0.3,
-          "width": 0.15
-        },
-        {
-          "gap": 0.2,
-          "via_gap": 0.3,
-          "width": 0.2
         }
       ],
       "drc_exclusions": [],
@@ -207,8 +197,7 @@
         1.0,
         2.0,
         3.0,
-        4.0,
-        13.0
+        4.0
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -240,18 +229,6 @@
         {
           "diameter": 0.0,
           "drill": 0.0
-        },
-        {
-          "diameter": 0.5,
-          "drill": 0.25
-        },
-        {
-          "diameter": 0.5,
-          "drill": 0.3
-        },
-        {
-          "diameter": 1.0,
-          "drill": 0.5
         }
       ],
       "zones_allow_external_fillets": false
