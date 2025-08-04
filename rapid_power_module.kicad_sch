@@ -13248,6 +13248,16 @@
 		)
 		(uuid "67bbd26f-df1c-4072-8084-bb9c7c84f657")
 	)
+	(text "Power supply connector for the structure PCB"
+		(exclude_from_sim no)
+		(at 535.94 320.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6ecda75d-bc20-4252-9a13-cc27d5c3943f")
+	)
 	(text "C"
 		(exclude_from_sim no)
 		(at 200.66 151.892 0)
@@ -13806,6 +13816,12 @@
 		(uuid "369615f7-f6aa-4501-9593-bc2fa93682f2")
 	)
 	(junction
+		(at 529.59 326.39)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "377d0185-17eb-43df-9e9b-7806d1405af1")
+	)
+	(junction
 		(at 62.23 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -13840,12 +13856,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4011b956-67ed-44c1-bf6e-e737ff5ce3be")
-	)
-	(junction
-		(at 548.64 325.12)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "406b823a-0393-4c65-9867-2e0a3fcd7402")
 	)
 	(junction
 		(at 99.06 48.26)
@@ -13974,7 +13984,7 @@
 		(uuid "53ebec59-b48e-40d7-8cca-9cc2af33e0c6")
 	)
 	(junction
-		(at 548.64 332.74)
+		(at 558.8 332.74)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "541f3d4f-f67c-42f8-8fd2-ead74ceb7d08")
@@ -14640,6 +14650,12 @@
 		(uuid "e317533e-515f-4e82-8fe2-1508f6b67d00")
 	)
 	(junction
+		(at 560.07 325.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e3500111-e138-40ba-a5e3-fb95f4fcdada")
+	)
+	(junction
 		(at 339.09 248.92)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -14728,12 +14744,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fa7eb399-d1f4-4617-a130-cc3d50bef886")
-	)
-	(junction
-		(at 529.59 326.39)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fada4989-5183-460c-8590-93dc07c67037")
 	)
 	(junction
 		(at 353.06 328.93)
@@ -16819,16 +16829,6 @@
 	)
 	(wire
 		(pts
-			(xy 529.59 326.39) (xy 530.86 326.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3b384a75-2163-477c-a725-1b036fee7262")
-	)
-	(wire
-		(pts
 			(xy 386.08 275.59) (xy 392.43 275.59)
 		)
 		(stroke
@@ -17656,6 +17656,16 @@
 			(type default)
 		)
 		(uuid "5b5f2055-1af9-4827-a28e-1754482ad1f4")
+	)
+	(wire
+		(pts
+			(xy 529.59 326.39) (xy 529.59 327.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b8fef34-2e92-4b89-b51c-c3c98a20d14b")
 	)
 	(wire
 		(pts
@@ -19619,7 +19629,7 @@
 	)
 	(wire
 		(pts
-			(xy 548.64 332.74) (xy 553.72 332.74)
+			(xy 558.8 332.74) (xy 563.88 332.74)
 		)
 		(stroke
 			(width 0)
@@ -19886,16 +19896,6 @@
 			(type default)
 		)
 		(uuid "a7fbefd1-af9a-44bc-95f7-99db2b85d9d9")
-	)
-	(wire
-		(pts
-			(xy 548.64 325.12) (xy 553.72 325.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8011d42-d4da-4e3a-aac0-b51cbc54d3d6")
 	)
 	(wire
 		(pts
@@ -20279,6 +20279,16 @@
 	)
 	(wire
 		(pts
+			(xy 554.99 325.12) (xy 560.07 325.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b4f8576f-a6d2-47f0-9eac-49c815d6ec93")
+	)
+	(wire
+		(pts
 			(xy 162.56 162.56) (xy 154.94 162.56)
 		)
 		(stroke
@@ -20416,16 +20426,6 @@
 			(type default)
 		)
 		(uuid "bac3f2fe-1de4-4ad2-8e85-386028de4fef")
-	)
-	(wire
-		(pts
-			(xy 544.83 325.12) (xy 548.64 325.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bb41378f-a4fa-413d-920d-24f4da9d0252")
 	)
 	(wire
 		(pts
@@ -20819,6 +20819,16 @@
 	)
 	(wire
 		(pts
+			(xy 560.07 325.12) (xy 563.88 325.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4eb88cc-76db-45b5-bc77-74ba8b806691")
+	)
+	(wire
+		(pts
 			(xy 181.61 128.27) (xy 181.61 125.73)
 		)
 		(stroke
@@ -21006,16 +21016,6 @@
 			(type default)
 		)
 		(uuid "c911eff7-cbae-4b7c-b5af-7408042eebcf")
-	)
-	(wire
-		(pts
-			(xy 529.59 326.39) (xy 529.59 327.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca35bbdb-2e09-4633-ac7b-8d7742b53046")
 	)
 	(wire
 		(pts
@@ -21226,6 +21226,16 @@
 			(type default)
 		)
 		(uuid "d20bc069-a586-4fcd-a92e-a8ac95faf687")
+	)
+	(wire
+		(pts
+			(xy 560.07 323.85) (xy 560.07 325.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d2633273-1584-47f4-8543-cd331ceca83b")
 	)
 	(wire
 		(pts
@@ -22319,7 +22329,7 @@
 	)
 	(wire
 		(pts
-			(xy 544.83 332.74) (xy 548.64 332.74)
+			(xy 554.99 332.74) (xy 558.8 332.74)
 		)
 		(stroke
 			(width 0)
@@ -23200,6 +23210,28 @@
 		(uuid "03fb2b51-eb81-416e-adc2-8b9848151901")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 279.4545 308.6894 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SYS+"
+		(shape input)
+		(at 560.07 323.85 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0661e13a-492b-4fec-85f0-a9ce747497b6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 560.07 315.7848 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25849,6 +25881,28 @@
 			)
 		)
 	)
+	(global_label "SYS+"
+		(shape input)
+		(at 537.21 326.39 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d26ba084-d6d1-4c95-9f46-f9d78009ed54")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 545.2752 326.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "CHRG_IND_LED_1"
 		(shape input)
 		(at 165.1 339.09 0)
@@ -27244,7 +27298,7 @@
 	)
 	(symbol
 		(lib_id "power:GND1")
-		(at 548.64 332.74 0)
+		(at 558.8 332.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -27252,7 +27306,7 @@
 		(dnp no)
 		(uuid "06f00b6c-26bb-4e3f-8f07-2af65f3a8e60")
 		(property "Reference" "#PWR0176"
-			(at 548.64 339.09 0)
+			(at 558.8 339.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27261,7 +27315,7 @@
 			)
 		)
 		(property "Value" "PGND"
-			(at 548.64 337.058 0)
+			(at 558.8 337.058 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27269,7 +27323,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 548.64 332.74 0)
+			(at 558.8 332.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27278,7 +27332,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 548.64 332.74 0)
+			(at 558.8 332.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27287,7 +27341,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 548.64 332.74 0)
+			(at 558.8 332.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29628,7 +29682,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical_SMD"
 			(at 203.2 161.29 0)
 			(effects
 				(font
@@ -32240,6 +32294,83 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 482.6 67.31 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2eb692e6-cf68-418e-88f2-642e772d9ddc")
+		(property "Reference" "D8"
+			(at 482.854 69.596 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 482.9175 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Diode_SMD:ST_D_SMC"
+			(at 482.6 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121941_onsemi-MBRS540T3G_C31849.pdf"
+			(at 482.6 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Schottky diode"
+			(at 482.6 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C31849"
+			(at 482.6 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "7d40d49c-5231-4d88-808d-b7fd4cb9b184")
+		)
+		(pin "1"
+			(uuid "feb97c50-d0fa-486c-a2ca-13b5582595e2")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
+					(reference "D8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 190.5 243.84 0)
 		(unit 1)
@@ -33631,7 +33762,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 553.72 328.93 0)
+		(at 563.88 328.93 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -33639,7 +33770,7 @@
 		(dnp no)
 		(uuid "3b29c655-7bb1-4f1e-9238-79a66b223955")
 		(property "Reference" "C91"
-			(at 556.26 327.66 0)
+			(at 566.42 327.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33648,7 +33779,7 @@
 			)
 		)
 		(property "Value" "10n"
-			(at 556.26 330.2 0)
+			(at 566.42 330.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33657,7 +33788,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 554.6852 332.74 0)
+			(at 564.8452 332.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33666,7 +33797,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB103_C60133.pdf"
-			(at 553.72 328.93 0)
+			(at 563.88 328.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33675,7 +33806,7 @@
 			)
 		)
 		(property "Description" "50V 10nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 553.72 328.93 0)
+			(at 563.88 328.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33684,7 +33815,7 @@
 			)
 		)
 		(property "LCSC#" "C60133"
-			(at 553.72 328.93 0)
+			(at 563.88 328.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33693,7 +33824,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 553.72 328.93 0)
+			(at 563.88 328.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34632,72 +34763,6 @@
 			(project "frodo_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
 					(reference "H3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "VDC_1")
-		(lib_id "power:VDC")
-		(at 548.64 325.12 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "479ed06e-6e71-4b6c-8be1-6b9b1066c83b")
-		(property "Reference" "#PWR0175"
-			(at 548.64 328.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+VSW"
-			(at 548.386 321.564 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 548.64 325.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 548.64 325.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDC\""
-			(at 548.64 325.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a55f19d2-3858-478a-a299-99ca24cfb926")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "#PWR0175")
 					(unit 1)
 				)
 			)
@@ -39410,7 +39475,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical_SMD_Pin1Left"
 			(at 190.5 382.27 0)
 			(effects
 				(font
@@ -41305,7 +41370,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 210.312 172.72 90)
 			(effects
 				(font
@@ -43454,7 +43519,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical_SMD_Pin1Left"
 			(at 138.43 381 0)
 			(effects
 				(font
@@ -45151,7 +45216,7 @@
 	)
 	(symbol
 		(lib_id "Device:D_Schottky")
-		(at 482.6 67.31 180)
+		(at 533.4 326.39 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -45159,7 +45224,7 @@
 		(dnp no)
 		(uuid "b689c2aa-c501-4a10-acae-af0be8c1e0d1")
 		(property "Reference" "D4"
-			(at 482.854 69.596 0)
+			(at 533.146 324.104 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -45167,7 +45232,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 482.9175 63.5 0)
+			(at 533.0825 330.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -45176,7 +45241,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 482.6 67.31 0)
+			(at 533.4 326.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -45185,7 +45250,7 @@
 			)
 		)
 		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8590907190276538368"
-			(at 482.6 67.31 0)
+			(at 533.4 326.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -45194,7 +45259,7 @@
 			)
 		)
 		(property "Description" "Schottky diode"
-			(at 482.6 67.31 0)
+			(at 533.4 326.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -45203,7 +45268,7 @@
 			)
 		)
 		(property "LCSC" "C5358933"
-			(at 482.6 67.31 0)
+			(at 533.4 326.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50090,7 +50155,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 544.83 328.93 0)
+		(at 554.99 328.93 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -50098,7 +50163,7 @@
 		(dnp no)
 		(uuid "e45a8763-e8b2-4f3e-a870-3bd096fb2cf6")
 		(property "Reference" "C90"
-			(at 547.37 327.66 0)
+			(at 557.53 327.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50107,7 +50172,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 547.37 330.2 0)
+			(at 557.53 330.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50116,7 +50181,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 545.7952 332.74 0)
+			(at 555.9552 332.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50125,7 +50190,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
-			(at 544.83 328.93 0)
+			(at 554.99 328.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50134,7 +50199,7 @@
 			)
 		)
 		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 544.83 328.93 0)
+			(at 554.99 328.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50143,7 +50208,7 @@
 			)
 		)
 		(property "LCSC#" "C194427"
-			(at 544.83 328.93 0)
+			(at 554.99 328.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50152,7 +50217,7 @@
 			)
 		)
 		(property "Manufacturer" "Murata Electronics"
-			(at 544.83 328.93 0)
+			(at 554.99 328.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50759,7 +50824,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical_SMD"
 			(at 177.8 161.29 0)
 			(effects
 				(font
@@ -51044,72 +51109,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
 					(reference "FB3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "VDC_1")
-		(lib_id "power:VDC")
-		(at 530.86 326.39 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "eef23166-faa6-4375-b84c-5fdf0c581ec5")
-		(property "Reference" "#PWR0165"
-			(at 527.05 326.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+VSW"
-			(at 536.956 326.39 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 530.86 326.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 530.86 326.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDC\""
-			(at 530.86 326.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "18e55bc7-bf34-426f-821d-ed9231fcb3c2")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "#PWR0165")
 					(unit 1)
 				)
 			)
