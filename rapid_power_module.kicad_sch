@@ -1366,6 +1366,251 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector:Conn_01x04_Pin"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x04_Pin"
+				(at 0 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x04, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x04_Pin_1_1"
+				(rectangle
+					(start 0.8636 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy 0.8636 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 0.8636 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -5.08) (xy 0.8636 -5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -5.08 180)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:TestPoint"
 			(pin_numbers
 				(hide yes)
@@ -27314,7 +27559,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C194427"
+		(property "LCSC" "C194427"
 			(at 499.11 328.93 0)
 			(effects
 				(font
@@ -30024,6 +30269,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C307331"
+			(at 426.72 292.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "80ad350e-a861-453f-9363-1cdbdfb1a355")
 		)
@@ -31560,6 +31814,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C307331"
+			(at 416.56 292.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "84c2cb77-899b-4e05-9075-57f30384b444")
 		)
@@ -32381,7 +32644,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C77020"
+		(property "LCSC#" "C307331"
 			(at 110.49 250.19 0)
 			(effects
 				(font
@@ -33781,6 +34044,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C52923"
+			(at 407.67 292.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2ed29f25-c7b2-44c0-b93e-12b56115ac9a")
 		)
@@ -35021,7 +35293,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C60133"
+		(property "LCSC" "C60133"
 			(at 537.21 287.02 0)
 			(effects
 				(font
@@ -35233,7 +35505,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "50V 100nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" "100nF 50V X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
 			(at 87.63 250.19 0)
 			(effects
 				(font
@@ -35242,7 +35514,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C77020"
+		(property "LCSC" "C307331"
 			(at 87.63 250.19 0)
 			(effects
 				(font
@@ -35329,7 +35601,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C77020"
+		(property "LCSC#" "C307331"
 			(at 133.35 250.19 0)
 			(effects
 				(font
@@ -35456,7 +35728,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 269.24 313.69 0)
 			(effects
 				(font
@@ -35475,6 +35747,15 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 269.24 313.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25079"
 			(at 269.24 313.69 0)
 			(effects
 				(font
@@ -37053,7 +37334,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 233.68 119.38 0)
 			(effects
 				(font
@@ -37072,6 +37353,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 233.68 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C307331"
 			(at 233.68 119.38 0)
 			(effects
 				(font
@@ -37355,6 +37645,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 100.33 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1622"
 			(at 100.33 92.71 0)
 			(effects
 				(font
@@ -37891,7 +38190,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 193.04 105.41 0)
 			(effects
 				(font
@@ -37910,6 +38209,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 193.04 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C307331"
 			(at 193.04 105.41 0)
 			(effects
 				(font
@@ -38366,7 +38674,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 50.8 67.31 0)
 			(effects
 				(font
@@ -38393,7 +38701,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14663"
+		(property "LCSC" "C307331"
 			(at 50.8 67.31 90)
 			(effects
 				(font
@@ -38543,6 +38851,89 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
 					(reference "#PWR038")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x04_Pin")
+		(at 523.24 327.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6f4bff1d-7c86-4f19-8855-1415f77d2965")
+		(property "Reference" "J10"
+			(at 524.002 323.088 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "JST-GH 4Pin"
+			(at 516.128 329.946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
+			(at 523.24 327.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 523.24 327.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 523.24 327.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "x"
+			(at 523.24 327.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9eda8d65-ce8a-4c2d-87dc-b7efc14c4b83")
+		)
+		(pin "3"
+			(uuid "f093791c-007e-45f7-9513-e2121f1921fc")
+		)
+		(pin "2"
+			(uuid "a8ff2498-fc89-44d8-b4fc-58c96ed84667")
+		)
+		(pin "4"
+			(uuid "2513db79-8345-4bd0-8d5b-d3d39c57c893")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
+					(reference "J10")
 					(unit 1)
 				)
 			)
@@ -38800,7 +39191,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 77.47 59.69 0)
 			(effects
 				(font
@@ -38827,7 +39218,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14663"
+		(property "LCSC" "C307331"
 			(at 77.47 59.69 90)
 			(effects
 				(font
@@ -39570,7 +39961,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C60133"
+		(property "LCSC" "C60133"
 			(at 506.73 307.34 0)
 			(effects
 				(font
@@ -40554,7 +40945,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C194427"
+		(property "LCSC" "C194427"
 			(at 497.84 307.34 0)
 			(effects
 				(font
@@ -41096,6 +41487,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1622"
+			(at 153.67 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f3a4ffc8-1a93-445b-8a42-c37c1e9e59ed")
 		)
@@ -41620,7 +42020,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C1525"
+		(property "LCSC" "C307331"
 			(at 34.29 316.23 0)
 			(effects
 				(font
@@ -41688,7 +42088,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 69.85 59.69 0)
 			(effects
 				(font
@@ -41715,7 +42115,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14663"
+		(property "LCSC" "C307331"
 			(at 69.85 59.69 90)
 			(effects
 				(font
@@ -43201,7 +43601,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C77020"
+		(property "LCSC" "C307331"
 			(at 518.16 287.02 0)
 			(effects
 				(font
@@ -43506,7 +43906,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C194427"
+		(property "LCSC" "C194427"
 			(at 528.32 287.02 0)
 			(effects
 				(font
@@ -43956,6 +44356,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 63.5 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25077"
 			(at 63.5 157.48 0)
 			(effects
 				(font
@@ -44642,7 +45051,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C77020"
+		(property "LCSC#" "C307331"
 			(at 283.21 370.84 0)
 			(effects
 				(font
@@ -44766,7 +45175,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_SMD:ST_D_SMC"
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
 			(at 482.6 67.31 0)
 			(effects
 				(font
@@ -44775,7 +45184,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121941_onsemi-MBRS540T3G_C31849.pdf"
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8590907190276538368"
 			(at 482.6 67.31 0)
 			(effects
 				(font
@@ -44793,7 +45202,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C31849"
+		(property "LCSC" "C5358933"
 			(at 482.6 67.31 0)
 			(effects
 				(font
@@ -45955,7 +46364,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121858_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8554627388281098240"
 			(at 99.06 250.19 0)
 			(effects
 				(font
@@ -45973,7 +46382,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C77020"
+		(property "LCSC#" "C307331"
 			(at 99.06 250.19 0)
 			(effects
 				(font
@@ -46594,7 +47003,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C60133"
+		(property "LCSC" "C60133"
 			(at 508 328.93 0)
 			(effects
 				(font
@@ -47241,7 +47650,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 273.05 247.65 0)
 			(effects
 				(font
@@ -47268,7 +47677,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C14663"
+		(property "LCSC#" "C307331"
 			(at 273.05 247.65 0)
 			(effects
 				(font
@@ -47355,6 +47764,15 @@
 		)
 		(property "Description" "Unpolarized capacitor"
 			(at 502.92 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1623"
+			(at 502.92 93.98 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48183,7 +48601,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C77020"
+		(property "LCSC#" "C307331"
 			(at 121.92 250.19 0)
 			(effects
 				(font
@@ -48309,7 +48727,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 193.04 97.79 0)
 			(effects
 				(font
@@ -48328,6 +48746,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 193.04 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C307331"
 			(at 193.04 97.79 0)
 			(effects
 				(font
@@ -51001,118 +51428,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
 					(reference "C86")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x04")
-		(at 523.24 330.2 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f1a97e92-5d69-480e-9a1d-39b60ecfe169")
-		(property "Reference" "J9"
-			(at 521.208 328.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Molex MicroFit 2x2"
-			(at 521.208 327.906 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Connector_Molex:Molex_Micro-Fit_3.0_43045-0400_2x02_P3.00mm_Horizontal"
-			(at 523.24 330.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 523.24 330.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 523.24 330.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "C122413"
-			(at 523.24 330.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "MOLEX"
-			(at 523.24 330.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part#" "0430450400"
-			(at 523.24 330.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Usage" "High Current Output"
-			(at 523.24 330.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f7100b41-2ca0-4ce7-b817-f891136e2631")
-		)
-		(pin "2"
-			(uuid "a7144cd2-b3e5-489a-97e4-a8df25cf3e5c")
-		)
-		(pin "3"
-			(uuid "63950ee0-f5ca-4b36-9c66-dc0229fef098")
-		)
-		(pin "4"
-			(uuid "bf01cf4d-7bd0-410c-bbfe-dde3e4f603aa")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "J9")
 					(unit 1)
 				)
 			)
