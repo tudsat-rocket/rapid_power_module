@@ -13026,9 +13026,9 @@
 		)
 		(uuid "1be377e7-8e69-49ad-b32e-79fcbc317162")
 	)
-	(text "int from 25 to 51\nPG from 39 to 36"
+	(text "int from 25 to 51\nPG from 39 to 36\nREGIN und BREG verbunden mit STM32"
 		(exclude_from_sim no)
-		(at 113.792 326.644 0)
+		(at 108.458 330.708 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13402,6 +13402,16 @@
 			)
 		)
 		(uuid "c38dc268-ad5b-4bb7-9414-d7518ef3e46a")
+	)
+	(text "mv 16 -> 2"
+		(exclude_from_sim no)
+		(at 171.45 267.97 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c48b59bb-9135-4eb3-93c9-8948be0205b5")
 	)
 	(text "@todo: take a closer look"
 		(exclude_from_sim no)
@@ -14816,10 +14826,6 @@
 		(uuid "ffbc3984-8648-4a8b-b34d-a5a88337ed5a")
 	)
 	(no_connect
-		(at 127 323.85)
-		(uuid "041ecc82-db94-4d27-83b2-a31afc853705")
-	)
-	(no_connect
 		(at 488.95 130.81)
 		(uuid "0df98fcd-ff17-4943-984c-caa297706352")
 	)
@@ -14846,6 +14852,10 @@
 	(no_connect
 		(at 488.95 100.33)
 		(uuid "5a76ed51-9a33-40f0-9680-545f83f5490a")
+	)
+	(no_connect
+		(at 162.56 270.51)
+		(uuid "66053af7-c716-483e-8685-3ad953e7006e")
 	)
 	(no_connect
 		(at 488.95 123.19)
@@ -14934,14 +14944,6 @@
 	(no_connect
 		(at 127 288.29)
 		(uuid "e53b7e3c-d31a-4af2-b4c9-b47b0b7fd547")
-	)
-	(no_connect
-		(at 127 318.77)
-		(uuid "e91f8406-6277-441f-b481-2b9e6877b3e6")
-	)
-	(no_connect
-		(at 127 321.31)
-		(uuid "e9e14fec-3de2-4ca9-98d5-3dcabbf32de4")
 	)
 	(no_connect
 		(at 488.95 110.49)
@@ -20229,16 +20231,6 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 270.51) (xy 162.56 270.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad67cb51-9b7d-4d42-be4e-3cf238a38f3d")
-	)
-	(wire
-		(pts
 			(xy 205.74 167.64) (xy 203.2 167.64)
 		)
 		(stroke
@@ -24493,22 +24485,22 @@
 	)
 	(global_label "RST_SHUT"
 		(shape input)
-		(at 165.1 270.51 0)
+		(at 127 318.77 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "53891e6a-4f14-4309-be2c-ac7e10d7d40a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 177.338 270.51 0)
+			(at 114.762 318.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -25701,6 +25693,28 @@
 			)
 		)
 	)
+	(global_label "REGIN"
+		(shape input)
+		(at 127 321.31 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ac6108f9-145d-4fb4-a77e-829eaf528eb7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 118.3905 321.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "SWCLK"
 		(shape input)
 		(at 284.48 356.87 0)
@@ -26616,6 +26630,28 @@
 		(uuid "e968be25-6ccd-4a0e-8fcc-3d3cb46fb3cc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 117.4229 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "BREG"
+		(shape input)
+		(at 127 323.85 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ea05e694-d22a-44b3-8ba7-68f0d0e28a84")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 119.0558 323.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -45825,7 +45861,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
+		(property "Footprint" "Diode_SMD:D_SOD-323"
 			(at 533.4 326.39 0)
 			(effects
 				(font
@@ -45852,7 +45888,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C5358933"
+		(property "LCSC" "C191023"
 			(at 533.4 326.39 0)
 			(effects
 				(font
