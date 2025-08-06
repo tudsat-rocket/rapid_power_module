@@ -13086,6 +13086,16 @@
 		)
 		(uuid "3d69d684-8554-42ab-a80a-19752fd4ab6f")
 	)
+	(text "Page 75, Pin 36 and 37 <-> VSS"
+		(exclude_from_sim no)
+		(at 512.064 115.062 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "45c416b0-3935-4cfc-9a98-5ee88143b035")
+	)
 	(text "Should be pulled to low"
 		(exclude_from_sim no)
 		(at 507.238 106.68 0)
