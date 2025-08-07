@@ -13748,6 +13748,12 @@
 		(uuid "1ec57c11-d71d-4b5b-a34a-c70e7bddddcc")
 	)
 	(junction
+		(at 276.86 356.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1f3dc1a1-8ebf-45de-942b-e30dffa7ec7a")
+	)
+	(junction
 		(at 62.23 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -14652,12 +14658,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d6e779ed-0603-4359-8d54-9b81b81ac13d")
-	)
-	(junction
-		(at 278.13 356.87)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d7093e17-3097-483e-831b-58b8adcc2390")
 	)
 	(junction
 		(at 170.18 245.11)
@@ -15633,7 +15633,7 @@
 	)
 	(wire
 		(pts
-			(xy 278.13 378.46) (xy 274.32 378.46)
+			(xy 276.86 378.46) (xy 274.32 378.46)
 		)
 		(stroke
 			(width 0)
@@ -17803,6 +17803,16 @@
 	)
 	(wire
 		(pts
+			(xy 283.21 356.87) (xy 284.48 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a197731-8e76-4a03-b073-a02fc514d53a")
+	)
+	(wire
+		(pts
 			(xy 278.13 207.01) (xy 278.13 209.55)
 		)
 		(stroke
@@ -19423,6 +19433,16 @@
 	)
 	(wire
 		(pts
+			(xy 276.86 356.87) (xy 278.13 356.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8bfb28fb-2255-4c8d-895f-65c0d29a4836")
+	)
+	(wire
+		(pts
 			(xy 529.59 304.8) (xy 529.59 306.07)
 		)
 		(stroke
@@ -19710,16 +19730,6 @@
 			(type default)
 		)
 		(uuid "9781f137-7bd9-4ad9-b73d-2330986c0efa")
-	)
-	(wire
-		(pts
-			(xy 278.13 356.87) (xy 279.4 356.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "978a92f2-f4ee-4260-b061-01aa5c7f0efa")
 	)
 	(wire
 		(pts
@@ -21943,7 +21953,7 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 356.87) (xy 278.13 356.87)
+			(xy 269.24 356.87) (xy 276.86 356.87)
 		)
 		(stroke
 			(width 0)
@@ -22873,7 +22883,7 @@
 	)
 	(wire
 		(pts
-			(xy 278.13 356.87) (xy 278.13 378.46)
+			(xy 276.86 356.87) (xy 276.86 378.46)
 		)
 		(stroke
 			(width 0)
@@ -23521,8 +23531,8 @@
 		)
 		(uuid "ad39fd3b-8b94-46d1-b03c-8fee86dac3a0")
 	)
-	(label "SWCLK"
-		(at 269.24 356.87 0)
+	(label "J1-SWCLK"
+		(at 276.86 363.22 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31763,7 +31773,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 281.94 356.87 90)
+		(at 280.67 356.87 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -31772,7 +31782,7 @@
 		(fields_autoplaced yes)
 		(uuid "27640db8-693c-424a-87b0-ae7ba15e33b5")
 		(property "Reference" "R88"
-			(at 281.94 351.79 90)
+			(at 280.67 351.79 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31780,7 +31790,7 @@
 			)
 		)
 		(property "Value" "22"
-			(at 281.94 354.33 90)
+			(at 280.67 354.33 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31788,7 +31798,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 281.94 356.87 0)
+			(at 280.67 356.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31797,7 +31807,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 281.94 356.87 0)
+			(at 280.67 356.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31806,7 +31816,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 281.94 356.87 0)
+			(at 280.67 356.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31815,7 +31825,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 281.94 356.87 0)
+			(at 280.67 356.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31824,7 +31834,7 @@
 			)
 		)
 		(property "Part#" "RC0603FR-0710KL"
-			(at 281.94 356.87 0)
+			(at 280.67 356.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31833,7 +31843,7 @@
 			)
 		)
 		(property "LCSC" "C25092"
-			(at 281.94 356.87 0)
+			(at 280.67 356.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
