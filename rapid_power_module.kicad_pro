@@ -530,6 +530,14 @@
       {
         "netclass": "Default",
         "pattern": "BuckBoostOut"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "V_in"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "VAC"
       }
     ]
   },
