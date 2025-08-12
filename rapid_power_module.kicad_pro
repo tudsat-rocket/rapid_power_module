@@ -244,6 +244,10 @@
           "drill": 0.3
         },
         {
+          "diameter": 0.7,
+          "drill": 0.3
+        },
+        {
           "diameter": 1.0,
           "drill": 0.5
         }
@@ -266,7 +270,28 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      [
+        "pin_to_pin|1981200|2997200|4b922356-8dd7-4c7f-be21-09d135c9afba|f52a7ef0-853f-4fed-85b8-d8ca7bfc9aca|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e",
+        ""
+      ],
+      [
+        "pin_to_pin|4584700|2921000|48d44765-0aa8-499c-af64-b5bbe8bb197e|f52a7ef0-853f-4fed-85b8-d8ca7bfc9aca|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e",
+        ""
+      ],
+      [
+        "single_global_label|292100|647700|47f449a4-230b-49bd-92a9-23080d41797e|00000000-0000-0000-0000-000000000000|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|",
+        ""
+      ],
+      [
+        "single_global_label|5499100|3429000|95c31194-2e4d-4cea-b25e-a1cd3acbba90|00000000-0000-0000-0000-000000000000|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|",
+        ""
+      ],
+      [
+        "single_global_label|596900|647700|56d8fc4d-05ee-4d50-baa2-5a6f1a6f0e16|00000000-0000-0000-0000-000000000000|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e|",
+        ""
+      ]
+    ],
     "meta": {
       "version": 0
     },
@@ -472,13 +497,13 @@
       "pin_not_connected": "error",
       "pin_not_driven": "error",
       "pin_to_pin": "warning",
-      "power_pin_not_driven": "error",
+      "power_pin_not_driven": "ignore",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
       "similar_power": "warning",
       "simulation_model_issue": "ignore",
-      "single_global_label": "ignore",
+      "single_global_label": "error",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
       "unit_value_mismatch": "error",
@@ -538,6 +563,10 @@
       {
         "netclass": "Default",
         "pattern": "VAC"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "GND"
       }
     ]
   },
