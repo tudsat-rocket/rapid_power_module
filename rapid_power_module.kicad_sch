@@ -13043,7 +13043,7 @@
 		)
 		(uuid "04ddc936-7140-4ec6-bf43-868d4e811c3c")
 	)
-	(text "the pcb shall be routed in a way which ensures that\neach distinct GND has a dedicated current loop which \ndoes not cross with other current loops.\nThis is supposed to seperate different current loops from \neachother this should decrease crosstalk problems."
+	(text "the pcb shall be routed in a way which ensures that\neach distinct GND has a dedicated current loop which \ndoes not cross with other current loops.\nThis is supposed to separate different current loops from \neachother this should decrease crosstalk problems."
 		(exclude_from_sim no)
 		(at 493.014 61.468 0)
 		(effects
