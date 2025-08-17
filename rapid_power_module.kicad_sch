@@ -14554,6 +14554,12 @@
 		(uuid "886afeb6-0667-4b14-8a96-37ecf8e4c458")
 	)
 	(junction
+		(at 259.08 278.13)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8944d1f8-c69b-4443-8f3b-371cbcb36fe9")
+	)
+	(junction
 		(at 525.78 231.14)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -14870,12 +14876,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c0440b81-5155-4f99-96cf-074fdba65bf9")
-	)
-	(junction
-		(at 259.08 278.13)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c0571e13-daf9-496d-a1af-93dcfeb14fb2")
 	)
 	(junction
 		(at 455.93 284.48)
@@ -17357,16 +17357,6 @@
 	)
 	(wire
 		(pts
-			(xy 259.08 278.13) (xy 259.08 281.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3c1c437a-e348-4d84-b66c-67aac07a0a39")
-	)
-	(wire
-		(pts
 			(xy 279.4 52.07) (xy 279.4 53.34)
 		)
 		(stroke
@@ -18764,6 +18754,16 @@
 			(type default)
 		)
 		(uuid "68c74789-49ac-4861-9a63-01f010ffb120")
+	)
+	(wire
+		(pts
+			(xy 259.08 278.13) (xy 259.08 281.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6948dde5-2721-47ce-be7e-82f5af52706e")
 	)
 	(wire
 		(pts
@@ -40365,7 +40365,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 201.93 275.59 0)
 			(effects
 				(font
@@ -40410,6 +40410,15 @@
 				(hide yes)
 			)
 		)
+		(property "#LCSC" "C779037"
+			(at 201.93 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "7b50df22-d896-489e-ac71-a04898d785e8")
 		)
@@ -40420,6 +40429,100 @@
 			(project ""
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
 					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D")
+		(at 262.89 278.13 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7b2fef19-8a2e-4134-9671-29201b42052c")
+		(property "Reference" "D2"
+			(at 262.636 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D"
+			(at 262.636 280.416 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 262.89 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 262.89 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Diode"
+			(at 262.89 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 262.89 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 262.89 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "#LCSC" "C779037"
+			(at 262.89 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "76ba33eb-c5ac-420b-88c7-d4141564bed4")
+		)
+		(pin "1"
+			(uuid "7f0da32e-7e62-473e-802e-e78db52272d6")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -44815,91 +44918,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
 					(reference "#PWR032")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:D")
-		(at 262.89 278.13 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a20fc886-ade8-4ec6-99d9-86e89463b8d7")
-		(property "Reference" "D2"
-			(at 263.144 280.162 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "D"
-			(at 263.398 275.844 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 262.89 278.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 262.89 278.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Diode"
-			(at 262.89 278.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "D"
-			(at 262.89 278.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 262.89 278.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7d5e3768-de29-4d46-9c0c-5e4b09e2fbe2")
-		)
-		(pin "1"
-			(uuid "7a421e2b-afaa-4ccf-935c-021b4a2851e0")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "D2")
 					(unit 1)
 				)
 			)
