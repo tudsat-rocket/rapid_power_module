@@ -15246,6 +15246,10 @@
 		(uuid "3c32cbd3-28ae-4b09-b172-2c13ec0e2d06")
 	)
 	(no_connect
+		(at 247.65 116.84)
+		(uuid "3e97633e-d96b-4d67-bb4c-20f5cf821dc2")
+	)
+	(no_connect
 		(at 398.78 116.84)
 		(uuid "4271f373-a3b6-464f-92e8-ef985ec05fbf")
 	)
@@ -17257,7 +17261,7 @@
 	)
 	(wire
 		(pts
-			(xy 43.18 293.37) (xy 48.26 293.37)
+			(xy 44.45 293.37) (xy 48.26 293.37)
 		)
 		(stroke
 			(width 0)
@@ -19107,6 +19111,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 293.37) (xy 38.1 293.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7254562d-3df4-4320-bbb5-efa0680368f8")
+	)
+	(wire
+		(pts
 			(xy 368.3 176.53) (xy 368.3 175.26)
 		)
 		(stroke
@@ -20514,16 +20528,6 @@
 			(type default)
 		)
 		(uuid "a305d8d7-fe8e-456b-98fa-2ad991390193")
-	)
-	(wire
-		(pts
-			(xy 247.65 116.84) (xy 250.19 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a335a319-cc2f-428d-8ee3-0ce1c9a3f5bd")
 	)
 	(wire
 		(pts
@@ -26856,28 +26860,6 @@
 		(uuid "c670705f-f9ec-4e94-821d-0bafa6db7393")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 475.7276 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SAFE_PWR_EN"
-		(shape input)
-		(at 250.19 116.84 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "c85463fc-65d4-44c7-a7d1-821458a9c61d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 266.117 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34031,7 +34013,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 40.64 293.37 90)
+		(at 41.91 293.37 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -34039,7 +34021,7 @@
 		(dnp no)
 		(uuid "376e4ebc-d311-4f60-9b91-244bbbd922be")
 		(property "Reference" "R77"
-			(at 40.64 291.846 90)
+			(at 41.91 291.846 90)
 			(effects
 				(font
 					(size 1 1)
@@ -34047,7 +34029,7 @@
 			)
 		)
 		(property "Value" "22R"
-			(at 40.386 294.894 90)
+			(at 41.656 294.894 90)
 			(effects
 				(font
 					(size 1 1)
@@ -34055,7 +34037,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 40.64 293.37 0)
+			(at 41.91 293.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34064,7 +34046,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 40.64 293.37 0)
+			(at 41.91 293.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34073,7 +34055,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 40.64 293.37 0)
+			(at 41.91 293.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34082,7 +34064,7 @@
 			)
 		)
 		(property "LCSC" "C25092"
-			(at 40.64 293.37 0)
+			(at 41.91 293.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34091,7 +34073,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 40.64 293.37 0)
+			(at 41.91 293.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34100,7 +34082,7 @@
 			)
 		)
 		(property "Part#" "RC0603FR-0722RL"
-			(at 40.64 293.37 0)
+			(at 41.91 293.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
