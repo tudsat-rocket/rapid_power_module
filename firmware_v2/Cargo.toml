@@ -54,4 +54,6 @@ opt-level = 2
 overflow-checks = false
 
 [features]
-cypd-write = []
+cypd = []
+cypd-write = ["cypd"]
+cypd-trace = ["cypd"]

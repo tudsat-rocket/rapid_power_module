@@ -2,6 +2,7 @@
 //! HPI over I²C (7-bit addr 0x08). LSB-first 16-bit register addresses.
 
 use embedded_hal_async::i2c::I2c;
+use defmt::{trace, warn};
 
 #[derive(Debug)]
 pub enum CypdError<E> {
@@ -37,13 +38,35 @@ where
         buf[0] = reg as u8;            // LSB
         buf[1] = (reg >> 8) as u8;     // MSB
         buf[2..2 + data.len()].copy_from_slice(data);
-        self.i2c.write(self.addr, &buf[..2 + data.len()]).await.map_err(CypdError::I2c)
+
+        #[cfg(feature = "cypd-trace")]
+        trace!("I2C WR @0x{:04X} <- {:x}", reg, &data);
+
+        let res = self.i2c.write(self.addr, &buf[..2 + data.len()]).await;
+        #[cfg(feature = "cypd-trace")]
+        match &res {
+            Ok(()) => trace!("I2C WR OK @0x{:04X} ({}B)", reg, data.len()),
+            Err(_) => warn!("I2C WR ERR @0x{:04X}", reg),
+        }
+        res.map_err(CypdError::I2c)
     }
 
     async fn rd(&mut self, reg: u16, dst: &mut [u8]) -> Result<(), CypdError<I2C::Error>> {
         let reg_bytes = [reg as u8, (reg >> 8) as u8]; // LSB, MSB
-        self.i2c.write_read(self.addr, &reg_bytes, dst).await.map_err(CypdError::I2c)
+
+        #[cfg(feature = "cypd-trace")]
+        trace!("I2C RD @0x{:04X} -> {}B", reg, dst.len());
+
+        let res = self.i2c.write_read(self.addr, &reg_bytes, dst).await;
+
+        #[cfg(feature = "cypd-trace")]
+        match &res {
+            Ok(()) => trace!("I2C RD OK @0x{:04X}: {:x}", reg, &dst),
+            Err(_) => warn!("I2C RD ERR @0x{:04X}", reg),
+        }
+        res.map_err(CypdError::I2c)
     }
+
 
     async fn rd_u8(&mut self, reg: u16) -> Result<u8, CypdError<I2C::Error>> {
         let mut b = [0u8; 1];
@@ -63,14 +86,22 @@ where
 
     // ===== Typed registers (per HPI docs) =====
 
-    /// DEVICE_MODE (0x0000) — active=0x95
+    /// DEVICE_MODE (0x0000) — BCR returns a fixed ID byte (doc shows 0x92).
+    /// Treat it as informational; don't gate logic on a specific literal.  :contentReference[oaicite:1]{index=1}
     pub async fn device_mode(&mut self) -> Result<u8, CypdError<I2C::Error>> {
         self.rd_u8(0x0000).await
     }
 
-    /// SILICON_ID (0x0002) — CYPD3177 is 0x0420
+    pub async fn silicon_id_raw(&mut self) -> Result<[u8; 2], CypdError<I2C::Error>> {
+        let mut b = [0u8; 2];
+        self.rd(0x0002, &mut b).await?;
+        Ok(b)
+    }
+
+    /// SILICON_ID (0x0002) — BCR doc shows 0x11B0. Just log for info.  :contentReference[oaicite:2]{index=2}
     pub async fn silicon_id(&mut self) -> Result<u16, CypdError<I2C::Error>> {
-        self.rd_u16(0x0002).await
+        let raw = self.silicon_id_raw().await?;
+        Ok(u16::from_be_bytes(raw))
     }
 
     /// BUS_VOLTAGE (0x100D): value * 100 = mV.
@@ -112,10 +143,58 @@ where
         self.rd_u8(0x0006).await
     }
 
+    /// EVENT_STATUS (0x1044) — sticky event bits (datasheet-defined)
+    pub async fn event_status(&mut self) -> Result<u32, CypdError<I2C::Error>> {
+        self.rd_u32(0x1044).await
+    }
 
-    // ===== Optional write commands (behind feature gate in your project) =====
+
+    #[cfg(feature = "cypd-write")]
+    pub async fn clear_event_status(&mut self, mask: u32) -> Result<(), CypdError<I2C::Error>> {
+        // write-1-to-clear: little-endian 32-bit
+        self.wr(0x1044, &mask.to_le_bytes()).await
+    }
+
     #[cfg(feature = "cypd-write")]
     pub async fn clear_interrupts(&mut self, mask: u8) -> Result<(), CypdError<I2C::Error>> {
+        // INTERRUPT (0x0006) W1C
+        self.wr(0x0006, &[mask]).await
+    }
+
+    /// CURRENT_PDO (0x1010) — raw 32-bit PDO the port partner selected for CYPD
+    pub async fn current_pdo_raw(&mut self) -> Result<u32, CypdError<I2C::Error>> {
+        self.rd_u32(0x1010).await
+    }
+
+    /// CURRENT_RDO (0x1014) — raw 32-bit request data object
+    pub async fn current_rdo_raw(&mut self) -> Result<u32, CypdError<I2C::Error>> {
+        self.rd_u32(0x1014).await
+    }
+
+    /// Read PD_RESPONSE header (0x1400..0x1403)
+    pub async fn pd_response_header(&mut self) -> Result<[u8; 4], CypdError<I2C::Error>> {
+        let mut hdr = [0u8; 4];
+        self.rd(0x1400, &mut hdr).await?;
+        Ok(hdr)
+    }
+
+    /// Read up to `buf.len()` bytes of PD_RESPONSE payload starting at 0x1404
+    pub async fn pd_response_payload(&mut self, buf: &mut [u8]) -> Result<(), CypdError<I2C::Error>> {
+        if buf.is_empty() { return Ok(()); }
+        self.rd(0x1404, buf).await
+    }
+
+
+    /// Set a minimal, useful event mask: attach/detach/contract (bits 3,4,5) 0x38. 0x1024 is LE 32-bit.  :contentReference[oaicite:4]{index=4}
+    #[cfg(feature = "cypd-write")]
+    pub async fn enable_basic_events(&mut self) -> Result<(), CypdError<I2C::Error>> {
+        // EVENT_MASK @ 0x1024, 4 bytes, little-endian
+        self.wr(0x1024, &[0x38, 0x00, 0x00, 0x00]).await
+    }
+
+    /// Clear bits in INTERRUPT (0x0006, W1C) after servicing queues.  :contentReference[oaicite:5]{index=5}
+    #[cfg(feature = "cypd-write")]
+    pub async fn clear_interrupt_bits(&mut self, mask: u8) -> Result<(), CypdError<I2C::Error>> {
         self.wr(0x0006, &[mask]).await
     }
 
