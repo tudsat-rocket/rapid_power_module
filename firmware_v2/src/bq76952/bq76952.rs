@@ -3,6 +3,7 @@ use embedded_hal_async::{i2c::I2c};
 
 use super::types::*;
 use super::regs::{datamem, subcmd};
+use super::Ts2PinControl;
 
 /// An async driver for the TI **BQ76952** battery monitor and protector.
 ///
@@ -127,6 +128,7 @@ where
             .write_read(self.addr, &[command], &mut buffer)
             .await
             .map_err(Error::I2c)?;
+        defmt::debug!("Read direct u16 from command {=u8}: {=u16}", command, u16::from_le_bytes(buffer));
         Ok(u16::from_le_bytes(buffer))
     }
 
@@ -137,18 +139,19 @@ where
             .write_read(self.addr, &[command], &mut buffer)
             .await
             .map_err(Error::I2c)?;
+        defmt::debug!("Read direct i16 from command {=u8}: {=i16}", command, i16::from_le_bytes(buffer));
         Ok(i16::from_le_bytes(buffer))
     }
 
     /// Helper to send a 16-bit subcommand.
     async fn sub_command(&mut self, command: u16) -> Result<(), Error<E>> {
-        let bytes = command.to_le_bytes();
+        let [lo, hi] = command.to_le_bytes();
         self.i2c
-            .write(self.addr, &[cmd::SUBCMD_HI, bytes[1]])
+            .write(self.addr, &[cmd::SUBCMD_HI, lo])
             .await
             .map_err(Error::I2c)?;
         self.i2c
-            .write(self.addr, &[cmd::SUBCMD_LOW, bytes[0]])
+            .write(self.addr, &[cmd::SUBCMD_LOW, hi])
             .await
             .map_err(Error::I2c)?;
         Ok(())
@@ -174,6 +177,36 @@ where
         self.write_data_memory_u8(address, time_seconds, delay).await
     }
 
+    // Private helper: write a Data Memory block (0x3E/0x3F + 0x40.. + checksum/len).
+    async fn write_df(&mut self, df_addr: u16, payload: &[u8]) -> Result<(), Error<E>> {
+        assert!(!payload.is_empty() && payload.len() <= 32);
+
+        let a = df_addr.to_le_bytes();
+
+        // Set DF address at 0x3E/0x3F
+        self.i2c.write(self.addr, &[cmd::SUBCMD_LOW, a[0]]).await.map_err(Error::I2c)?;
+        self.i2c.write(self.addr, &[cmd::SUBCMD_HI,  a[1]]).await.map_err(Error::I2c)?;
+
+        // Copy payload to 0x40.. (RESP_START)
+        let mut buf = [0u8; 1 + 32];
+        buf[0] = cmd::RESP_START;
+        buf[1..1 + payload.len()].copy_from_slice(payload);
+        self.i2c.write(self.addr, &buf[..1 + payload.len()]).await.map_err(Error::I2c)?;
+
+        // Compute checksum (one’s complement of sum of {addr_lo, addr_hi, payload...})
+        let mut sum = a[0].wrapping_add(a[1]);
+        for &b in payload { sum = sum.wrapping_add(b); }
+        let csum = 0xFFu8.wrapping_sub(sum);
+        let len  = (payload.len() as u8).saturating_add(4);
+
+        // Write checksum (0x60) and length (0x61 = payload_len + 4)
+        self.i2c.write(self.addr, &[cmd::RESP_CHKSUM, csum]).await.map_err(Error::I2c)?;
+        self.i2c.write(self.addr, &[cmd::RESP_LEN,    len]).await.map_err(Error::I2c)?;
+        
+
+        Ok(())
+    }
+
     /// Helper to write a single byte to a data memory address.
     pub async fn write_data_memory_u8<D: DelayNs>(
         &mut self,
@@ -186,9 +219,7 @@ where
         delay.delay_ms(2u32).await;
 
         // Do the write
-        write_df(&mut self.i2c, self.addr, address, &[data])
-            .await
-            .map_err(Error::I2c)?;
+        self.write_df(address, &[data]).await?;
 
         // Exit CONFIG_UPDATE (0x0092)
     self.sub_command(super::regs::subcmd::EXIT_CONFIG_UPDATE).await
@@ -374,7 +405,9 @@ where
 
     /// Reads the battery status register.
     pub async fn get_battery_status(&mut self) -> Result<BatteryStatus, Error<E>> {
+        defmt::debug!("Reading Battery Status");
         let status = self.read_direct_u16(cmd::BATTERY_STATUS).await?;
+        defmt::debug!("Battery Status: {=u16}", status);
         Ok(BatteryStatus {
             sleep_mode: (status & (1 << 15)) != 0,
             shutdown_pending: (status & (1 << 13)) != 0,
@@ -422,51 +455,64 @@ where
 
         // Write 0x923A (Settings:Configuration:I2C Address) = 8-bit write address
         let write_addr_8bit = new_addr_7bit << 1;
-        write_df(&mut self.i2c, self.addr, datamem::I2C_ADDRESS, &[write_addr_8bit]).await.map_err(Error::I2c)?;
+        self.write_df(datamem::I2C_ADDRESS, &[write_addr_8bit]).await?;
 
         // Exit CONFIG_UPDATE (0x0092). :contentReference[oaicite:10]{index=10}
         self.sub_command(subcmd::EXIT_CONFIG_UPDATE).await?;
         delay.delay_ms(1).await;
 
         // Apply the new comm settings immediately. :contentReference[oaicite:11]{index=11}
-        self.sub_command(0x29BC).await?; // SWAP_COMM_MODE
+        self.sub_command(subcmd::SWAP_COMM_MODE).await?; 
+        delay.delay_ms(2).await;
 
         // Now switch our **local** driver to use the new 7-bit address.
         self.addr = new_addr_7bit;
         Ok(())
     }
-}
+    /// Wake the BQ76952 from SHUTDOWN by manufacturing a high→low on TS2.
+    /// Sequence: pre-bias high (~3.3 V) → pull low (~75 ms) → release (Hi-Z), then wait for boot.
+    pub async fn wake_via_ts2<PIN, D>(
+        &mut self,
+        ts2: &mut PIN,
+        delay: &mut D,
+    ) -> Result<(), Error<E>>
+    where
+        PIN: Ts2PinControl,
+        D: DelayNs,
+    {
 
-async fn write_df<E, I2C: I2c<Error = E>>(
-    i2c: &mut I2C,
-    dev_addr_7bit: u8,
-    df_addr: u16,
-    payload: &[u8],
-) -> Result<(), E> {
-    assert!(!payload.is_empty() && payload.len() <= 32);
-    let a = df_addr.to_le_bytes();
+        const TS2_PREBIAS_MS: u32 = 15;   // get node clearly above threshold
+        const TS2_LOW_PULSE_MS: u32 = 120; // 100–150 ms; choose 120 ms
+        const TS2_PDN_MS: u32 = 8;        // brief pulldown to force a clean falling edge
+        const TS2_BOOT_WAIT_MS: u32 = 350; // 300–400 ms typical OTP/config load
 
-    // Set DF address at 0x3E/0x3F
-    i2c.write(dev_addr_7bit, &[cmd::SUBCMD_LOW, a[0]]).await?;
-    i2c.write(dev_addr_7bit, &[cmd::SUBCMD_HI,  a[1]]).await?;
+        defmt::debug!("Waking BQ76952 via TS2 (pre-bias > threshold)");
+        ts2.prebias_high();
+        delay.delay_ms(TS2_PREBIAS_MS).await;          // short, just to charge the node above VWAKEONTS2
 
-    // Copy payload to 0x40.. (RESP_START)
-    let mut buf = [0u8; 1 + 32];
-    buf[0] = cmd::RESP_START;
-    buf[1..1 + payload.len()].copy_from_slice(payload);
-    i2c.write(dev_addr_7bit, &buf[..1 + payload.len()]).await?;
+        defmt::debug!("TS2 -> LOW pulse");
+        ts2.drive_low();
+        delay.delay_ms(TS2_LOW_PULSE_MS).await;          // conservative pulse width
 
-    // Compute checksum over {addr_lo, addr_hi, payload bytes}
-    let mut sum = a[0].wrapping_add(a[1]);
-    for &b in payload {
-        sum = sum.wrapping_add(b);
+        defmt::debug!("TS2 brief input pulldown ({} ms)", TS2_PDN_MS);
+        ts2.bias_pulldown();
+        delay.delay_ms(TS2_PDN_MS).await;
+
+        // Final Hi-Z so BQ owns the pin during boot
+        defmt::debug!("TS2 final release (Hi-Z)");
+        ts2.release();
+
+        // Let OTP/config load
+        delay.delay_ms(TS2_BOOT_WAIT_MS).await;
+
+        // Probe with retries (covers long OTP boot / CUDEP)
+        for _ in 0..30 {
+            if self.get_battery_status().await.is_ok() {
+                defmt::debug!("BQ76952 is awake");
+                return Ok(());
+            }
+            delay.delay_ms(50).await;
+        }
+        Err(Error::Timeout)
     }
-    let csum = 0xFFu8.wrapping_sub(sum);
-    let len  = (payload.len() as u8).saturating_add(4);
-
-
-    // Write checksum (0x60) and length (0x61 = payload_len + 4)
-    i2c.write(dev_addr_7bit, &[cmd::RESP_CHKSUM, csum, len]).await?;
-
-    Ok(())
 }

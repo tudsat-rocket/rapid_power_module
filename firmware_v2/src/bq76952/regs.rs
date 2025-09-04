@@ -10,6 +10,7 @@ pub mod subcmd {
     pub const EXIT_CONFIG_UPDATE: u16 = 0x0092;
     pub const DEEP_SLEEP: u16 = 0x0020;
     pub const SHUTDOWN: u16 = 0x0010;
+    pub const SWAP_COMM_MODE: u16 = 0x29BC;
 }
 
 /// Data memory addresses.
@@ -30,9 +31,4 @@ pub mod datamem {
     pub const SCD_THRESHOLD: u16 = 0x9286;
     pub const SCD_DELAY: u16 = 0x9287;
     pub const I2C_ADDRESS: u16 = 0x923A;
-
-    pub const CONFIG_UPDATE:       u16 = 0x0090;
-    pub const EXIT_CONFIG_UPDATE:  u16 = 0x0092;
-    pub const SWAP_COMM_MODE:      u16 = 0x29BC;
-    pub const SWAP_TO_I2C:         u16 = 0x29E7;
 }

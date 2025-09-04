@@ -8,7 +8,27 @@
 mod bq76952;
 
 use embassy_executor::Spawner;
-use embassy_stm32::gpio::{Input, Output, Pull};
+use embassy_stm32::gpio::{Flex, OutputOpenDrain, Output, Pull, Level, Speed};
+impl bq76952::Ts2PinControl for Flex<'static> {
+    fn prebias_high(&mut self) {
+        // Brief input+pull-up to guarantee TS2 > VWAKEONTS2
+        self.set_as_input(Pull::Up);
+    }
+    fn drive_low(&mut self) {
+        // Drive the line low (never drive it high)
+        self.set_as_output(Speed::Low);
+        self.set_low();
+    }
+    fn release(&mut self) {
+        // Strongest Hi-Z so the BQ can proceed with boot
+        self.set_as_analog();
+    }
+    fn bias_pulldown(&mut self) {
+        self.set_as_input(Pull::Down);
+    }
+}
+
+
 #[cfg(feature = "cypd")]
 use embassy_stm32::exti::ExtiInput;
 use embassy_stm32::i2c::{I2c, Config as I2cConfig, Master};
@@ -144,6 +164,8 @@ async fn main(spawner: Spawner) {
     let cdc = CdcAcmClass::new(&mut builder, cdc_state, 64);
     let usb = builder.build();
 
+    let ts2 = Flex::new(p.PA3);
+
     let mut i2c_cfg = I2cConfig::default();
     i2c_cfg.frequency = Hertz(100_000);
     let raw_i2c = I2c::new(
@@ -187,15 +209,20 @@ async fn main(spawner: Spawner) {
         // ---- BQ76952 ----
     {
         // 7-bit default is 0x08 (8-bit write is 0x10). :contentReference[oaicite:13]{index=13}
-        let bq = bq76952::Bq76952::new(i2c_bq, bq76952::I2C_ADDR_7BIT, /*Rsense mΩ*/ 1);
+        let bq = bq76952::Bq76952::new(i2c_bq, bq76952::I2C_ADDR_7BIT, /*Rsense mΩ*/ 5);
         let bq_mutex = BQ_DRV.init(Mutex::new(bq));
 
         // Spawn a short demo that (1) reads at default addr, (2) changes I²C addr in RAM,
         // (3) proves read at the new address succeeds, then starts periodic logging.
-        spawner.spawn(bq_address_demo_and_monitor(bq_mutex)).unwrap();
+        // spawner
+        //     .spawn(bq_address_demo_and_monitor(bq_mutex, ts2))
+        //     .unwrap();
+
+        spawner.spawn(bq_readout_task(bq_mutex, ts2)).unwrap();
     }
 
     spawner.spawn(usb_task(usb)).unwrap();
+
 
     // let mut ticker = Ticker::every(Duration::from_secs(1));
     // let mut count = 0;
@@ -556,6 +583,7 @@ async fn event_status_poll_task(
 #[embassy_executor::task]
 async fn bq_address_demo_and_monitor(
     bq_mutex: &'static Mutex<CriticalSectionRawMutex, Bq>,
+    mut ts2: Flex<'static>,
 ) {
     use embassy_time::{Timer, Duration};
     use bq76952::{Thermistor};
@@ -568,6 +596,14 @@ async fn bq_address_demo_and_monitor(
         async fn delay_ms(&mut self, ms: u32) { Timer::after(Duration::from_millis(ms as u64)).await; }
     }
     let mut d = Delay;
+
+    {
+        let mut bq = bq_mutex.lock().await;
+        if let Err(e) = bq.wake_via_ts2(&mut ts2, &mut d).await {
+            defmt::warn!("BQ: TS2 wake failed: {:?}", defmt::Debug2Format(&e));
+        }
+        embassy_time::Timer::after(embassy_time::Duration::from_millis(600)).await;
+    }
 
     // 1) Talk to default address (0x08) and read something simple (Battery Status).
     {
@@ -615,5 +651,96 @@ async fn bq_address_demo_and_monitor(
             }
         }
         Timer::after(Duration::from_millis(500)).await;
+    }
+}
+
+// src/main.rs
+#[embassy_executor::task]
+async fn bq_readout_task(
+    bq_mutex: &'static Mutex<CriticalSectionRawMutex, Bq>,
+    mut ts2: Flex<'static>,
+) {
+    use embassy_time::{Timer, Duration};
+    use bq76952::Thermistor;
+
+    // Small async delay that implements embedded_hal_async::delay::DelayNs.
+    struct Delay;
+    impl embedded_hal_async::delay::DelayNs for Delay {
+        async fn delay_ns(&mut self, ns: u32) { Timer::after(Duration::from_nanos(ns as u64)).await; }
+        async fn delay_us(&mut self, us: u32) { Timer::after(Duration::from_micros(us as u64)).await; }
+        async fn delay_ms(&mut self, ms: u32) { Timer::after(Duration::from_millis(ms as u64)).await; }
+    }
+    let mut d = Delay;
+
+    // Wake via TS2 once at startup
+    {
+        let mut bq = bq_mutex.lock().await;
+        if let Err(e) = bq.wake_via_ts2(&mut ts2, &mut d).await {
+            defmt::warn!("BQ: TS2 wake failed: {:?}", defmt::Debug2Format(&e));
+        }
+        Timer::after(Duration::from_millis(400)).await; // allow OTP/config to finish
+    }
+
+    loop {
+        {
+            let mut bq = bq_mutex.lock().await;
+
+            // Battery status
+            match bq.get_battery_status().await {
+                Ok(s) => defmt::info!(
+                    "BatteryStatus: sleep={} shutdown_pend={} perm_fault={} safety_fault={} cfg_update={} sealed?={}",
+                    s.sleep_mode, s.shutdown_pending, s.permanent_fault, s.safety_fault,
+                    s.config_update_mode, (s.security_state == 0)
+                ),
+                Err(_) => defmt::warn!("BatteryStatus read failed"),
+            }
+
+            // Stack voltage (10 mV units)
+            if let Ok(v10mv) = bq.get_stack_voltage().await {
+                let mv = (v10mv as u32) * 10;
+                defmt::info!("VSTACK: {} mV (~{=f32} V)", mv, (mv as f32) / 1000.0);
+            } else {
+                defmt::warn!("VSTACK read failed");
+            }
+
+            // Current (driver returns CC2 raw/user units; often mA by default)
+            match bq.get_current_cc2().await {
+                Ok(i) => defmt::info!("CC2 current (raw units): {}", i),
+                Err(_) => defmt::warn!("Current read failed"),
+            }
+
+            // Temperatures
+            if let Ok(tdie) = bq.get_internal_temp_c().await {
+                defmt::info!("Die temp: {=f32} °C", tdie);
+            }
+            for (name, th) in [("TS1", Thermistor::TS1), ("TS2", Thermistor::TS2), ("TS3", Thermistor::TS3)] {
+                if let Ok(t) = bq.get_thermistor_temp_c(th).await {
+                    defmt::info!("{}: {=f32} °C", name, t);
+                }
+            }
+
+            // FET status
+            if let Ok(f) = bq.get_fet_status().await {
+                defmt::info!(
+                    "FET: CHG={} PCHG={} DSG={} PDSG={} DCHG_PIN={} DDSG_PIN={} ALERT={}",
+                    f.chg_fet, f.pchg_fet, f.dsg_fet, f.pdsg_fet, f.dchg_pin, f.ddsg_pin, f.alert_pin
+                );
+            }
+
+            // Alarm status
+            if let Ok(a) = bq.get_alarm_status().await {
+                defmt::info!(
+                    "Alarm: COV={} CUV={} OCC={} OCD1={} OCD2={} SCD={} OTC={} OTD={} OTF={} UTC={} UTD={} UTF={}",
+                    a.cov, a.cuv, a.occ, a.ocd1, a.ocd2, a.scd, a.otc, a.otd, a.otf, a.utc, a.utd, a.utf
+                );
+            }
+
+            // Per-cell voltages (mV)
+            if let Ok(cells) = bq.get_all_cell_voltages().await {
+                defmt::info!("Cells (mV): {:?}", cells);
+            }
+        }
+
+        Timer::after(Duration::from_millis(1000)).await;
     }
 }

@@ -57,3 +57,7 @@ overflow-checks = false
 cypd = []
 cypd-write = ["cypd"]
 cypd-trace = ["cypd"]
+ts2_hi_z = []
+ts2_pullup = []
+ts2_pulldown = []
+default = ["ts2_hi_z"] 

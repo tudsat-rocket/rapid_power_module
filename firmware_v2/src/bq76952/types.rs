@@ -62,6 +62,7 @@ pub enum Error<E> {
     I2c(E),
     /// Invalid parameter.
     InvalidParameter,
+    Timeout,
 }
 
 /// Available thermistors for temperature sensing.
