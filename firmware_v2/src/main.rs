@@ -6,6 +6,7 @@
  #[cfg(feature = "cypd")]
  mod cypd3177;
 mod bq76952;
+mod bq25756;
 
 use embassy_executor::Spawner;
 use embassy_stm32::gpio::{Flex, OutputOpenDrain, Output, Pull, Level, Speed};
@@ -98,6 +99,7 @@ static CDC_STATE:    StaticCell<CdcState<'static>>   = StaticCell::new();
 
 static I2C_BUS: StaticCell<I2cBusMutex> = StaticCell::new();
 static BQ_DRV: StaticCell<Mutex<CriticalSectionRawMutex, Bq>> = StaticCell::new();
+static BQ25756_DRV: StaticCell<Mutex<CriticalSectionRawMutex, Bq25756Dev>> = StaticCell::new();
 
  #[cfg(feature = "cypd")]
  static CYPD_DRV: StaticCell<
@@ -180,6 +182,7 @@ async fn main(spawner: Spawner) {
     let bus_mutex: &'static I2cBusMutex = I2C_BUS.init(Mutex::new(raw_i2c));
     let i2c_cypd: I2cDev<'static>       = I2cDevice::new(bus_mutex);
     let i2c_bq:   I2cDev<'static>       = I2cDevice::new(bus_mutex);
+    let i2c_bq25756: I2cDev<'static>    = I2cDevice::new(bus_mutex);
 
     // ---- CYPD3177 (unchanged logic, just pass the I2cDevice) ----
     #[cfg(feature = "cypd")]
@@ -220,6 +223,11 @@ async fn main(spawner: Spawner) {
 
         spawner.spawn(bq_readout_task(bq_mutex, ts2)).unwrap();
     }
+    {
+        let bq25756 = bq25756::Bq25756::new(i2c_bq25756); // owns the I²C device
+        let bq25756_mutex = BQ25756_DRV.init(Mutex::new(bq25756));
+        spawner.spawn(bq25756_task(bq25756_mutex)).unwrap();
+    }
 
     spawner.spawn(usb_task(usb)).unwrap();
 
@@ -241,6 +249,7 @@ type I2cDev<'a> = I2cDevice<'a, CriticalSectionRawMutex, I2cBus>;
 #[cfg(feature = "cypd")]
 type Cypd   = cypd3177::Cypd3177<I2cBus>;
 type Bq    = bq76952::Bq76952<I2cDev<'static>>;
+type Bq25756Dev = bq25756::Bq25756<I2cDev<'static>>;
 #[embassy_executor::task]
 async fn usb_task(mut dev: embassy_usb::UsbDevice<'static, UsbDrv>) {
     defmt::info!("USB device: run()");
@@ -742,5 +751,87 @@ async fn bq_readout_task(
         }
 
         Timer::after(Duration::from_millis(1000)).await;
+    }
+}
+#[embassy_executor::task]
+async fn bq25756_task(
+    bq: &'static Mutex<CriticalSectionRawMutex, Bq25756Dev>,
+) {
+    use embassy_time::{Duration, Ticker};
+    use crate::bq25756::regs::*;
+
+    // Initial snapshot (READ ONLY)
+    {
+        let mut dev = bq.lock().await;
+
+        if let Ok(v) = dev.get_charge_voltage_limit().await {
+            defmt::info!("BQ25756:init VREG={} mV", v);
+        }
+        if let Ok(i) = dev.get_charge_current_limit().await {
+            defmt::info!("BQ25756:init ICHG={} mA", i);
+        }
+        if let Ok(iin) = dev.get_input_current_dpm_limit().await {
+            defmt::info!("BQ25756:init IIN_DPM={} mA", iin);
+        }
+        if let Ok(vin) = dev.get_input_voltage_dpm_limit().await {
+            defmt::info!("BQ25756:init VIN_DPM={} mV", vin);
+        }
+        if let Ok(ipre) = dev.get_precharge_current_limit().await {
+            defmt::info!("BQ25756:init IPRECHG={} mA", ipre);
+        }
+        if let Ok(iterm) = dev.get_termination_current_limit().await {
+            defmt::info!("BQ25756:init ITERM={} mA", iterm);
+        }
+
+        // Raw control bytes (useful for quick sanity checks)
+        if let Ok(timer_ctrl) = dev.get_timer_control().await {
+            let topoff = (timer_ctrl & TOPOFF_TMR_MASK) >> 6;
+            let wdt    = (timer_ctrl & WDT_MASK) >> 4;
+            let chgtmr = (timer_ctrl & CHG_TMR_MASK) >> 1;
+            let tmr2x  = (timer_ctrl & EN_TMR2X) != 0;
+            defmt::info!(
+                "BQ25756:init TIMER_CTRL=0x{:02X} (TOPOFF={} WDT={} CHG_TMR={} 2x={})",
+                timer_ctrl, topoff, wdt, chgtmr, tmr2x
+            );
+        }
+        if let Ok(chg_ctrl) = dev.get_charger_control().await {
+            let en_chg = (chg_ctrl & EN_CHG) != 0;
+            let hiz    = (chg_ctrl & EN_HIZ) != 0;
+            defmt::info!(
+                "BQ25756:init CHARGER_CTRL=0x{:02X} (EN_CHG={} HIZ={})",
+                chg_ctrl, en_chg, hiz
+            );
+        }
+    }
+
+    // Periodic read-only poll
+    let mut ticker = Ticker::every(Duration::from_millis(1000));
+    loop {
+        {
+            let mut dev = bq.lock().await;
+
+            if let Ok(v) = dev.get_charge_voltage_limit().await {
+                defmt::info!("BQ25756: VREG={} mV", v);
+            }
+            if let Ok(i) = dev.get_charge_current_limit().await {
+                defmt::info!("BQ25756: ICHG={} mA", i);
+            }
+            if let Ok(iin) = dev.get_input_current_dpm_limit().await {
+                defmt::info!("BQ25756: IIN_DPM={} mA", iin);
+            }
+            if let Ok(vin) = dev.get_input_voltage_dpm_limit().await {
+                defmt::info!("BQ25756: VIN_DPM={} mV", vin);
+            }
+
+            // Optional: observe timers/charger state over time (still read-only)
+            if let Ok(timer_ctrl) = dev.get_timer_control().await {
+                defmt::info!("BQ25756: TIMER_CTRL=0x{:02X}", timer_ctrl);
+            }
+            if let Ok(chg_ctrl) = dev.get_charger_control().await {
+                defmt::info!("BQ25756: CHARGER_CTRL=0x{:02X}", chg_ctrl);
+            }
+        }
+
+        ticker.next().await;
     }
 }
