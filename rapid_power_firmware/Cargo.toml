@@ -27,10 +27,12 @@ embassy-futures = "0.1"
 static_cell = "2"
 crc = "3"
 
-shared_types = { git = "https://github.com/tudsat-rocket/sam" }
+shared_types = { git = "https://github.com/tudsat-rocket/sam", package = "shared_types", branch = "main" }
 embassy-usb = "0.5.1"
 heapless = "0.9.1"
 #shared_types = { path = "../../sam/shared_types" }
+
+bytemuck = { version = "1.23.2", features = ["derive"] }
 
 # cargo build/run
 [profile.dev]
@@ -54,10 +56,18 @@ opt-level = 2
 overflow-checks = false
 
 [features]
+can = []
 cypd = []
 cypd-write = ["cypd"]
 cypd-trace = ["cypd"]
+bq76952 = []
+bq25756 = []
+bq25756-no-jeita = ["bq25756"]
+bq25756-mcu-control = ["bq25756"]
+usb_cdc = []
 ts2_hi_z = []
 ts2_pullup = []
 ts2_pulldown = []
-default = ["ts2_hi_z"] 
+#default = ["ts2_hi_z", "bq76952", "bq25756", "usb_cdc", "cypd", "can"]
+default = ["ts2_hi_z", "bq76952", "bq25756-mcu-control", "bq25756-no-jeita", "usb_cdc", "cypd", "can"]
+

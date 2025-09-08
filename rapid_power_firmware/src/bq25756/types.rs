@@ -9,6 +9,7 @@ pub enum Error<E> {
     InvalidDevice(u8),
     /// Parameter outside allowed range.
     InvalidInput,
+    Timeout,
 }
 
 #[repr(u8)]
@@ -48,3 +49,27 @@ pub enum PAndOTimer { Disable=0, Ms500=1, S1=2, S10=3 }
 #[repr(u8)]
 #[derive(Copy, Clone, Debug, Eq, PartialEq)]
 pub enum FullSweepTimer { Min3=0, Min10=1, Min15=2, Min20=3 }
+
+#[repr(u8)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+pub enum TsT1 { N10C=0, N5C=1, P0C=2, P5C=3 }
+
+#[repr(u8)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+pub enum TsT2 { P5C=0, P10C=1, P15C=2, P20C=3 }
+
+#[repr(u8)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+pub enum TsT3 { P40C=0, P45C=1, P50C=2, P55C=3 }
+
+#[repr(u8)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+pub enum TsT5 { P50C=0, P55C=1, P60C=2, P65C=3 }
+
+#[repr(u8)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+pub enum JeitaVset { Suspend=0, V94_3=1, V97_6=2, V100=3 }
+
+#[repr(u8)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+pub enum JeitaIsetc { Suspend=0, Pct20=1, Pct40=2, Pct100=3 }

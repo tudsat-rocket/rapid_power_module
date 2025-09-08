@@ -1,0 +1,16 @@
+pub const DEVICE_MODE: u16 = 0x0000;
+pub const SILICON_ID: u16 = 0x0002;
+pub const INTERRUPT: u16 = 0x0006;
+pub const RESET: u16 = 0x0008;
+pub const DEV_RESPONSE: u16 = 0x007E;
+pub const SELECT_SINK_PDO_MASK: u16 = 0x1005;
+pub const PD_STATUS: u16 = 0x1008;
+pub const TYPE_C_STATUS: u16 = 0x100C;
+pub const BUS_VOLTAGE: u16 = 0x100D;
+pub const CURRENT_PDO: u16 = 0x1010;
+pub const CURRENT_RDO: u16 = 0x1014;
+pub const EVENT_MASK: u16 = 0x1024;
+pub const EVENT_STATUS: u16 = 0x1044;
+pub const PD_RESPONSE: u16 = 0x1400;
+pub const PD_RESPONSE_PAYLOAD: u16 = 0x1404;
+pub const WRITE_SINK_PDOS: u16 = 0x1800;

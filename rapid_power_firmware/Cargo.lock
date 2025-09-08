@@ -101,9 +101,9 @@ checksum = "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a"
 
 [[package]]
 name = "bitflags"
-version = "2.9.3"
+version = "2.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "34efbcccd345379ca2868b2b2c9d3782e9cc58ba87bc7d79d5b53d9c9ae6f25d"
+checksum = "2261d10cca569e4643e526d8dc2e62e433cc8aba21ab764233731f8d369bf394"
 
 [[package]]
 name = "block-device-driver"
@@ -112,6 +112,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "44c051592f59fe68053524b4c4935249b806f72c1f544cfb7abe4f57c3be258e"
 dependencies = [
  "aligned",
+]
+
+[[package]]
+name = "bytemuck"
+version = "1.23.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3995eaeebcdf32f91f980d360f78732ddc061097ab4e39991ae7a6ace9194677"
+dependencies = [
+ "bytemuck_derive",
+]
+
+[[package]]
+name = "bytemuck_derive"
+version = "1.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4f154e572231cb6ba2bd1176980827e3d5dc04cc183a75dea38109fbdd672d29"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.106",
 ]
 
 [[package]]
@@ -372,7 +392,7 @@ checksum = "0d972eab325cc96afee98f80a91ca6b00249b6356dc0fdbff68b70c200df9fae"
 dependencies = [
  "aligned",
  "bit_field",
- "bitflags 2.9.3",
+ "bitflags 2.9.4",
  "block-device-driver",
  "cfg-if",
  "cortex-m",
@@ -722,9 +742,9 @@ dependencies = [
 
 [[package]]
 name = "log"
-version = "0.4.27"
+version = "0.4.28"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "13dc2df351e3202783a1fe0d44375f7295ffb4049267b0f3018346dc122a1d94"
+checksum = "34080505efa8e45a4b816c349525ebe327ceaa8559756f0356cba97ef3bf7432"
 
 [[package]]
 name = "mint"
@@ -922,6 +942,7 @@ name = "rapid_power_module_firmware"
 version = "0.1.0"
 dependencies = [
  "alloc-cortex-m",
+ "bytemuck",
  "cortex-m",
  "cortex-m-rt",
  "crc",
@@ -1016,7 +1037,7 @@ dependencies = [
 [[package]]
 name = "shared_types"
 version = "0.1.0"
-source = "git+https://github.com/tudsat-rocket/sam#f1492a27adb79f6e8a2b9c39ceae4e903c263b8a"
+source = "git+https://github.com/tudsat-rocket/sam?branch=main#892804db4db500c3ad9b0279c707c392bd4eda80"
 dependencies = [
  "crc",
  "half",
@@ -1240,18 +1261,18 @@ dependencies = [
 
 [[package]]
 name = "zerocopy"
-version = "0.8.26"
+version = "0.8.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1039dd0d3c310cf05de012d8a39ff557cb0d23087fd44cad61df08fc31907a2f"
+checksum = "0894878a5fa3edfd6da3f88c4805f4c8558e2b996227a3d864f47fe11e38282c"
 dependencies = [
  "zerocopy-derive",
 ]
 
 [[package]]
 name = "zerocopy-derive"
-version = "0.8.26"
+version = "0.8.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9ecf5b4cc5364572d7f4c329661bcc82724222973f2cab6f050a4e5c22f75181"
+checksum = "88d2b8d9c68ad2b9e4340d7832716a4d21a22a1154777ad56ea55c51a9cf3831"
 dependencies = [
  "proc-macro2",
  "quote",

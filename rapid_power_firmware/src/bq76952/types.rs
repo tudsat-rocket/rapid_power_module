@@ -8,53 +8,6 @@
 /// The original C library used 8-bit 0x10/0x11 (write/read). The 7-bit equivalent is 0x08.
 pub const I2C_ADDR_7BIT: u8 = 0x08;
 
-/// Direct command addresses used by this driver.
-///
-/// These are 1-byte addresses for reading/writing status, measurements, etc.
-/// See TRM §12.1, Table 12-1 (p.91-93).
-pub mod cmd {
-    /// Write low byte of subcommand or data-memory address.
-    pub const SUBCMD_LOW: u8 = 0x3E;
-    /// Write high byte of subcommand or data-memory address.
-    pub const SUBCMD_HI: u8 = 0x3F;
-    /// Base address of the response buffer for subcommands.
-    pub const RESP_START: u8 = 0x40;
-    /// Response data length register (for data memory writes).
-    pub const RESP_LEN: u8 = 0x61;
-    /// Response checksum register (for data memory writes).
-    pub const RESP_CHKSUM: u8 = 0x60;
-
-    // --- Voltages ---
-    /// Cell 1 Voltage. Subsequent cells are at `+2` intervals up to cell 16.
-    pub const VCELL1: u8 = 0x14;
-    /// Stack Voltage. (10mV units).
-    pub const VSTACK: u8 = 0x34;
-
-    // --- Currents ---
-    /// CC2 Current (signed, user-configurable units, default mA).
-    pub const CC2_CUR: u8 = 0x3A;
-
-    // --- Status & Temperatures ---
-    /// Battery Status register (16 bits). See `BatteryStatus` struct.
-    pub const BATTERY_STATUS: u8 = 0x12;
-    /// Latched Alarm Status register. Write 1 to clear bits.
-    pub const ALARM_STATUS: u8 = 0x62;
-    /// Raw (unlatched) Alarm Status register.
-    pub const ALARM_RAW: u8 = 0x64;
-    /// Internal die temperature (0.1 K units).
-    pub const INT_TEMP: u8 = 0x68;
-    /// FET Status register. See `get_temperature_status`, `is_charging`, `is_discharging`.
-    pub const FET_STATUS: u8 = 0x7F;
-
-    // --- Temperatures (Thermistors & FET pins) ---
-    /// TS1 Temperature (0.1 K units).
-    pub const TS1: u8 = 0x70;
-    /// TS2 Temperature (0.1 K units).
-    pub const TS2: u8 = 0x72;
-    /// TS3 Temperature (0.1 K units).
-    pub const TS3: u8 = 0x74;
-}
-
 /// Error type for the BQ76952 driver.
 #[derive(Debug)]
 pub enum Error<E> {
@@ -63,6 +16,15 @@ pub enum Error<E> {
     /// Invalid parameter.
     InvalidParameter,
     Timeout,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, defmt::Format)]
+pub enum SecurityState {
+    NotInit,
+    FullAccess,
+    Unsealed,
+    Sealed,
+    Unknown(u8),
 }
 
 /// Available thermistors for temperature sensing.
@@ -236,4 +198,43 @@ pub struct AlarmStatus {
     pub utf: bool,
     pub utd: bool,
     pub utc: bool,
+}
+
+pub struct Dastatus5Decoded {
+    pub vreg18_counts: u16,
+    pub vss_counts:    u16,
+    pub max_cell_mv:   u16,
+    pub min_cell_mv:   u16,
+    /// battery voltage sum in mV (most implementations report 10 mV units; we multiply by 10)
+    pub pack_mv:       u32,
+    pub avg_cell_temp_c: f32,
+    pub fet_temp_c:      f32,
+    pub max_cell_temp_c: f32,
+    pub min_cell_temp_c: f32,
+    /// If the device was configured to output “userA” current on CC1/CC3,
+    /// these are signed in that unit. With no shunt, treat as informational.
+    pub cc3_usera: i16,
+    pub cc1_usera: i16,
+    /// Raw 32-bit CC2/CC3 integrator counts (diagnostic)
+    pub cc2_counts: i32,
+    pub cc3_counts: i32,
+}
+
+pub struct Dastatus6Decoded {
+    /// Upper 32 bits integer userAh, lower 32 bits fractional
+    pub q_accum_userah_hi: u32,
+    pub q_accum_userah_lo: u32,
+    pub time_accum_s:      u32,
+    pub cfetoff_counts:    i32,
+    pub dfetoff_counts:    i32,
+    pub alert_counts:      i32,
+    pub ts1_counts:        i32,
+    pub ts2_counts:        i32,
+}
+
+pub struct Dastatus7Decoded {
+    pub ts3_counts:  i32,
+    pub hdq_counts:  i32,
+    pub dchg_counts: i32,
+    pub ddsg_counts: i32,
 }
