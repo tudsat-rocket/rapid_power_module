@@ -435,6 +435,7 @@ pub async fn bq25756_task(
     > = crate::shared_state::BQ25756_COMMAND_CHANNEL
         .subscriber()
         .unwrap();
+    defmt::info!("BQ25756 task starting");
     // -------- One-time init snapshot (read-only) --------
     let mut skip_init = false;
     {
@@ -455,7 +456,6 @@ pub async fn bq25756_task(
             }
         }
         if !skip_init {
-            let mut dev = bq.lock().await;
             if let Ok(v) = dev.get_charge_voltage_limit().await {
                 defmt::info!("BQ25756:init VREG={} mV", v);
             }

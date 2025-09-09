@@ -222,6 +222,7 @@ async fn main(spawner: Spawner) {
         let bq_stat2 = ExtiInput::new(p.PC6,  p.EXTI6,  Pull::Up);
         let bq_pg    = ExtiInput::new(p.PB15, p.EXTI15, Pull::Up);
 
+        defmt::info!("Spawning BQ25756 tasks");
         spawner
             .spawn(bq25756::bq25756_task(
                 bq25756_mutex,
@@ -233,6 +234,7 @@ async fn main(spawner: Spawner) {
         spawner.spawn(bq25756::bq25756_pg_task(bq_pg,     bq25756_mutex)).unwrap();
         spawner.spawn(bq25756::bq25756_stat1_task(bq_stat1, bq25756_mutex)).unwrap();
         spawner.spawn(bq25756::bq25756_stat2_task(bq_stat2, bq25756_mutex)).unwrap();
+        defmt::info!("BQ25756 tasks spawned");
 
     }
 
