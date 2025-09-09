@@ -147,6 +147,34 @@ async fn main(spawner: Spawner) {
     let raw_i2c = I2c::new(p.I2C1, p.PB6, p.PB7, Irqs, p.DMA1_CH6, p.DMA1_CH7, i2c_cfg);
     let bus_mutex: &'static I2cBusMutex = I2C_BUS.init(Mutex::new(raw_i2c));
 
+    // BQ25756
+    #[cfg(feature = "bq25756")]
+    {
+        let i2c_dev: I2cDev<'static> = I2cDevice::new(bus_mutex);
+        let bq25756 = bq25756::Bq25756::new(i2c_dev);
+        let bq25756_mutex = BQ25756_DRV.init(Mutex::new(bq25756));
+
+        let bq_int   = ExtiInput::new(p.PC10, p.EXTI10, Pull::Up);
+        let bq_stat1 = ExtiInput::new(p.PC7,  p.EXTI7,  Pull::Up);
+        let bq_stat2 = ExtiInput::new(p.PC6,  p.EXTI6,  Pull::Up);
+        let bq_pg    = ExtiInput::new(p.PB15, p.EXTI15, Pull::Up);
+
+        defmt::info!("Spawning BQ25756 tasks");
+        spawner
+            .spawn(bq25756::bq25756_task(
+                bq25756_mutex,
+            ))
+            .unwrap();
+
+        // IRQ tasks
+        spawner.spawn(bq25756::bq25756_int_task(bq_int,   bq25756_mutex)).unwrap();
+        spawner.spawn(bq25756::bq25756_pg_task(bq_pg,     bq25756_mutex)).unwrap();
+        spawner.spawn(bq25756::bq25756_stat1_task(bq_stat1, bq25756_mutex)).unwrap();
+        spawner.spawn(bq25756::bq25756_stat2_task(bq_stat2, bq25756_mutex)).unwrap();
+        defmt::info!("BQ25756 tasks spawned");
+
+    }
+
     // --- BQ76952 FIRST ---
     #[cfg(feature = "bq76952")]
     {
@@ -208,34 +236,6 @@ async fn main(spawner: Spawner) {
                 // IMPORTANT: do not spawn CYPD tasks; nothing will publish.
             }
         }
-    }
-
-    // BQ25756
-    #[cfg(feature = "bq25756")]
-    {
-        let i2c_dev: I2cDev<'static> = I2cDevice::new(bus_mutex);
-        let bq25756 = bq25756::Bq25756::new(i2c_dev);
-        let bq25756_mutex = BQ25756_DRV.init(Mutex::new(bq25756));
-
-        let bq_int   = ExtiInput::new(p.PC10, p.EXTI10, Pull::Up);
-        let bq_stat1 = ExtiInput::new(p.PC7,  p.EXTI7,  Pull::Up);
-        let bq_stat2 = ExtiInput::new(p.PC6,  p.EXTI6,  Pull::Up);
-        let bq_pg    = ExtiInput::new(p.PB15, p.EXTI15, Pull::Up);
-
-        defmt::info!("Spawning BQ25756 tasks");
-        spawner
-            .spawn(bq25756::bq25756_task(
-                bq25756_mutex,
-            ))
-            .unwrap();
-
-        // IRQ tasks
-        spawner.spawn(bq25756::bq25756_int_task(bq_int,   bq25756_mutex)).unwrap();
-        spawner.spawn(bq25756::bq25756_pg_task(bq_pg,     bq25756_mutex)).unwrap();
-        spawner.spawn(bq25756::bq25756_stat1_task(bq_stat1, bq25756_mutex)).unwrap();
-        spawner.spawn(bq25756::bq25756_stat2_task(bq_stat2, bq25756_mutex)).unwrap();
-        defmt::info!("BQ25756 tasks spawned");
-
     }
 
     // Run USB
