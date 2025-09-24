@@ -99,7 +99,7 @@ async fn main(spawner: Spawner) {
     config.rcc.adc_pre  = ADCPrescaler::DIV6;
 
     let p = embassy_stm32::init(config);
-    defmt::info!("Embassy is up.");
+    defmt::info!("main.rs: Embassy is up.");
 
     // ---- BQ25756 CE pin (PC9) ----
     // Drive LOW to allow charging (CE is active-low on this design)
@@ -159,7 +159,7 @@ async fn main(spawner: Spawner) {
         let bq_stat2 = ExtiInput::new(p.PC6,  p.EXTI6,  Pull::Up);
         let bq_pg    = ExtiInput::new(p.PB15, p.EXTI15, Pull::Up);
 
-        defmt::info!("Spawning BQ25756 tasks");
+        defmt::info!("main.rs: Spawning BQ25756 tasks");
         spawner
             .spawn(bq25756::bq25756_task(
                 bq25756_mutex,
@@ -171,7 +171,7 @@ async fn main(spawner: Spawner) {
         spawner.spawn(bq25756::bq25756_pg_task(bq_pg,     bq25756_mutex)).unwrap();
         spawner.spawn(bq25756::bq25756_stat1_task(bq_stat1, bq25756_mutex)).unwrap();
         spawner.spawn(bq25756::bq25756_stat2_task(bq_stat2, bq25756_mutex)).unwrap();
-        defmt::info!("BQ25756 tasks spawned");
+        defmt::info!("main.rs: BQ25756 tasks spawned");
 
     }
 
@@ -205,14 +205,14 @@ async fn main(spawner: Spawner) {
         match cypd_tmp.probe_plausible().await {
             Ok(id) => {
                 defmt::info!(
-                    "CYPD detected: DEVICE_MODE=0x{:02X}, SILICON_ID=0x{:04X}",
+                    "main.rs: CYPD detected: DEVICE_MODE=0x{:02X}, SILICON_ID=0x{:04X}",
                     id.device_mode, id.silicon_id
                 );
 
                 // If you want basic event IRQs, do it now (optional)
                 #[cfg(feature = "cypd-write")]
                 if let Err(_) = cypd_tmp.enable_basic_events().await {
-                    defmt::warn!("CYPD: enabling EVENT_MASK failed");
+                    defmt::warn!("main.rs: CYPD: enabling EVENT_MASK failed");
                 }
 
                 // Put the live instance into the global mutex
@@ -230,7 +230,7 @@ async fn main(spawner: Spawner) {
             }
             Err(reason) => {
                 defmt::warn!(
-                    "CYPD not detected at 0x08: {:?}. Skipping CYPD tasks (no USB connected or address clash).",
+                    "main.rs: CYPD not detected at 0x08: {:?}. Skipping CYPD tasks (no USB connected or address clash).",
                     reason
                 );
                 // IMPORTANT: do not spawn CYPD tasks; nothing will publish.
@@ -270,6 +270,6 @@ type CypdPublisher<'a> = Publisher<'a, CriticalSectionRawMutex, CypdReadings, 2,
 
 #[embassy_executor::task]
 async fn usb_task(mut dev: embassy_usb::UsbDevice<'static, OtgDriver<'static, USB_OTG_FS>>) {
-    defmt::info!("USB device: run()");
+    defmt::info!("main.rs: USB device: run()");
     dev.run().await;
 }

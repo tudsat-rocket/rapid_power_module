@@ -43,36 +43,20 @@ impl<I2C> Bq25756<I2C>
 where
     I2C: I2c,
 {
-    /// One-shot bring-up for 3S Li-ion/LiPo @ 1A fast-charge.
     /// Assumes CE pin is held LOW by the MCU.
-    pub async fn bringup_3s_1a_defaults(&mut self) -> Result<I2C::Error> {
-        // 1) Watchdog off (host mode without periodic petting)
+    pub async fn init_from_config(&mut self) -> Result<I2C::Error> {
         self.set_watchdog_timer(crate::bq25756::types::WdtTimer::Disable).await?;
 
-        // 2) Ensure not in Hi-Z
         self.enable_hiz(false).await?;
+        self.set_input_voltage_dpm_limit(crate::config::BQ25756_INPUT_VOLTAGE_MAX_MV).await?;
+        self.set_input_current_dpm_limit(crate::config::BQ25756_INPUT_CURRENT_MAX_MA).await?;
+        self.set_charge_voltage_limit(crate::config::BQ25756_CHG_VOLTAGE_MAX_MV).await?;
+        self.set_charge_current_limit(crate::config::BQ25756_CHG_CURRENT_MAX_MA).await?;
 
-        // 3) DPMs: pick sane defaults for a 9–12 V source
-        //    - If you *know* your source (e.g. fixed 9 V PD), set VIN_DPM ~ 9000 mV.
-        //    - If 12 V, bump to ~11000 mV to leave margin.
-        self.set_input_voltage_dpm_limit(5_000).await?;
-        //    Limit adapter draw to 1A (adjust upward if you have system load headroom)
-        self.set_input_current_dpm_limit(1_000).await?;
+        self.ts_enable(crate::config::EXTERNAL_THERMISTORS_PRESENT).await.ok();
+        self.set_jeita(crate::config::EXTERNAL_THERMISTORS_PRESENT).await.ok();
 
-        // 4) Charge targets for a 3S pack
-        //    - CV: 12.60 V (4.20 V/cell)
-        //    - CC: 1.00 A
-        self.set_charge_voltage_limit(12_600).await?;
-        self.set_charge_current_limit(1_000).await?;
-
-        // 5) Precharge / termination
-        //    Typical starting points: precharge ≈ 10% of ICHG, termination ≈ 100 mA
-        // self.set_precharge_current_limit(100).await?;
-        // self.set_termination_current_limit(100).await?;
-
-        // 6) Finally: enable charging
         self.enable_charger(true).await?;
-
         Ok(())
     }
     /// Create with default 7-bit I²C address (0x6B).
@@ -165,28 +149,92 @@ where
         let fs = self.read1(REG_FAULT_STATUS).await?;
         Ok(((f1,f2,ff),(s1,s2,s3,fs)))
     }
+
+
+
+    // ==== Helper math: CV (voltage) ====
+
+    /// Vfb = Vbat * (Rbot / (Rtop + Rbot))
+    #[inline]
+    fn vbat_to_vfb_mv(vbat_mv: u32, r_top_ohm: u32, r_bot_ohm: u32) -> u16 {
+        let num = (vbat_mv as u64) * (r_bot_ohm as u64);
+        let den = (r_top_ohm as u64) + (r_bot_ohm as u64);
+        (num / den) as u16
+    }
+
+    /// Inverse of vbat_to_vfb_mv.
+    #[inline]
+    fn vfb_to_vbat_mv(vfb_mv: u16, r_top_ohm: u32, r_bot_ohm: u32) -> u16 {
+        let vfb = vfb_mv as u64;
+        let sum = (r_top_ohm as u64) + (r_bot_ohm as u64);
+        ((vfb * sum) / (r_bot_ohm as u64)) as u16
+    }
+
+    /// Encode a VFB set-point (mV) into VFB_REG[4:0] (1504..1566mV, 2mV/step).
+    #[inline]
+    fn vfb_mv_to_code(vfb_mv: u16) -> u16 {
+        let v = vfb_mv.clamp(1504, 1566);
+        ((v - 1504) / 2) as u16 & 0x1F
+    }
+
+    /// Decode VFB_REG[4:0] into VFB set-point (mV).
+    #[inline]
+    fn vfb_code_to_mv(code: u16) -> u16 {
+        1504 + ((code & 0x1F) * 2)
+    }
+
+    // ==== Helper math: CC (charge current) ====
+
+    /// ICHG_REG is 0.4..20.0 A with 50 mA/LSB (register-based path).
+    #[inline]
+    fn ichg_ma_to_reg(ma: u16) -> u16 {
+        let clamped = ma.clamp(400, 20_000);
+        (clamped / 50) as u16
+    }
+    #[inline]
+    fn ichg_reg_to_ma(reg: u16) -> u16 {
+        (reg as u16) * 50
+    }
+
     // ------------------ Charging Parameters ------------------
 
-    /// Set charge voltage limit (Vreg).
-    pub async fn set_charge_voltage_limit(&mut self, mv: u16) -> Result<I2C::Error> {
-        let mv = mv.clamp(8192, 19200);
-        self.write2(REG_CHARGE_VOLTAGE_LIMIT, mv).await
+    /// Set the VFB regulation target (mV at the FB pin). Valid: 1504..1566 mV (2 mV/step).
+    pub async fn set_vfb_reg_mv(&mut self, vfb_mv: u16) -> Result<I2C::Error> {
+        let code = Self::vfb_mv_to_code(vfb_mv);
+        // read-modify-write 16-bit reg (we only touch bits [4:0])
+        let mut reg = self.read2(REG_CHARGE_VOLTAGE_LIMIT).await?;
+        reg = (reg & !0x001F) | code;
+        self.write2(REG_CHARGE_VOLTAGE_LIMIT, reg).await
     }
 
-    /// Read charge voltage limit (Vreg).
+    /// Set CV by desired battery voltage (mV), using R_TOP/R_BOT from config.
+    pub async fn set_charge_voltage_limit(&mut self, vbat_target_mv: u16) -> Result<I2C::Error> {
+        let rtop = crate::config::BQ25756_R_TOP_OHM;
+        let rbot = crate::config::BQ25756_R_BOT_OHM;
+        let vfb_mv = Self::vbat_to_vfb_mv(vbat_target_mv as u32, rtop, rbot);
+        self.set_vfb_reg_mv(vfb_mv).await
+    }
+
+    /// Read CV limit as battery voltage (mV). (Decodes register -> VFB -> VBAT)
     pub async fn get_charge_voltage_limit(&mut self) -> CoreResult<u16, Error<I2C::Error>> {
-        self.read2(REG_CHARGE_VOLTAGE_LIMIT).await
+        let reg = self.read2(REG_CHARGE_VOLTAGE_LIMIT).await?;
+        let vfb_code = reg & 0x001F;
+        let vfb_mv = Self::vfb_code_to_mv(vfb_code);
+        let rtop = crate::config::BQ25756_R_TOP_OHM;
+        let rbot = crate::config::BQ25756_R_BOT_OHM;
+        Ok(Self::vfb_to_vbat_mv(vfb_mv, rtop, rbot))
     }
 
-    /// Set charge current limit (Ireg).
+    /// Set charge current limit (mA). Encodes to 50 mA/LSB register.
     pub async fn set_charge_current_limit(&mut self, ma: u16) -> Result<I2C::Error> {
-        let ma = ma.clamp(0, 8000);
-        self.write2(REG_CHARGE_CURRENT_LIMIT, ma).await
+        let code = Self::ichg_ma_to_reg(ma);
+        self.write2(REG_CHARGE_CURRENT_LIMIT, code).await
     }
 
-    /// Read charge current limit (Ireg).
+    /// Read charge current limit (mA). (Decodes 50 mA/LSB register.)
     pub async fn get_charge_current_limit(&mut self) -> CoreResult<u16, Error<I2C::Error>> {
-        self.read2(REG_CHARGE_CURRENT_LIMIT).await
+        let reg = self.read2(REG_CHARGE_CURRENT_LIMIT).await?;
+        Ok(Self::ichg_reg_to_ma(reg))
     }
 
     /// Set input current DPM limit (IIN_DPM).
@@ -211,14 +259,12 @@ where
         self.read2(REG_INPUT_VOLTAGE_DPM_LIMIT).await
     }
 
-    // ------------------ JEITA and Thermal Controls ------------------
-
-    /// Enable/disable NTC window (TS) monitoring.
-    pub async fn set_ts_monitoring(&mut self, enable: bool) -> Result<I2C::Error> {
-        let mut v = self.read1(REG_TS_BEHAVIOR_CTRL).await?;
-        if enable { v |= EN_TS; } else { v &= !EN_TS; }
-        self.write1(REG_TS_BEHAVIOR_CTRL, v).await
+    pub async fn get_charge_stat(&mut self) -> CoreResult<ChargeStat, Error<I2C::Error>> {
+        let s1 = self.read1(REG_CHARGER_STATUS_1).await?;
+        Ok(ChargeStat::from_code(s1))
     }
+
+    // ------------------ JEITA and Thermal Controls ------------------
 
     /// Enable/disable JEITA profile (cool/warm derates & CV offset).
     pub async fn set_jeita(&mut self, enable: bool) -> Result<I2C::Error> {
@@ -231,7 +277,7 @@ where
     pub async fn disable_all_temp_checks(&mut self) -> Result<I2C::Error> {
         // Order doesn’t matter, but keep both for clarity.
         self.set_jeita(false).await?;
-        self.set_ts_monitoring(false).await
+        self.ts_enable(false).await
     }
 
     /// Read raw TS/JEITA behavior register.
@@ -436,211 +482,110 @@ pub async fn bq25756_task(
         .subscriber()
         .unwrap();
     defmt::info!("BQ25756 task starting");
-    // -------- One-time init snapshot (read-only) --------
-    let mut skip_init = false;
-    {
-        let mut dev = bq.lock().await;
 
-        match with_i2c_timeout(dev.whoami()).await {
-            Ok(0x02) => defmt::info!("BQ25756: detected (PART=0x02) at 0x{:02X}", dev.addr),
-            Ok(other) => {
-                defmt::warn!("BQ25756: unexpected PART=0x{:02X} @ 0x{:02X}. Skipping init.", other, dev.addr);
-                // Skip init block entirely so we can still run the ticker loop
-                skip_init = true;
-                // jump ahead by enclosing the rest of the init in a `if false { ... }` or return from the block
-            }
-            Err(e) => {
-                defmt::error!("BQ25756: unreachable at 0x{:02X}: {:?}", dev.addr, defmt::Debug2Format(&e));
-                skip_init = true;
-                // Same: skip init snapshot
-            }
-        }
-        if !skip_init {
-            if let Ok(v) = dev.get_charge_voltage_limit().await {
-                defmt::info!("BQ25756:init VREG={} mV", v);
-            }
-            if let Ok(i) = dev.get_charge_current_limit().await {
-                defmt::info!("BQ25756:init ICHG={} mA", i);
-            }
-            if let Ok(iin) = dev.get_input_current_dpm_limit().await {
-                defmt::info!("BQ25756:init IIN_DPM={} mA", iin);
-            }
-            if let Ok(vin) = dev.get_input_voltage_dpm_limit().await {
-                defmt::info!("BQ25756:init VIN_DPM={} mV", vin);
-            }
-            if let Ok(ipre) = dev.get_precharge_current_limit().await {
-                defmt::info!("BQ25756:init IPRECHG={} mA", ipre);
-            }
-            if let Ok(iterm) = dev.get_termination_current_limit().await {
-                defmt::info!("BQ25756:init ITERM={} mA", iterm);
-            }
+    // ---- Bring-up state ----
+    let mut online = false;
+    let mut backoff_ms: u64 = 250;
 
-            if let Ok(timer_ctrl) = dev.get_timer_control().await {
-                let topoff = (timer_ctrl & TOPOFF_TMR_MASK) >> 6;
-                let wdt    = (timer_ctrl & WDT_MASK) >> 4;
-                let chgtmr = (timer_ctrl & CHG_TMR_MASK) >> 1;
-                let tmr2x  = (timer_ctrl & EN_TMR2X) != 0;
-                defmt::info!(
-                    "BQ25756:init TIMER_CTRL=0x{:02X} (TOPOFF={} WDT={} CHG_TMR={} 2x={})",
-                    timer_ctrl, topoff, wdt, chgtmr, tmr2x
-                );
-            }
-            if let Ok(chg_ctrl) = dev.get_charger_control().await {
-                let en_chg = (chg_ctrl & EN_CHG) != 0;
-                let hiz    = (chg_ctrl & EN_HIZ) != 0;
-                defmt::info!(
-                    "BQ25756:init CHARGER_CTRL=0x{:02X} (EN_CHG={} HIZ={})",
-                    chg_ctrl, en_chg, hiz
-                );
-            }
-
-            // === Conditional init: either full charge config or telemetry-only ===
-
-            // Default: full charge configuration
-            #[cfg(not(feature = "bq25756-mcu-control"))]
-            {
-                if let Err(e) = dev.bringup_3s_1a_defaults().await {
-                    defmt::warn!("BQ25756: bring-up failed: {:?}", defmt::Debug2Format(&e));
-                } else {
-                    defmt::info!("BQ25756: bring-up sequence completed, verifying settings...");
-                    let vreg = dev.get_charge_voltage_limit().await.unwrap_or(0);
-                    let ichg = dev.get_charge_current_limit().await.unwrap_or(0);
-                    let iin_dpm = dev.get_input_current_dpm_limit().await.unwrap_or(0);
-                    let vin_dpm = dev.get_input_voltage_dpm_limit().await.unwrap_or(0);
-                    defmt::info!(
-                        "BQ25756: VREG={}mV, ICHG={}mA, IIN_DPM={}mA, VIN_DPM={}mV",
-                        vreg,
-                        ichg,
-                        iin_dpm,
-                        vin_dpm
-                    );
-                }
-                dev.adc_enable(true, true, 0b10, false).await.ok();          // continuous, ~13-bit eff
-                dev.adc_set_channels(true, true, true, true, false).await.ok(); // VAC,VBAT,IAC,IBAT on; TS off
-            }
-
-            dev.set_watchdog_timer(crate::bq25756::types::WdtTimer::S40).await.ok();
-
-            // --- Policy: if no external thermistors, disable TS + JEITA to keep charging functional.
-            #[cfg(feature = "bq25756-no-jeita")]
-            let want_ts = false;
-            #[cfg(not(feature = "bq25756-no-jeita"))]
-            let want_ts = crate::config::EXTERNAL_THERMISTORS_PRESENT;
-
-            let want_jeita = want_ts; // JEITA only meaningful if TS is monitored
-
-            // Apply once at init
-            dev.set_ts_monitoring(want_ts).await.ok();
-            dev.set_jeita(want_jeita).await.ok();
-
-            // MCU Control feature: Telemetry-only init
-            #[cfg(feature = "bq25756-mcu-control")]
-            {
-                defmt::info!("BQ25756: MCU control mode: enabling ADC for telemetry.");
-                // Telemetry only: turn on ADC in continuous mode and enable channels
-                dev.adc_enable(true, true, 0b10, false).await.ok();      // 13-bit effective, single value
-                dev.adc_set_channels(true, true, true, true, false).await.ok(); // VAC, VBAT, IAC, IBAT on; TS off
-            }
-            dev.int_unmask_all().await.ok();
-        }
-    }
 
     // -------- Periodic poll + command handling + publish --------
     let mut ticker = Ticker::every(Duration::from_millis(config::BQ25756_LOG_PERIOD_MS));
+
     loop {
+        defmt::debug!("BQ25756 loop entry");
+        if !online {
+            defmt::debug!("BQ25756: online false, probing...");
+            // Try a quick probe
+            {
+                defmt::debug!("BQ25756: locking...");
+                let mut dev = bq.lock().await;
+                defmt::debug!("BQ25756: locked, probing...");
+                match with_i2c_timeout(dev.whoami()).await {
+                    Ok(0x02) => {
+                        defmt::info!("BQ25756: online at 0x{:02X}", dev.addr);
+
+                        // Configure once when we first come online
+                        if let Err(e) = dev.init_from_config().await {
+                            defmt::error!("BQ25756: init_from_config failed: {:?}", defmt::Debug2Format(&e));
+                            // stay offline; try again after backoff
+                        } else {
+                            // Optional: a quick verify snapshot (non-fatal if a read fails)
+                            if let Ok(v) = dev.get_charge_voltage_limit().await {
+                                defmt::info!("BQ25756:init VREG={} mV", v);
+                            }
+                            if let Ok(i) = dev.get_charge_current_limit().await {
+                                defmt::info!("BQ25756:init ICHG={} mA", i);
+                            }
+                            online = true;
+                            backoff_ms = 250; // reset backoff
+                        }
+                    }
+                    Ok(other) => {
+                        defmt::warn!("BQ25756: unexpected PART=0x{:02X}; will retry", other);
+                    }
+                    Err(e) => {
+                        defmt::debug!("BQ25756: probe failed: {:?}", defmt::Debug2Format(&e));
+                    }
+                }
+            }
+
+            if !online {
+                embassy_time::Timer::after(Duration::from_millis(backoff_ms)).await;
+                backoff_ms = (backoff_ms * 2).min(4000);
+                continue; // retry probe; do not read/publish anything while offline
+            }
+        }
         // Handle any pending commands first
         if let Some(command) = command_subscriber.try_next_message_pure() {
             let mut dev = bq.lock().await;
-            match command {
-                Bq25756Command::SetChargeVoltageLimit(mv) => {
-                    dev.set_charge_voltage_limit(mv).await.ok();
-                }
-                Bq25756Command::SetChargeCurrentLimit(ma) => {
-                    dev.set_charge_current_limit(ma).await.ok();
-                }
-                Bq25756Command::SetInputCurrentDpmLimit(ma) => {
-                    dev.set_input_current_dpm_limit(ma).await.ok();
-                }
-                Bq25756Command::SetInputVoltageDpmLimit(mv) => {
-                    dev.set_input_voltage_dpm_limit(mv).await.ok();
-                }
-                Bq25756Command::SetPrechargeCurrentLimit(ma) => {
-                    dev.set_precharge_current_limit(ma).await.ok();
-                }
-                Bq25756Command::SetTerminationCurrentLimit(ma) => {
-                    dev.set_termination_current_limit(ma).await.ok();
-                }
-                Bq25756Command::EnableCharger(enable) => {
-                    dev.enable_charger(enable).await.ok();
-                }
-                Bq25756Command::EnableHiz(enable) => {
-                    dev.enable_hiz(enable).await.ok();
-                }
-                Bq25756Command::Init3S1A => {
-                    dev.bringup_3s_1a_defaults().await.ok();
-                }
+            let res = match command {
+                Bq25756Command::SetChargeVoltageLimit(mv)    => dev.set_charge_voltage_limit(mv).await,
+                Bq25756Command::SetChargeCurrentLimit(ma)    => dev.set_charge_current_limit(ma).await,
+                Bq25756Command::SetInputCurrentDpmLimit(ma)  => dev.set_input_current_dpm_limit(ma).await,
+                Bq25756Command::SetInputVoltageDpmLimit(mv)  => dev.set_input_voltage_dpm_limit(mv).await,
+                Bq25756Command::SetPrechargeCurrentLimit(ma) => dev.set_precharge_current_limit(ma).await,
+                Bq25756Command::SetTerminationCurrentLimit(ma)=> dev.set_termination_current_limit(ma).await,
+                Bq25756Command::EnableCharger(enable)        => dev.enable_charger(enable).await,
+                Bq25756Command::EnableHiz(enable)            => dev.enable_hiz(enable).await,
+                Bq25756Command::Init                         => dev.init_from_config().await,
+            };
+            if let Err(e) = res {
+                defmt::warn!("BQ25756: command error -> going offline: {:?}", defmt::Debug2Format(&e));
+                online = false;
+                continue; // fall back to probe loop
             }
-        }
-
-        // -------- Reconcile IC state with desired driver state (once per second) --------
-        {
-            let mut dev = bq.lock().await;
-
-            // Desired policy (same logic as at init)
-            #[cfg(feature = "bq25756-no-jeita")]
-            let want_ts = false;
-            #[cfg(not(feature = "bq25756-no-jeita"))]
-            let want_ts = crate::config::EXTERNAL_THERMISTORS_PRESENT;
-            let want_jeita = want_ts;
-
-            // 1) Watchdog setting should be 40s
-            if let Ok(timer_ctrl) = dev.get_timer_control().await {
-                let wdt = (timer_ctrl & WDT_MASK) >> 4;
-                // WdtTimer::S40 = 0b01
-                if wdt != (crate::bq25756::types::WdtTimer::S40 as u8) {
-                    defmt::warn!("BQ25756: WDT != 40s (was code {}), forcing 40s", wdt);
-                    dev.set_watchdog_timer(crate::bq25756::types::WdtTimer::S40).await.ok();
-                }
-            }
-
-            // 2) TS/JEITA policy
-            if let Ok(tsb) = dev.get_ts_behavior().await {
-                let ic_ts    = (tsb & EN_TS)    != 0;
-                let ic_jeita = (tsb & EN_JEITA) != 0;
-                if ic_ts != want_ts {
-                    defmt::warn!("BQ25756: TS_EN mismatch (ic={}, want={}), fixing", ic_ts, want_ts);
-                    dev.set_ts_monitoring(want_ts).await.ok();
-                }
-                if ic_jeita != want_jeita {
-                    defmt::warn!("BQ25756: JEITA_EN mismatch (ic={}, want={}), fixing", ic_jeita, want_jeita);
-                    dev.set_jeita(want_jeita).await.ok();
-                }
-            }
-
-            // 3) Pet the watchdog each second while we’re alive
-            dev.reset_watchdog_timer().await.ok();
         }
 
         // Snapshot readings and publish
         let readings = {
             let mut dev = bq.lock().await;
+
+            // If any of these fail, we treat the whole snapshot as failed and drop back offline.
+            let vreg   = match dev.get_charge_voltage_limit().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: get VREG failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let ichg   = match dev.get_charge_current_limit().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: get ICHG failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let iin    = match dev.get_input_current_dpm_limit().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: get IIN_DPM failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let vin    = match dev.get_input_voltage_dpm_limit().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: get VIN_DPM failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let vbat   = match dev.read_vbat_mv().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: read VBAT failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let vacraw = match dev.read_vac_raw().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: read VAC raw failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let iacraw = match dev.read_iac_raw().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: read IAC raw failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let ibatraw= match dev.read_ibat_raw().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: read IBAT raw failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let iacma  = match dev.read_iac_ma(crate::config::BQ25756_R_INPUT_SENSE_MOHM).await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: calc IAC mA failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let ibatma = match dev.read_ibat_ma(crate::config::BQ25756_R_BATTERY_SENSE_MOHM).await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: calc IBAT mA failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+            let vacmv  = match dev.read_vac_mv().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: read VAC mV failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
+
             Bq25756Readings {
-                // Limits
-                charge_voltage_limit_mv: dev.get_charge_voltage_limit().await.unwrap_or(0),
-                charge_current_limit_ma: dev.get_charge_current_limit().await.unwrap_or(0),
-                input_current_dpm_limit_ma: dev.get_input_current_dpm_limit().await.unwrap_or(0),
-                input_voltage_dpm_limit_mv: dev.get_input_voltage_dpm_limit().await.unwrap_or(0),
-                // Telemetry
-                vbat_mv: dev.read_vbat_mv().await.unwrap_or(0),
-                vac_raw: dev.read_vac_raw().await.unwrap_or(0),
-                iac_raw: dev.read_iac_raw().await.unwrap_or(0),
-                ibat_raw: dev.read_ibat_raw().await.unwrap_or(0),
-
-                iac_ma: dev.read_iac_ma(5u16).await.unwrap_or(0),
-                ibat_ma: dev.read_ibat_ma(5u16).await.unwrap_or(0),
-                vac_mv: dev.read_vac_mv().await.unwrap_or(0u16),
+                charge_voltage_limit_mv: vreg,
+                charge_current_limit_ma: ichg,
+                input_current_dpm_limit_ma: iin,
+                input_voltage_dpm_limit_mv: vin,
+                vbat_mv: vbat,
+                vac_raw: vacraw,
+                iac_raw: iacraw,
+                ibat_raw: ibatraw,
+                iac_ma: iacma,
+                ibat_ma: ibatma,
+                vac_mv: vacmv,
             }
-
         };
 
 
@@ -658,9 +603,7 @@ pub async fn bq25756_task(
         if let Err(_e) = publisher.try_publish(readings) {
             defmt::debug!("BQ25756 drop (no subscriber)");
         }
-        else {
-            defmt::debug!("BQ25756 data published.");
-        }
+
 
         ticker.next().await;
     }
@@ -676,8 +619,15 @@ pub async fn bq25756_int_task(
         let mut dev = bq.lock().await;
         if let Ok(((f1,f2,ff),(s1,s2,s3,fs))) = dev.read_int_cause_and_status().await {
             defmt::info!("BQ25756: INT flags f1=0x{:02X} f2=0x{:02X} ff=0x{:02X}  status s1=0x{:02X} s2=0x{:02X} s3=0x{:02X} fault=0x{:02X}",
-                f1,f2,ff,s1,s2,s3,fs);
+                f1,f2,ff,s1,s2,s3,fs
+            );
+            if let Ok(cs) = dev.get_charge_stat().await {
+                defmt::info!("BQ25756: CHARGE_STAT -> {:?}", cs);
+            }
         }
+        dev.adc_enable(true, true, 0b10, false).await.ok();
+        dev.adc_set_channels(true, true, true, true, false).await.ok();
+        defmt::info!("BQ25756: INT edge -> ADC (re)enabled in continuous mode.");
     }
 }
 
@@ -692,6 +642,9 @@ pub async fn bq25756_pg_task(
         let s2 = dev.read1(REG_CHARGER_STATUS_2).await.unwrap_or(0);
         let fs = dev.read1(REG_FAULT_STATUS).await.unwrap_or(0);
         defmt::info!("BQ25756: PG edge -> STATUS2=0x{:02X} FAULT_STATUS=0x{:02X}", s2, fs);
+        dev.adc_enable(true, true, 0b10, false).await.ok();
+        dev.adc_set_channels(true, true, true, true, false).await.ok();
+        defmt::info!("BQ25756: PG edge -> ADC (re)enabled in continuous mode.");
     }
 }
 

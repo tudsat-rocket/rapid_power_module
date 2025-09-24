@@ -15,6 +15,14 @@ pub mod cmd {
     /// Response length register (DF writes)
     pub const RESP_LEN:   u8 = 0x61;
 
+    // --- Safety Status (A/B/C) ---
+    /// Safety Status A (protection bits like CUV/COV/OCC/OCD*/SCD)
+    pub const SAFETY_STATUS_A: u8 = 0x02;
+    /// Safety Status B (temperature protections etc.)
+    pub const SAFETY_STATUS_B: u8 = 0x03;
+    /// Safety Status C (latched/level variants etc.)
+    pub const SAFETY_STATUS_C: u8 = 0x04;
+
     // --- Status & temps ---
     /// Battery Status (16-bit)
     pub const BATTERY_STATUS: u8 = 0x12;

@@ -123,6 +123,29 @@ pub struct TemperatureProtection {
     pub undertemp_chg: bool,
 }
 
+
+/// Actual protection flags (read from Safety Status A/B/C direct commands).
+/// This replaces the misuse of Alarm Status for protection monitoring.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ProtectionStatus {
+    // Safety Status A (CUV/COV/OCC/OCD1/OCD2/SCD)
+    pub cov:  bool,
+    pub cuv:  bool,
+    pub occ:  bool,
+    pub ocd1: bool,
+    pub ocd2: bool,
+    pub scd:  bool,
+
+    // Safety Status B (temperature-related)
+    pub otf: bool,
+    pub otd: bool,
+    pub otc: bool,
+    pub utf: bool,
+    pub utd: bool,
+    pub utc: bool,
+}
+
+
 /// Bit-field representing the battery status register.
 /// See TRM §12.1.2 (p.91).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -210,6 +233,7 @@ pub struct Dastatus5Decoded {
     pub avg_cell_temp_c: f32,
     pub fet_temp_c:      f32,
     pub max_cell_temp_c: f32,
+    pub avg_cell_temp_c_2: Option<f32>,
     pub min_cell_temp_c: f32,
     /// If the device was configured to output “userA” current on CC1/CC3,
     /// these are signed in that unit. With no shunt, treat as informational.

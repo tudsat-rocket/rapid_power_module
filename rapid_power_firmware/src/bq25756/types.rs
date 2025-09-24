@@ -73,3 +73,31 @@ pub enum JeitaVset { Suspend=0, V94_3=1, V97_6=2, V100=3 }
 #[repr(u8)]
 #[derive(Copy, Clone, Debug, Eq, PartialEq)]
 pub enum JeitaIsetc { Suspend=0, Pct20=1, Pct40=2, Pct100=3 }
+
+#[derive(Copy, Clone, Eq, PartialEq, defmt::Format, Debug)]
+pub enum ChargeStat {
+    NotCharging,        // 000
+    Trickle,            // 001
+    PreCharge,          // 010
+    FastCharge,         // 011
+    TaperCharge,        // 100 (CV mode)
+    Reserved,           // 101
+    TopOff,             // 110 (timer-active charging)
+    TerminationDone,    // 111
+}
+
+impl ChargeStat {
+    pub fn from_code(code: u8) -> Self {
+        match code & 0x07 {
+            0b000 => ChargeStat::NotCharging,
+            0b001 => ChargeStat::Trickle,
+            0b010 => ChargeStat::PreCharge,
+            0b011 => ChargeStat::FastCharge,
+            0b100 => ChargeStat::TaperCharge,
+            0b101 => ChargeStat::Reserved,
+            0b110 => ChargeStat::TopOff,
+            0b111 => ChargeStat::TerminationDone,
+            _ => unreachable!(),
+        }
+    }
+}

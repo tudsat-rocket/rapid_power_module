@@ -1,6 +1,7 @@
 use embedded_hal_async::delay::DelayNs;
 use embedded_hal_async::i2c::I2c;
 use embassy_stm32::gpio::{Flex, Pull, Speed};
+use core::cmp;
 use embassy_sync::blocking_mutex::raw::CriticalSectionRawMutex;
 use embassy_sync::mutex::Mutex;
 use embassy_time::{Duration, Timer};
@@ -72,7 +73,33 @@ where
         let temp_0_1k = self.read_direct_u16(cmd::INT_TEMP).await?;
         Ok(Self::temp_0_1k_to_c(temp_0_1k))
     }
+    /// Read Safety Status A/B/C and map to ProtectionStatus.
+    /// Notes:
+    ///  - Safety Status A includes: CUV/COV/OCC/OCD1/OCD2/SCD (bits 10..6 typical).
+    ///  - Safety Status B includes: UTC/UTD/UTF/OTC/OTD/OTF (bits 0..5 typical).
+    ///  - Safety Status C is read for completeness (latched/level variants), but we don’t expose fields here.
+    pub async fn get_protection_status(&mut self) -> Result<ProtectionStatus, Error<E>> {
+        let ssa = self.read_direct_u16(cmd::SAFETY_STATUS_A).await?;
+        let ssb = self.read_direct_u16(cmd::SAFETY_STATUS_B).await?;
+        let _ssc = self.read_direct_u16(cmd::SAFETY_STATUS_C).await?; // reserved for future use
 
+        // Map commonly used protection flags (conservative bit mapping used widely for BQ769x2).
+        let cov  = (ssa & (1 << 11)) != 0;
+        let cuv  = (ssa & (1 << 10)) != 0;
+        let occ  = (ssa & (1 <<  9)) != 0;
+        let ocd1 = (ssa & (1 <<  8)) != 0;
+        let ocd2 = (ssa & (1 <<  7)) != 0;
+        let scd  = (ssa & (1 <<  6)) != 0;
+
+        let utc = (ssb & (1 << 0)) != 0;
+        let utd = (ssb & (1 << 1)) != 0;
+        let utf = (ssb & (1 << 2)) != 0;
+        let otc = (ssb & (1 << 3)) != 0;
+        let otd = (ssb & (1 << 4)) != 0;
+        let otf = (ssb & (1 << 5)) != 0;
+
+        Ok(ProtectionStatus { cov, cuv, occ, ocd1, ocd2, scd, otf, otd, otc, utf, utd, utc })
+    }
     pub async fn get_thermistor_temp_c(&mut self, thermistor: Thermistor) -> Result<f32, Error<E>> {
         let reg = match thermistor {
             Thermistor::TS1 => cmd::TS1,
@@ -114,41 +141,48 @@ where
                     if mask == 0 || (mask & bit) != 0 {
                         let mv = v[i];
                         let cell_idx: u8 = (i + 1) as u8;
-                        defmt::info!("VCELL{=u8}: {=u16} mV", cell_idx, mv);
+                        defmt::info!("BQ76952: VCELL{=u8}: {=u16} mV", cell_idx, mv);
                         if mv > 0 { populated += 1; }
                         sum_cells_mv = sum_cells_mv.saturating_add(mv as u32);
                     }
                 }
 
                 defmt::info!(
-                    "Cells populated (non-zero among configured): {=usize}, sum(cells)={=u32} mV",
+                    "BQ76952: Cells populated (non-zero among configured): {=usize}, sum(cells)={=u32} mV",
                     populated, sum_cells_mv
                 );
 
                 if let Ok(vstack) = self.get_stack_voltage_mv().await {
                     defmt::info!(
-                        "VSTACK={=u16} mV, delta(sum(cells)-VSTACK)={=i32} mV",
+                        "BQ76952: VSTACK(cV-based)={=u16} mV, delta(sum(cells)-VSTACK)={=i32} mV",
                         vstack, sum_cells_mv as i32 - vstack as i32
                     );
                 }
             }
-            Err(e) => defmt::warn!("Cell voltages read failed: {:?}", defmt::Debug2Format(&e)),
+            Err(e) => defmt::warn!("BQ76952: Cell voltages read failed: {:?}", defmt::Debug2Format(&e)),
         }
     }
 
     async fn read_direct_u16(&mut self, command: u8) -> Result<u16, Error<E>> {
         let mut buffer = [0u8; 2];
         self.i2c.write_read(self.addr, &[command], &mut buffer).await.map_err(Error::I2c)?;
-        defmt::debug!("Read direct u16 from command {=u8}: {=u16}", command, u16::from_le_bytes(buffer));
+        defmt::debug!("BQ76952: Read direct u16 from command {=u8}: {=u16}", command, u16::from_le_bytes(buffer));
         Ok(u16::from_le_bytes(buffer))
     }
 
     async fn read_direct_i16(&mut self, command: u8) -> Result<i16, Error<E>> {
         let mut buffer = [0u8; 2];
         self.i2c.write_read(self.addr, &[command], &mut buffer).await.map_err(Error::I2c)?;
-        defmt::debug!("Read direct i16 from command {=u8}: {=i16}", command, i16::from_le_bytes(buffer));
+        defmt::debug!("BQ76952: Read direct i16 from command {=u8}: {=i16}", command, i16::from_le_bytes(buffer));
         Ok(i16::from_le_bytes(buffer))
     }
+
+    /// Prefer DA5 battery voltage sum (always in cV = 10 mV units) → mV.
+    pub async fn get_pack_voltage_from_da5_mv(&mut self) -> Result<u16, Error<E>> {
+        let buf = self.read_dastatus5().await?;
+        Ok(cmp::min(self.decode_dastatus5(&buf).pack_mv as u16, u16::MAX))
+    }
+
 
     fn le_u16(b: &[u8]) -> u16 { u16::from_le_bytes([b[0], b[1]]) }
     fn le_i16(b: &[u8]) -> i16 { i16::from_le_bytes([b[0], b[1]]) }
@@ -330,6 +364,7 @@ where
         let avg_cell_temp_c    = Self::temp_0_1k_to_c(Self::le_u16(&b[10..12]));
         let fet_temp_c         = Self::temp_0_1k_to_c(Self::le_u16(&b[12..14]));
         let max_cell_temp_c    = Self::temp_0_1k_to_c(Self::le_u16(&b[14..16]));
+        let avg_cell_temp_c_2  = Some(Self::temp_0_1k_to_c(Self::le_u16(&b[18..20])));
         let min_cell_temp_c    = Self::temp_0_1k_to_c(Self::le_u16(&b[16..18]));
         let cc3_usera          = Self::le_i16(&b[20..22]);
         let cc1_usera          = Self::le_i16(&b[22..24]);
@@ -339,7 +374,7 @@ where
         Dastatus5Decoded {
             vreg18_counts, vss_counts, max_cell_mv, min_cell_mv, pack_mv,
             avg_cell_temp_c, fet_temp_c, max_cell_temp_c, min_cell_temp_c,
-            cc3_usera, cc1_usera, cc2_counts, cc3_counts,
+            cc3_usera, cc1_usera, cc2_counts, cc3_counts, avg_cell_temp_c_2,
         }
     }
 
@@ -388,20 +423,21 @@ where
     }
 
     pub async fn get_stack_voltage_mv(&mut self) -> Result<u16, Error<E>> {
-        // VSTACK at 0x34, 10 mV units -> mV
-        let raw = self.read_direct_u16(cmd::VSTACK).await?;
-        Ok(raw.saturating_mul(10))
+        self.get_pack_voltage_from_da5_mv().await
     }
 
-    pub async fn get_current_cc2_raw(&mut self) -> Result<i16, Error<E>> {
+    pub async fn get_current_cc2_usera(&mut self) -> Result<i16, Error<E>> {
         // CC2 at 0x3A, signed two’s complement
         self.read_direct_i16(cmd::CC2_CUR).await
     }
-
+    /// DEPRECATED alias kept for compatibility; prefer get_current_cc2_usera().
+    pub async fn get_current_cc2_raw(&mut self) -> Result<i16, Error<E>> {
+        self.get_current_cc2_usera().await
+    }
     pub async fn get_battery_status(&mut self) -> Result<BatteryStatus, Error<E>> {
-        defmt::debug!("Reading Battery Status");
+        defmt::debug!("BQ76952: Reading Battery Status");
         let status = self.read_direct_u16(cmd::BATTERY_STATUS).await?;
-        defmt::debug!("Battery Status: {=u16}", status);
+        defmt::debug!("BQ76952: Battery Status: {=u16}", status);
         Ok(BatteryStatus {
             sleep_mode: (status & (1 << 15)) != 0,
             shutdown_pending: (status & (1 << 13)) != 0,
@@ -417,24 +453,6 @@ where
             sleep_en_allowed: (status & (1 << 2)) != 0,
             precharge_mode: (status & (1 << 1)) != 0,
             config_update_mode: (status & (1 << 0)) != 0,
-        })
-    }
-
-    pub async fn get_alarm_status(&mut self) -> Result<AlarmStatus, Error<E>> {
-        let status = self.read_direct_u16(cmd::ALARM_STATUS).await?;
-        Ok(AlarmStatus {
-            cov: (status & (1 << 11)) != 0,
-            cuv: (status & (1 << 10)) != 0,
-            occ: (status & (1 << 9)) != 0,
-            ocd1: (status & (1 << 8)) != 0,
-            ocd2: (status & (1 << 7)) != 0,
-            scd: (status & (1 << 6)) != 0,
-            otf: (status & (1 << 5)) != 0,
-            otd: (status & (1 << 4)) != 0,
-            otc: (status & (1 << 3)) != 0,
-            utf: (status & (1 << 2)) != 0,
-            utd: (status & (1 << 1)) != 0,
-            utc: (status & (1 << 0)) != 0,
         })
     }
 
@@ -457,7 +475,7 @@ where
         let [k1_lo, k1_hi] = key1.to_le_bytes();
         let [k2_lo, k2_hi] = key2.to_le_bytes();
 
-        defmt::info!("UNSEAL: sending key1=0x{:04x}, key2=0x{:04x}", key1, key2);
+        defmt::info!("BQ76952: UNSEAL: sending key1=0x{:04x}, key2=0x{:04x}", key1, key2);
 
         // Write key1 -> 0x3E (low), 0x3F (high)
         self.i2c.write(self.addr, &[cmd::SUBCMD_LOW, k1_lo]).await.map_err(Error::I2c)?;
@@ -472,11 +490,11 @@ where
         // Verify transition by reading SEC1:0
         match self.get_security_state().await {
             Ok(SecurityState::Unsealed) | Ok(SecurityState::FullAccess) => {
-                defmt::info!("UNSEAL: success (state now UNSEALED/FULLACCESS)");
+                defmt::info!("BQ76952: UNSEAL: success (state now UNSEALED/FULLACCESS)");
                 Ok(())
             }
             Ok(s) => {
-                defmt::warn!("UNSEAL: device remained in state {:?}", s);
+                defmt::warn!("BQ76952: UNSEAL: device remained in state {:?}", s);
                 Err(Error::InvalidParameter)
             }
             Err(e) => Err(e),
@@ -502,44 +520,44 @@ where
         unseal_keys: Option<(u16, u16)>,
         delay: &mut D,
     ) -> Result<(), Error<E>> {
-        defmt::info!("I2C-ADDR: requested 7-bit=0x{:02x}", new_addr_7bit);
+        defmt::info!("BQ76952: I2C-ADDR: requested 7-bit=0x{:02x}", new_addr_7bit);
 
         if self.probe_addr(new_addr_7bit).await {
-            defmt::info!("I2C-ADDR: device already at 0x{:02x}; switching driver only", new_addr_7bit);
+            defmt::info!("BQ76952: I2C-ADDR: device already at 0x{:02x}; switching driver only", new_addr_7bit);
             self.addr = new_addr_7bit;
             return Ok(());
         }
         // 0) Check/handle security state
         let sec = self.get_security_state().await?;
-        defmt::info!("SEC state before: {:?}", sec);
+        defmt::info!("BQ76952: SEC state before: {:?}", sec);
         if matches!(sec, SecurityState::Sealed) {
             match unseal_keys {
                 Some((k1, k2)) => {
-                    defmt::info!("Device SEALED -> attempting UNSEAL");
+                    defmt::info!("BQ76952: Device SEALED -> attempting UNSEAL");
                     self.try_unseal_with_keys(k1, k2, delay).await?;
                 }
                 None => {
-                    defmt::warn!("Device SEALED and no UNSEAL keys provided; aborting.");
+                    defmt::warn!("BQ76952: Device SEALED and no UNSEAL keys provided; aborting.");
                     return Err(Error::InvalidParameter);
                 }
             }
         }
 
         // 1) Enter CONFIG_UPDATE and verify bit set
-        defmt::info!("SET_CFGUPDATE");
+        defmt::info!("BQ76952: SET_CFGUPDATE");
         self.sub_command(subcmd::CONFIG_UPDATE).await?;
         delay.delay_ms(2).await;
 
         let bs1 = self.get_battery_status().await?;
         if !bs1.config_update_mode {
-            defmt::warn!("CONFIG_UPDATE bit not set; abort.");
+            defmt::warn!("BQ76952: CONFIG_UPDATE bit not set; abort.");
             return Err(Error::Timeout);
         }
-        defmt::info!("CONFIG_UPDATE confirmed.");
+        defmt::info!("BQ76952: CONFIG_UPDATE confirmed.");
 
         // 2) Write DM: Settings:Configuration:I2C Address (0x923A) = 8-bit write address
         let write_addr_8bit = new_addr_7bit << 1;
-        defmt::info!("Writing DM I2C Address (0x923A) = 0x{:02x}", write_addr_8bit);
+        defmt::info!("BQ76952: Writing DM I2C Address (0x923A) = 0x{:02x}", write_addr_8bit);
 
         self.write_df(datamem::I2C_ADDRESS, &[write_addr_8bit]).await?;
 
@@ -547,26 +565,26 @@ where
         delay.delay_ms(2).await;
 
         // 3) Exit CONFIG_UPDATE and verify bit clear
-        defmt::info!("EXIT_CFGUPDATE");
+        defmt::info!("BQ76952: EXIT_CFGUPDATE");
         self.sub_command(subcmd::EXIT_CONFIG_UPDATE).await?;
         delay.delay_ms(1).await;
 
         let bs2 = self.get_battery_status().await?;
         if bs2.config_update_mode {
-            defmt::warn!("CONFIG_UPDATE bit still set; abort.");
+            defmt::warn!("BQ76952: CONFIG_UPDATE bit still set; abort.");
             return Err(Error::Timeout);
         }
-        defmt::info!("Exited CONFIG_UPDATE.");
+        defmt::info!("BQ76952: Exited CONFIG_UPDATE.");
 
         // 4) SWAP_COMM_MODE to apply new comm settings (incl. I²C Address)
-        defmt::info!("SWAP_COMM_MODE to apply new DM comm settings");
+        defmt::info!("BQ76952: SWAP_COMM_MODE to apply new DM comm settings");
         self.sub_command(subcmd::SWAP_COMM_MODE).await?;
         delay.delay_ms(2).await;
 
         // 5) Probe at new address: try a benign read
         let old_addr = self.addr;
         self.addr = new_addr_7bit;
-        defmt::info!("Probing BQ at new addr 0x{:02x}", self.addr);
+        defmt::info!("BQ76952: Probing BQ at new addr 0x{:02x}", self.addr);
 
         // Try several times in case bus/host needs a beat
         let mut ok = false;
@@ -579,10 +597,10 @@ where
         }
 
         if ok {
-            defmt::info!("I2C-ADDR: successfully communicating at 0x{:02x}", self.addr);
+            defmt::info!("BQ76952: I2C-ADDR: successfully communicating at 0x{:02x}", self.addr);
             Ok(())
         } else {
-            defmt::warn!("I2C-ADDR: probe at new address failed; reverting to 0x{:02x}", old_addr);
+            defmt::warn!("BQ76952: I2C-ADDR: probe at new address failed; reverting to 0x{:02x}", old_addr);
             self.addr = old_addr;
             Err(Error::Timeout)
         }
@@ -607,9 +625,9 @@ where
         if new_h1 != h1 {
             // Enter/exit CONFIG_UPDATE already wrapped by write_data_memory_u8().
             self.write_data_memory_u8(datamem::BAL_CFG_H1, new_h1, delay).await?;
-            defmt::info!("Balancing H1: 0x{:02x} -> 0x{:02x}", h1, new_h1);
+            defmt::info!("BQ76952: Balancing H1: 0x{:02x} -> 0x{:02x}", h1, new_h1);
         } else {
-            defmt::info!("Balancing H1 unchanged: 0x{:02x}", h1);
+            defmt::info!("BQ76952: Balancing H1 unchanged: 0x{:02x}", h1);
         }
         Ok(())
     }
@@ -629,19 +647,19 @@ where
         const TS2_PDN_MS: u32 = 8;        // brief pulldown to force a clean falling edge
         const TS2_BOOT_WAIT_MS: u32 = 350; // 300–400 ms typical OTP/config load
 
-        defmt::debug!("Waking BQ76952 via TS2 (pre-bias > threshold)");
+        defmt::debug!("BQ76952: Waking BQ76952 via TS2 (pre-bias > threshold)");
         ts2.prebias_high();
         delay.delay_ms(TS2_PREBIAS_MS).await;
 
-        defmt::debug!("TS2 -> LOW pulse");
+        defmt::debug!("BQ76952: TS2 -> LOW pulse");
         ts2.drive_low();
         delay.delay_ms(TS2_LOW_PULSE_MS).await;
 
-        defmt::debug!("TS2 brief input pulldown ({} ms)", TS2_PDN_MS);
+        defmt::debug!("BQ76952: TS2 brief input pulldown ({} ms)", TS2_PDN_MS);
         ts2.bias_pulldown();
         delay.delay_ms(TS2_PDN_MS).await;
 
-        defmt::debug!("TS2 final release (Hi-Z)");
+        defmt::debug!("BQ76952: TS2 final release (Hi-Z)");
         ts2.release();
 
         delay.delay_ms(TS2_BOOT_WAIT_MS).await;
@@ -677,14 +695,14 @@ where
             } else if self.probe_addr(0x08).await {
                 self.addr = 0x08;
             } else {
-                defmt::warn!("BQ76952 not detected at 0x0B/0x08 after wake.");
+                defmt::warn!("BQ76952: not detected at 0x0B/0x08 after wake.");
                 return Err(Error::Timeout);
             }
         }
 
         // If we're at 0x08, move to target_7bit now (we might have needed the wake first).
         if self.addr == 0x08 && target_7bit != 0x08 {
-            defmt::info!("Switching RAM I²C address 0x08 -> 0x{:02x}", target_7bit);
+            defmt::info!("BQ76952: Switching RAM I²C address 0x08 -> 0x{:02x}", target_7bit);
             // pass None for unseal keys; will fail gracefully if sealed
             self.set_i2c_address_ram_checked(target_7bit, None, delay).await?;
         }
@@ -717,9 +735,9 @@ pub async fn bq_readout_task(
     {
         let mut bq = bq_mutex.lock().await;
         if let Err(e) = bq.ensure_awake_at_addr(0x0B, &mut ts2, &mut d).await {
-            defmt::warn!("BQ76952 bring-up failed: {:?}", defmt::Debug2Format(&e));
+            defmt::warn!("BQ76952: bring-up failed: {:?}", defmt::Debug2Format(&e));
         } else {
-            defmt::info!("BQ76952 ready at 0x0B with CB_CHG/CB_RLX enabled");
+            defmt::info!("BQ76952: ready at 0x0B with CB_CHG/CB_RLX enabled");
         }
     }
     {
@@ -733,12 +751,12 @@ pub async fn bq_readout_task(
             }
         }
         if mask == 0 {
-            defmt::warn!("Active-cells autodetect found none; leaving mask=0 (will still log all).");
+            defmt::warn!("BQ76952: Active-cells autodetect found none; leaving mask=0 (will still log all).");
         } else {
             bq.set_active_cells_mask(mask);
             // Pretty print (e.g., 1,2,16).
             defmt::info!(
-                "Active cells (autodetect): {}",
+                "BQ76952: Active cells (autodetect): {}",
                 defmt::Display2Format(&crate::shell::fmt_bit_cells(mask))
             );
         }
@@ -770,11 +788,11 @@ pub async fn bq_readout_task(
             // ---------- Direct status ----------
             match bq.get_battery_status().await {
                 Ok(s) => defmt::info!(
-                    "BatteryStatus: sleep={} shutdown_pend={} perm_fault={} safety_fault={} cfg_update={} sealed?={}",
+                    "BQ76952: BatteryStatus: sleep={} shutdown_pend={} perm_fault={} safety_fault={} cfg_update={} sealed?={}",
                     s.sleep_mode, s.shutdown_pending, s.permanent_fault, s.safety_fault,
                     s.config_update_mode, (s.security_state == 0)
                 ),
-                Err(_) => defmt::warn!("BatteryStatus read failed"),
+                Err(_) => defmt::warn!("BQ76952: BatteryStatus read failed"),
             }
 
             // ---------- Cells ----------
@@ -783,18 +801,24 @@ pub async fn bq_readout_task(
             // ---------- Balancing ----------
             match bq.get_cb_active_mask().await {
                 Ok(mask) => {
-                    defmt::info!("Balancing active mask = 0x{:04x}", mask);
-                    defmt::info!("Balancing cells: {}", defmt::Display2Format(&crate::shell::fmt_bit_cells(mask)));
+                    defmt::info!("BQ76952: Balancing active mask = 0x{:04x}", mask);
+                    defmt::info!("BQ76952: Balancing cells: {}", defmt::Display2Format(&crate::shell::fmt_bit_cells(mask)));
                 }
-                Err(_) => defmt::warn!("CB_ACTIVE_CELLS read failed"),
+                Err(_) => defmt::warn!("BQ76952: CB_ACTIVE_CELLS read failed"),
             }
 
+            // ---------- Protections (from Safety Status A/B) ----------
+            match bq.get_protection_status().await {
+                Ok(p) => defmt::info!("BQ76952: Prot: COV={} CUV={} OCC={} OCD1={} OCD2={} SCD={} | OT[F/D/C]={}/{}/{} UT[F/D/C]={}/{}/{}",
+                                      p.cov,p.cuv,p.occ,p.ocd1,p.ocd2,p.scd, p.otf,p.otd,p.otc, p.utf,p.utd,p.utc),
+                Err(_) => defmt::warn!("BQ76952: Protection status read failed"),
+            }
             // ---------- DASTATUS 5..7 (typed defmt only; no width/precision) ----------
             if let Ok(buf5) = bq.read_dastatus5().await {
                 let d5 = bq.decode_dastatus5(&buf5);
                 if crate::config::EXTERNAL_THERMISTORS_PRESENT || crate::config::READ_INTERNAL_TEMP {
                     defmt::info!(
-                        "DA5: VREG18={=u16}cts VSS={=u16}cts MAX={=u16}mV MIN={=u16}mV PACK={=u32}mV \
+                        "BQ76952: DA5: VREG18={=u16}cts VSS={=u16}cts MAX={=u16}mV MIN={=u16}mV PACK={=u32}mV \
                         T(avg/fet/max/min)={=f32}/{=f32}/{=f32}/{=f32}°C \
                         CC1/3(userA)={=i16}/{=i16} rawCC2={=i32} rawCC3={=i32}",
                         d5.vreg18_counts, d5.vss_counts, d5.max_cell_mv, d5.min_cell_mv, d5.pack_mv,
@@ -803,41 +827,47 @@ pub async fn bq_readout_task(
                     );
                 } else {
                     defmt::info!(
-                        "DA5: VREG18={=u16}cts VSS={=u16}cts MAX={=u16}mV MIN={=u16}mV PACK={=u32}mV \
+                        "BQ76952: DA5: VREG18={=u16}cts VSS={=u16}cts MAX={=u16}mV MIN={=u16}mV PACK={=u32}mV \
                         (temps disabled) CC1/3(userA)={=i16}/{=i16} rawCC2={=i32} rawCC3={=i32}",
                         d5.vreg18_counts, d5.vss_counts, d5.max_cell_mv, d5.min_cell_mv, d5.pack_mv,
                         d5.cc1_usera, d5.cc3_usera, d5.cc2_counts, d5.cc3_counts
                     );
                 }
+                if let Some(tavg2) = d5.avg_cell_temp_c_2 {
+                    defmt::debug!(
+                        "BQ76952: DA5: (2nd avg cell temp) {=f32} °C",
+                        tavg2
+                    );
+                }
             } else {
-                defmt::warn!("DASTATUS5 read failed");
+                defmt::warn!("BQ76952: DASTATUS5 read failed");
             }
 
             if let Ok(buf6) = bq.read_dastatus6().await {
                 let d6 = bq.decode_dastatus6(&buf6);
                 defmt::info!(
-                    "DA6: Qacc_hi=0x{=u32:x} Qacc_lo=0x{=u32:x} t={=u32}s \
+                    "BQ76952: DA6: Qacc_hi=0x{=u32:x} Qacc_lo=0x{=u32:x} t={=u32}s \
                     pins[CFET/DFET/ALERT/TS1/TS2]={=i32}/{=i32}/{=i32}/{=i32}/{=i32}",
                     d6.q_accum_userah_hi, d6.q_accum_userah_lo, d6.time_accum_s,
                     d6.cfetoff_counts, d6.dfetoff_counts, d6.alert_counts, d6.ts1_counts, d6.ts2_counts
                 );
             } else {
-                defmt::warn!("DASTATUS6 read failed");
+                defmt::warn!("BQ76952: DASTATUS6 read failed");
             }
 
             if let Ok(buf7) = bq.read_dastatus7().await {
                 let d7 = bq.decode_dastatus7(&buf7);
                 defmt::info!(
-                    "DA7: pins[TS3/HDQ/DCHG/DDSG]={=i32}/{=i32}/{=i32}/{=i32}",
+                    "BQ76952: DA7: pins[TS3/HDQ/DCHG/DDSG]={=i32}/{=i32}/{=i32}/{=i32}",
                     d7.ts3_counts, d7.hdq_counts, d7.dchg_counts, d7.ddsg_counts
                 );
             } else {
-                defmt::warn!("DASTATUS7 read failed");
+                defmt::warn!("BQ76952: DASTATUS7 read failed");
             }
 
             // ---------- Compact readings ----------
-            let v_mv = bq.get_stack_voltage_mv().await.unwrap_or(0);
-            if v_mv == 0 { defmt::warn!("VSTACK read failed"); }
+            let v_mv = bq.get_pack_voltage_from_da5_mv().await.unwrap_or(0);
+            if v_mv == 0 { defmt::warn!("BQ76952: VSTACK read failed"); }
             let t_c: i8 = if crate::config::READ_INTERNAL_TEMP {
                 bq.get_internal_temp_c().await.unwrap_or(0.0) as i8
             } else { 0 };
@@ -847,10 +877,10 @@ pub async fn bq_readout_task(
         };
 
         if let Err(_e) = publisher.try_publish(readings) {
-            defmt::debug!("BMS drop (no subscriber)");
+            defmt::debug!("BQ76952: BMS drop (no subscriber)");
         }
         else {
-            defmt::debug!("BMS data published.");
+            defmt::debug!("BQ76952: BMS data published.");
         }
 
         // (Optional) debug dump could include per-cell voltages / alarms on a slower cadence.

@@ -87,6 +87,9 @@ pub const REG_CHARGER_MASK_1: u8    = 0x28;
 pub const REG_CHARGER_MASK_2: u8    = 0x29;
 pub const REG_FAULT_MASK: u8        = 0x2A;
 
+// CHARGER_STATUS_1 bits
+pub const CHARGE_STAT_MASK: u8 = 0b0000_0111; // [2:0]
+
 // --- TS / JEITA control
 pub const REG_TS_THRESHOLD_CTRL: u8 = 0x1B; // REG0x1B
 pub const   TS_T5_MASK: u8 = 0b1100_0000; // <<6  (50/55/60/65 °C)

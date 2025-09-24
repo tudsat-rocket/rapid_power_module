@@ -66,7 +66,7 @@ pub enum Bq25756Command {
     SetTerminationCurrentLimit(u16),
     EnableCharger(bool),
     EnableHiz(bool),
-    Init3S1A,
+    Init,
 }
 
 /// The PubSubChannel for sending commands to the BQ25756 task.
