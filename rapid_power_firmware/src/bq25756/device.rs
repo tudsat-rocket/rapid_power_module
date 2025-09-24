@@ -14,6 +14,7 @@ use crate::bq25756::types::*;
 
 use crate::shared_state::{Bq25756Command, Bq25756Readings};
 
+use crate::bq25756::regs::{VAC_DPM_MASK, VAC_DPM_SHIFT, IAC_DPM_MASK, IAC_DPM_SHIFT};
 use crate::config;
 
 pub type Result<E> = CoreResult<(), Error<E>>;
@@ -55,6 +56,12 @@ where
 
         self.ts_enable(crate::config::EXTERNAL_THERMISTORS_PRESENT).await.ok();
         self.set_jeita(crate::config::EXTERNAL_THERMISTORS_PRESENT).await.ok();
+
+        self.set_ilim_hiz_pin_enable(crate::config::BQ25756_EN_ILIM_HIZ_PIN).await?;
+        self.set_ichg_pin_enable(crate::config::BQ25756_EN_ICHG_PIN).await?;
+
+        self.adc_enable(true, true, 0b10, false).await.ok();
+        self.adc_set_channels(true, true, true, true, crate::config::EXTERNAL_THERMISTORS_PRESENT).await.ok();
 
         self.enable_charger(true).await?;
         Ok(())
@@ -130,6 +137,53 @@ where
         }).await
     }
 
+    // ------------------ 16b field helpers (generic) ------------------
+    #[inline]
+    fn set_field_16(orig: u16, mask: u16, shift: u8, code: u16) -> u16 {
+        (orig & !mask) | ((code << shift) & mask)
+    }
+    #[inline]
+    fn get_field_16(reg: u16, mask: u16, shift: u8) -> u16 {
+        (reg & mask) >> shift
+    }
+
+    // ------------------ Quantization helpers ------------------
+    /// Floor-encode to an integer step size (e.g., 50 mA/LSB, 20 mV/LSB).
+    #[inline]
+    fn enc_floor_step(val: u32, step_units: u32, min_units: u32, max_units: u32) -> u16 {
+        let val = val.clamp(min_units, max_units);
+        (val / step_units) as u16  // integer division floors by design
+    }
+    /// Decode from an integer step size.
+    #[inline]
+    fn dec_step(code: u16, step_units: u32) -> u16 {
+        (code as u32 * step_units) as u16
+    }
+
+    /// Floor-encode to a rational LSB = NUM/DEN (units per LSB) using integer math.
+    /// For IAC_DPM: LSB(mA) = 250 / RmΩ  -> code = floor(mA * RmΩ / 250)
+    #[inline]
+    fn enc_floor_ratio(val_units: u32, numerator_units: u32, denominator: u32,
+                       min_units: u32, max_units: u32) -> u16 {
+        let v = val_units.clamp(min_units, max_units);
+        ((v as u64 * denominator as u64) / numerator_units as u64) as u16
+    }
+    #[inline]
+    fn dec_ratio(code: u16, numerator_units: u32, denominator: u32) -> u16 {
+        ((code as u32 * numerator_units) / denominator) as u16
+    }
+
+    // ----------- Shunt-aware DPM coding (per DS section 8.3.5.1.1) -----------
+    // IAC_DPM code <-> mA. LSB(mA) = 250 / RmΩ.  (2 mΩ => 125 mA/LSB, 5 mΩ => 50 mA/LSB)
+    #[inline]
+    fn iac_dpm_code_from_ma(ma: u32, r_milliohm: u16) -> u16 {
+        ((ma as u64 * r_milliohm as u64) / 250u64) as u16
+    }
+    #[inline]
+    fn iac_dpm_ma_from_code(code: u16, r_milliohm: u16) -> u16 {
+        ((code as u32 * 250u32) / r_milliohm as u32) as u16
+    }
+
     pub async fn int_unmask_all(&mut self) -> Result<I2C::Error> {
         self.write1(REG_CHARGER_MASK_1, 0x00).await?;
         self.write1(REG_CHARGER_MASK_2, 0x00).await?;
@@ -170,6 +224,15 @@ where
         ((vfb * sum) / (r_bot_ohm as u64)) as u16
     }
 
+    /// Encodable VBAT min/max given the resistor divider and VFB limits.
+    /// VFB range: 1504..1566 mV (2 mV/LSB).
+    #[inline]
+    fn vbat_encodable_range_mv(r_top_ohm: u32, r_bot_ohm: u32) -> (u16, u16) {
+        let vmin = Self::vfb_to_vbat_mv(1504, r_top_ohm, r_bot_ohm);
+        let vmax = Self::vfb_to_vbat_mv(1566, r_top_ohm, r_bot_ohm);
+        (vmin, vmax)
+    }
+
     /// Encode a VFB set-point (mV) into VFB_REG[4:0] (1504..1566mV, 2mV/step).
     #[inline]
     fn vfb_mv_to_code(vfb_mv: u16) -> u16 {
@@ -183,18 +246,14 @@ where
         1504 + ((code & 0x1F) * 2)
     }
 
-    // ==== Helper math: CC (charge current) ====
-
-    /// ICHG_REG is 0.4..20.0 A with 50 mA/LSB (register-based path).
-    #[inline]
-    fn ichg_ma_to_reg(ma: u16) -> u16 {
-        let clamped = ma.clamp(400, 20_000);
-        (clamped / 50) as u16
+    /// Generic encode/decode helpers with an integer step (mA per LSB).
+    #[inline] fn enc_step(ma: u16, step_ma: u16, min_ma: u16, max_ma: u16) -> u16 {
+        let clamped = ma.clamp(min_ma, max_ma);
+        clamped / step_ma
     }
-    #[inline]
-    fn ichg_reg_to_ma(reg: u16) -> u16 {
-        (reg as u16) * 50
-    }
+    // ICHG_REG: 50 mA/LSB, 0.4–20 A
+    #[inline] fn ichg_ma_to_reg(ma: u16) -> u16 { Self::enc_step(ma, 50, 400, 20_000) }
+    #[inline] fn ichg_reg_to_ma(code: u16) -> u16 { Self::dec_step(code, 50) }
 
     // ------------------ Charging Parameters ------------------
 
@@ -208,11 +267,59 @@ where
     }
 
     /// Set CV by desired battery voltage (mV), using R_TOP/R_BOT from config.
-    pub async fn set_charge_voltage_limit(&mut self, vbat_target_mv: u16) -> Result<I2C::Error> {
+    /// Floors to the nearest representable value (never exceeds the request if within range).
+    /// Warns if the request is outside the encodable range.
+    pub async fn set_charge_voltage_limit(&mut self, vbat_req_mv: u16) -> Result<I2C::Error> {
         let rtop = crate::config::BQ25756_R_TOP_OHM;
         let rbot = crate::config::BQ25756_R_BOT_OHM;
-        let vfb_mv = Self::vbat_to_vfb_mv(vbat_target_mv as u32, rtop, rbot);
-        self.set_vfb_reg_mv(vfb_mv).await
+        let (vmin, vmax) = Self::vbat_encodable_range_mv(rtop, rbot);
+
+        // If below the minimum encodable VBAT, warn and clamp up to vmin (will exceed request).
+        // If above the max encodable VBAT, warn and clamp down to vmax.
+        let mut vbat_target_mv = vbat_req_mv;
+        if vbat_req_mv < vmin {
+            defmt::warn!(
+                "BQ25756: requested VREG={} mV is below min encodable {}..{} mV; clamping to {} mV",
+                vbat_req_mv, vmin, vmax, vmin
+            );
+            vbat_target_mv = vmin;
+        } else if vbat_req_mv > vmax {
+            defmt::warn!(
+                "BQ25756: requested VREG={} mV is above max encodable {}..{} mV; clamping to {} mV",
+                vbat_req_mv, vmin, vmax, vmax
+            );
+            vbat_target_mv = vmax;
+        }
+
+        // Convert to VFB (mV), then to code that floors in 2 mV steps.
+        let vfb_mv      = Self::vbat_to_vfb_mv(vbat_target_mv as u32, rtop, rbot);
+        let code        = Self::vfb_mv_to_code(vfb_mv);
+        let vfb_prog_mv = Self::vfb_code_to_mv(code);
+        let vbat_prog   = Self::vfb_to_vbat_mv(vfb_prog_mv, rtop, rbot);
+
+        // Program (read-modify-write is done inside set_vfb_reg_mv)
+        self.set_vfb_reg_mv(vfb_prog_mv).await?;
+
+        // Optional: informative log of quantization.
+        if vbat_prog != vbat_req_mv {
+            defmt::info!(
+                "BQ25756: VREG request {} mV -> programmed {} mV (VFB={} mV, code=0x{:02X})",
+                vbat_req_mv, vbat_prog, vfb_prog_mv, code
+            );
+        }
+        Ok(())
+    }
+
+    pub async fn set_ilim_hiz_pin_enable(&mut self, enable: bool) -> Result<I2C::Error> {
+        let mut v = self.read1(REG_PIN_CONTROL).await?;
+        if enable { v |= EN_ILIM_HIZ_PIN; } else { v &= !EN_ILIM_HIZ_PIN; }
+        self.write1(REG_PIN_CONTROL, v).await
+    }
+
+    pub async fn set_ichg_pin_enable(&mut self, enable: bool) -> Result<I2C::Error> {
+        let mut v = self.read1(REG_PIN_CONTROL).await?;
+        if enable { v |= EN_ICHG_PIN; } else { v &= !EN_ICHG_PIN; }
+        self.write1(REG_PIN_CONTROL, v).await
     }
 
     /// Read CV limit as battery voltage (mV). (Decodes register -> VFB -> VBAT)
@@ -225,13 +332,13 @@ where
         Ok(Self::vfb_to_vbat_mv(vfb_mv, rtop, rbot))
     }
 
-    /// Set charge current limit (mA). Encodes to 50 mA/LSB register.
+    /// Set charge current limit (mA).
     pub async fn set_charge_current_limit(&mut self, ma: u16) -> Result<I2C::Error> {
         let code = Self::ichg_ma_to_reg(ma);
         self.write2(REG_CHARGE_CURRENT_LIMIT, code).await
     }
 
-    /// Read charge current limit (mA). (Decodes 50 mA/LSB register.)
+    /// Read charge current limit (mA).
     pub async fn get_charge_current_limit(&mut self) -> CoreResult<u16, Error<I2C::Error>> {
         let reg = self.read2(REG_CHARGE_CURRENT_LIMIT).await?;
         Ok(Self::ichg_reg_to_ma(reg))
@@ -239,19 +346,26 @@ where
 
     /// Set input current DPM limit (IIN_DPM).
     pub async fn set_input_current_dpm_limit(&mut self, ma: u16) -> Result<I2C::Error> {
-        let ma = ma.clamp(0, 8000);
-        self.write2(REG_INPUT_CURRENT_DPM_LIMIT, ma).await
+        let r_milliohm = crate::config::BQ25756_R_INPUT_SENSE_MOHM as u32;
+        let code = Self::enc_floor_ratio(ma as u32, 250, r_milliohm, 400, 20_000);
+        let mut reg = self.read2(REG_INPUT_CURRENT_DPM_LIMIT).await?;
+        reg = Self::set_field_16(reg, IAC_DPM_MASK, IAC_DPM_SHIFT, code);
+        self.write2(REG_INPUT_CURRENT_DPM_LIMIT, reg).await
     }
 
     /// Read input current DPM limit (IIN_DPM).
     pub async fn get_input_current_dpm_limit(&mut self) -> CoreResult<u16, Error<I2C::Error>> {
-        self.read2(REG_INPUT_CURRENT_DPM_LIMIT).await
+        let r_milliohm = crate::config::BQ25756_R_INPUT_SENSE_MOHM as u32;
+        let reg = self.read2(REG_INPUT_CURRENT_DPM_LIMIT).await?;
+        let code = Self::get_field_16(reg, IAC_DPM_MASK, IAC_DPM_SHIFT);
+        Ok(Self::dec_ratio(code, 250, r_milliohm)) 
     }
 
     /// Set input voltage DPM limit (VIN_DPM).
     pub async fn set_input_voltage_dpm_limit(&mut self, mv: u16) -> Result<I2C::Error> {
         let mv = mv.clamp(3600, 22000);
         self.write2(REG_INPUT_VOLTAGE_DPM_LIMIT, mv).await
+        
     }
 
     /// Read input voltage DPM limit (VIN_DPM).
@@ -262,6 +376,72 @@ where
     pub async fn get_charge_stat(&mut self) -> CoreResult<ChargeStat, Error<I2C::Error>> {
         let s1 = self.read1(REG_CHARGER_STATUS_1).await?;
         Ok(ChargeStat::from_code(s1))
+    }
+
+    pub async fn dump_limits(&mut self) -> Result<I2C::Error> {
+        use crate::bq25756::regs::*;
+
+        // --- Control bits
+        let chg_ctl = self.get_charger_control().await?;
+        let hiz     = (chg_ctl & EN_HIZ) != 0;
+        let en_chg  = (chg_ctl & EN_CHG) != 0;
+
+        let pin_ctl = self.read1(REG_PIN_CONTROL).await?;
+        let ilim_pin_en = (pin_ctl & EN_ILIM_HIZ_PIN) != 0;
+        let ichg_pin_en = (pin_ctl & EN_ICHG_PIN) != 0;
+
+        // --- Programmed limits (decoded to real units)
+        let vreg = self.get_charge_voltage_limit().await?;
+        let ichg = self.get_charge_current_limit().await?;
+        let iin  = self.get_input_current_dpm_limit().await?;
+        let vin  = self.get_input_voltage_dpm_limit().await?;
+
+        // Quantization info for IIN_DPM
+        let r_in_mohm = crate::config::BQ25756_R_INPUT_SENSE_MOHM as u32;
+        let iin_lsb_ma = 250 / r_in_mohm.max(1); // LSB(mA) = 250 / RmΩ (e.g. 50 mA @ 5 mΩ)
+
+        // --- Status: are DPM loops actually engaged?
+        let s1 = self.read1(REG_CHARGER_STATUS_1).await.unwrap_or(0);
+        let s2 = self.read1(REG_CHARGER_STATUS_2).await.unwrap_or(0);
+        let s3 = self.read1(REG_CHARGER_STATUS_3).await.unwrap_or(0);
+
+        let iindpm_active = (s1 & IINDPM_STAT) != 0; // from S1
+        let vindpm_active = (s1 & VINDPM_STAT) != 0; // from S1
+        let pg_ok         = (s2 & PG_STAT)     != 0; // from S2
+
+        // --- Optional live readings (helps to reason about headroom)
+        let vac_mv  = self.read_vac_mv().await.unwrap_or(0);
+        let vbat_mv = self.read_vbat_mv().await.unwrap_or(0);
+        let iac_ma  = self.read_iac_ma(crate::config::BQ25756_R_INPUT_SENSE_MOHM).await.unwrap_or(0);
+        let ibat_ma = self.read_ibat_ma(crate::config::BQ25756_R_BATTERY_SENSE_MOHM).await.unwrap_or(0);
+
+        defmt::info!("BQ25756 limits:");
+        defmt::info!("  CHG_EN={}  HIZ={}  PIN_CTRL: ICHG_PIN_EN={} ILIM_HIZ_PIN_EN={}", en_chg, hiz, ichg_pin_en, ilim_pin_en);
+        defmt::info!("  VREG={} mV  ICHG={} mA", vreg, ichg);
+        defmt::info!("  VIN_DPM={} mV  IIN_DPM={} mA (LSB≈{} mA)", vin, iin, iin_lsb_ma);
+        defmt::info!("  STATUS: S1=0x{:02X} S2=0x{:02X} S3=0x{:02X}  PG={}  IINDPM_ACTIVE={}  VINDPM_ACTIVE={}",
+                    s1, s2, s3, pg_ok, iindpm_active, vindpm_active);
+        defmt::info!("  Live: VAC={} mV  VBAT={} mV  IAC={} mA  IBAT={} mA", vac_mv, vbat_mv, iac_ma, ibat_ma);
+
+
+        // Quick hint about who “wins” on input current
+        if ichg_pin_en {
+            defmt::info!("  Note: ICHG pin is ENABLED; effective fast-charge current = min(ICHG register, ICHG pin limit).");
+        } else {
+            defmt::info!("  Note: ICHG pin is DISABLED; fast-charge current controlled by ICHG register.");
+        }
+        if ilim_pin_en {
+            defmt::info!("  Note: ILIM_HIZ pin is ENABLED; effective input current limit = min(ILIM_HIZ, IIN_DPM).");
+        } else {
+            defmt::info!("  Note: ILIM_HIZ pin is DISABLED; input current limited by IIN_DPM only (plus source capability).");
+        }
+        if hiz {
+            defmt::info!("  Note: HIZ is set -> adapter draw is disabled; charging is suspended.");
+        } else if iindpm_active || vindpm_active {
+            defmt::info!("  Note: A DPM loop is ACTIVE -> the charger is throttling to protect the input.");
+        }
+
+        Ok(())
     }
 
     // ------------------ JEITA and Thermal Controls ------------------
@@ -519,6 +699,9 @@ pub async fn bq25756_task(
                             online = true;
                             backoff_ms = 250; // reset backoff
                         }
+                        if let Err(e) = dev.dump_limits().await {
+                            defmt::warn!("dump_limits failed: {:?}", defmt::Debug2Format(&e));
+                        }
                     }
                     Ok(other) => {
                         defmt::warn!("BQ25756: unexpected PART=0x{:02X}; will retry", other);
@@ -554,6 +737,7 @@ pub async fn bq25756_task(
                 online = false;
                 continue; // fall back to probe loop
             }
+            let _ = dev.dump_limits().await;
         }
 
         // Snapshot readings and publish
@@ -573,6 +757,23 @@ pub async fn bq25756_task(
             let ibatma = match dev.read_ibat_ma(crate::config::BQ25756_R_BATTERY_SENSE_MOHM).await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: calc IBAT mA failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
             let vacmv  = match dev.read_vac_mv().await { Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: read VAC mV failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; } };
 
+            let reg06 = match dev.read2(REG_INPUT_CURRENT_DPM_LIMIT).await {
+                Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: read REG06 failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; }
+            };
+            let reg02 = match dev.read2(REG_CHARGE_CURRENT_LIMIT).await {
+                Ok(v)=>v, Err(e)=>{ defmt::warn!("BQ25756: read REG02 failed: {:?}", defmt::Debug2Format(&e)); online=false; continue; }
+            };
+            // Extract the coded fields we program/use
+            let iac_dpm_code = (reg06 & IAC_DPM_MASK) >> IAC_DPM_SHIFT; // bits 10:2
+            let ichg_code    = reg02;                                   // 50 mA/LSB
+
+            let ichg_from_code_ma: u32 = (ichg_code as u32) * 50;
+
+            defmt::debug!(
+                "BQ25756 RAW: REG06=0x{:04X} (IAC_DPM_CODE={})  REG02=0x{:04X} (ICHG_CODE={} -> {} mA)",
+                reg06, iac_dpm_code, reg02, ichg_code, ichg_from_code_ma
+            );
+
             Bq25756Readings {
                 charge_voltage_limit_mv: vreg,
                 charge_current_limit_ma: ichg,
@@ -590,15 +791,18 @@ pub async fn bq25756_task(
 
 
         defmt::info!(
-            "BQ25756: VAC={}mV (raw={})  VBAT={}mV  IAC={}mA  IBAT={}mA  [VIN_DPM={}mV IIN_DPM={}mA]",
+            "BQ25756: VAC={}mV (raw={})  VBAT={}mV  IAC={}mA  IBAT={}mA  [VIN_DPM={}mV IIN_DPM={}mA] VREG={}mV ICHG={}mA",
             readings.vac_mv,
             readings.vac_raw,
             readings.vbat_mv,
             readings.iac_ma,
             readings.ibat_ma,
             readings.input_voltage_dpm_limit_mv,
-            readings.input_current_dpm_limit_ma
+            readings.input_current_dpm_limit_ma,
+            readings.charge_voltage_limit_mv,
+            readings.charge_current_limit_ma
         );
+
 
         if let Err(_e) = publisher.try_publish(readings) {
             defmt::debug!("BQ25756 drop (no subscriber)");

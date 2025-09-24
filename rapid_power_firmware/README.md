@@ -46,3 +46,13 @@ TODO: Add documentation for the CYPD3177 USB-PD controller.
 ## Building and Flashing
 
 TODO: Add instructions on how to build and flash the firmware.
+
+
+
+
+
+
+### KNOWN ERRORS
+
+- Voltage on ST-Link Debug from Batteries
+- Due to missing thermistor only about 23-25% of the charging current is used. Due to this the charging current needs to be increased fourfold to reach the desired current.

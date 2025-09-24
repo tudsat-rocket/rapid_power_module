@@ -69,5 +69,5 @@ ts2_hi_z = []
 ts2_pullup = []
 ts2_pulldown = []
 #default = ["ts2_hi_z", "bq76952", "bq25756", "usb_cdc", "cypd", "can"]
-default = ["ts2_hi_z", "bq76952", "bq25756-mcu-control", "bq25756-no-jeita", "usb_cdc", "cypd", "can"]
+default = ["ts2_hi_z", "bq25756-mcu-control", "bq25756-no-jeita", "usb_cdc", "cypd", "can"]
 

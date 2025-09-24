@@ -13,6 +13,12 @@ pub const REG_REVERSE_MODE_INPUT_VOLTAGE: u8 = 0x0C; // VAC_REV
 pub const REG_PRECHARGE_CURRENT_LIMIT: u8 = 0x10; // IPRECHG
 pub const REG_TERMINATION_CURRENT_LIMIT: u8 = 0x12; // ITERM
 
+// --- Bitfield layout helpers for DPM registers ---
+pub const VAC_DPM_MASK: u16  = 0b0011_1111_1111_1100; // bits 13:2, 20 mV/step
+pub const VAC_DPM_SHIFT: u8  = 2;
+pub const IAC_DPM_MASK: u16  = 0b0000_0111_1111_1100; // bits 10:2, step depends on shunt (see device)
+pub const IAC_DPM_SHIFT: u8  = 2;
+
 // 1-byte bitfield registers
 pub const REG_PRECHARGE_TERMINATION_CTRL: u8 = 0x14;
 pub const   EN_TERM: u8 = 1 << 3;
@@ -42,8 +48,6 @@ pub const   EN_ICHG_PIN: u8   = 1 << 7;
 pub const   EN_ILIM_HIZ_PIN: u8 = 1 << 6;
 pub const   DIS_PG_PIN: u8    = 1 << 5;
 pub const   DIS_STAT_PINS: u8 = 1 << 4;
-// KEEP AS COMMENT – datasheet cross-check required.
-pub const   CE_PIN_FUNC: u8   = 1 << 0; // Possible overlap with FORCE_STAT1 (verify against DS)
 pub const   FORCE_STAT4: u8   = 1 << 3;
 pub const   FORCE_STAT3: u8   = 1 << 2;
 pub const   FORCE_STAT2: u8   = 1 << 1;
@@ -89,6 +93,11 @@ pub const REG_FAULT_MASK: u8        = 0x2A;
 
 // CHARGER_STATUS_1 bits
 pub const CHARGE_STAT_MASK: u8 = 0b0000_0111; // [2:0]
+pub const VINDPM_STAT:      u8 = 1 << 4;      // Input voltage DPM active
+pub const IINDPM_STAT:      u8 = 1 << 5;      // Input current DPM active
+
+// CHARGER_STATUS_2 bits
+pub const PG_STAT:          u8 = 1 << 7;      // Power Good
 
 // --- TS / JEITA control
 pub const REG_TS_THRESHOLD_CTRL: u8 = 0x1B; // REG0x1B
