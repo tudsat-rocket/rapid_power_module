@@ -85,7 +85,12 @@ pub enum ChargeStat {
     TopOff,             // 110 (timer-active charging)
     TerminationDone,    // 111
 }
-
+// Needed because Bq25756Readings derives Default.
+impl Default for ChargeStat {
+    fn default() -> Self {
+        ChargeStat::NotCharging
+    }
+}
 impl ChargeStat {
     /// Convert a raw STATUS code (bits [2:0] from STATUS1) into the
     /// corresponding `ChargeStat` enum.

@@ -13,6 +13,9 @@ pub const REG_REVERSE_MODE_INPUT_VOLTAGE: u8 = 0x0C; // VAC_REV
 pub const REG_PRECHARGE_CURRENT_LIMIT: u8 = 0x10; // IPRECHG
 pub const REG_TERMINATION_CURRENT_LIMIT: u8 = 0x12; // ITERM
 
+pub const ICHG_MASK:  u16 = 0b0000_0111_1111_1100; // bits 10:2 => 0x07FC
+pub const ICHG_SHIFT: u8  = 2;
+
 // --- Bitfield layout helpers for DPM registers ---
 pub const VAC_DPM_MASK: u16  = 0b0011_1111_1111_1100; // bits 13:2, 20 mV/step
 pub const VAC_DPM_SHIFT: u8  = 2;

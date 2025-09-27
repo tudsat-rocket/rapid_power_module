@@ -2,6 +2,7 @@
 
 use embassy_sync::blocking_mutex::raw::CriticalSectionRawMutex;
 use embassy_sync::pubsub::PubSubChannel;
+use crate::bq25756::types::ChargeStat;
 
 /// The data structure that will be broadcast from the BMS task.
 /// It must be `Copy` to be used in a PubSubChannel.
@@ -35,6 +36,7 @@ pub struct Bq25756Readings {
     pub iac_ma: i32,
     pub ibat_ma: i32,
     pub vac_mv: u16,
+    pub charge_stat: ChargeStat,
 }
 
 /// The PubSubChannel for broadcasting BQ25756 data.
