@@ -87,6 +87,17 @@ pub enum ChargeStat {
 }
 
 impl ChargeStat {
+    /// Convert a raw STATUS code (bits [2:0] from STATUS1) into the
+    /// corresponding `ChargeStat` enum.
+    ///
+    /// Inputs
+    /// - `code`: raw byte read from status register. Only the low 3 bits are used.
+    ///
+    /// Outputs
+    /// - `ChargeStat` variant describing the charger state (NotCharging, Trickle, ...).
+    ///
+    /// Panics
+    /// - None. The match covers all 3-bit values; unreachable branch is defensive.
     pub fn from_code(code: u8) -> Self {
         match code & 0x07 {
             0b000 => ChargeStat::NotCharging,

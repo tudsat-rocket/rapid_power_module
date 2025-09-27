@@ -79,6 +79,9 @@ pub const REG_IBAT_ADC: u8          = 0x2F;
 pub const REG_VAC_ADC: u8           = 0x31;
 pub const REG_VBAT_ADC: u8          = 0x33;
 
+pub const REG_TS_ADC: u8            = 0x37;   // TODO: confirm actual TS ADC result address
+pub const TS_ADC_MASK:  u16 = 0x03FF;
+
 // --- Status / mask (optional reads)
 pub const REG_CHARGER_STATUS_1: u8  = 0x21;
 pub const REG_CHARGER_STATUS_2: u8  = 0x22;
