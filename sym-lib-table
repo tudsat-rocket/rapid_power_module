@@ -6,4 +6,5 @@
   (lib (name "STM32F105RCT6")(type "KiCad")(uri "${KIPRJMOD}/common/STM32F105RCT6.kicad_sym")(options "")(descr ""))
   (lib (name "bq25756")(type "KiCad")(uri "${KIPRJMOD}/common/bq25756.kicad_sym")(options "")(descr ""))
   (lib (name "1043")(type "KiCad")(uri "${KIPRJMOD}/common/1043.kicad_sym")(options "")(descr ""))
+  (lib (name "bq25798")(type "KiCad")(uri "${KIPRJMOD}/common/bq25798.kicad_sym")(options "")(descr ""))
 )

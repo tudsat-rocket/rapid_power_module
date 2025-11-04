@@ -730,7 +730,7 @@
       "model_mode": 4,
       "workbook_filename": ""
     },
-    "page_layout_descr_file": "Rdpid Power Module",
+    "page_layout_descr_file": "Rapid Power Module",
     "plot_directory": "",
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
@@ -746,6 +746,18 @@
     [
       "afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e",
       "Root"
+    ],
+    [
+      "5220dff6-c057-4538-a5b2-0b6e4cf779ce",
+      "Controller and Logic"
+    ],
+    [
+      "bfae272a-4bf5-4960-b276-b4c1a7fb3062",
+      "Balancer and Cells"
+    ],
+    [
+      "29a18ff5-2f4c-44c0-998a-9c2a7b324824",
+      "Charger"
     ]
   ],
   "text_variables": {}
