@@ -2054,6 +2054,17 @@
 		)
 		(uuid "43b9e359-a1a6-45e5-9c9b-61b719d6fec6")
 	)
+	(text "todo:\n-add undevoltage/overvoltage FET\n-add precharge circuit\n(if batteries are too low, precharge them)\n-discuss prediscarge circuit\n-check thermistor connection\n-check how to enter and leave shutdown mode\n-discuss adding a fuse\n-discuss using a completely different balancer-circuit\n-discuss adding high current output\n-find viable SMD thermistor"
+		(exclude_from_sim no)
+		(at 54.864 61.722 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "49b14c5e-ce68-492c-8d62-7661d9c68964")
+	)
 	(text "Balancer and Battery Pack"
 		(exclude_from_sim no)
 		(at 73.66 23.368 0)
@@ -4389,24 +4400,23 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "395df1fc-a255-4f98-ad6a-15e6f8c2a68e")
-		(property "Reference" "BT3"
-			(at 46.99 107.3784 0)
+		(property "Reference" "BT1"
+			(at 44.704 107.696 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "Battery_Cell"
-			(at 46.99 109.9184 0)
+			(at 36.322 109.982 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Inductor Wuerth:BAT_1043"
@@ -4445,7 +4455,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/bfae272a-4bf5-4960-b276-b4c1a7fb3062"
-					(reference "BT3")
+					(reference "BT1")
 					(unit 1)
 				)
 			)
@@ -5033,24 +5043,23 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "a24de53d-74fd-4b24-a4f8-25e8bff29731")
-		(property "Reference" "BT1"
-			(at 46.99 81.9784 0)
+		(property "Reference" "BT3"
+			(at 42.926 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "Battery_Cell"
-			(at 46.99 84.5184 0)
+			(at 37.592 86.106 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Inductor Wuerth:BAT_1043"
@@ -5089,7 +5098,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/bfae272a-4bf5-4960-b276-b4c1a7fb3062"
-					(reference "BT1")
+					(reference "BT3")
 					(unit 1)
 				)
 			)

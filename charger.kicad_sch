@@ -2364,6 +2364,26 @@
 		)
 		(uuid "3439db6d-4ae3-42ab-8408-daad9aecc188")
 	)
+	(text "todo: find viable diode"
+		(exclude_from_sim no)
+		(at 226.314 80.01 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "60ddbab0-8a35-4ee5-a4e8-b9475a23af05")
+	)
+	(text "todo: how to enable ship mode?"
+		(exclude_from_sim no)
+		(at 226.314 102.108 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "87d0d4bf-9ff2-4374-864c-b60a8ccfed31")
+	)
 	(text_box "ILIM_HIZ pulled to REGN to set the Charging Current Lmit to max. Register Value limits it to 1A by default anyways"
 		(exclude_from_sim no)
 		(at 36.83 116.84 0)
@@ -2424,10 +2444,10 @@
 		)
 		(uuid "6724ade1-87c2-4a8a-8428-16c6491f1976")
 	)
-	(text_box "@ToDO: Calculate correct resistor values. These are for the 103AT-2, while the LCSC points to a similar but not the same one\nFor AT103-2 these values equate to T_low = 0°C and T_high = 60°C\n"
+	(text_box "@ToDO: Calculate correct resistor values. These are for the 103AT-2, while the LCSC points to a similar but not the same one\nFor AT103-2 these values equate to T_low = 0°C and T_high = 60°C\n\nfind viable SMD thermistor"
 		(exclude_from_sim no)
 		(at 205.74 125.73 0)
-		(size 41.91 13.97)
+		(size 41.91 17.78)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -2543,6 +2563,12 @@
 		(uuid "10480698-a532-44eb-a6bc-0e701e0ff4e4")
 	)
 	(junction
+		(at 208.28 72.39)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1235f1bd-14e9-4a8f-a123-497afb6a3d47")
+	)
+	(junction
 		(at 111.76 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2589,6 +2615,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3bd9d7de-8b3b-4d0c-9b5f-438018e8864e")
+	)
+	(junction
+		(at 208.28 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "49261215-049d-4465-9488-596716d94457")
 	)
 	(junction
 		(at 168.91 41.91)
@@ -2942,6 +2974,16 @@
 	)
 	(wire
 		(pts
+			(xy 208.28 72.39) (xy 208.28 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d61d617-d3ea-4c76-807a-d2ac77b95b5e")
+	)
+	(wire
+		(pts
 			(xy 204.47 100.33) (xy 201.93 100.33)
 		)
 		(stroke
@@ -3002,7 +3044,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 88.9) (xy 209.55 88.9)
+			(xy 166.37 88.9) (xy 208.28 88.9)
 		)
 		(stroke
 			(width 0)
@@ -3112,6 +3154,16 @@
 	)
 	(wire
 		(pts
+			(xy 208.28 88.9) (xy 209.55 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "429f2258-67f5-431a-a6a9-3e143bcbe204")
+	)
+	(wire
+		(pts
 			(xy 158.75 49.53) (xy 168.91 49.53)
 		)
 		(stroke
@@ -3139,6 +3191,16 @@
 			(type default)
 		)
 		(uuid "4da8669a-5c4e-4d2c-85c2-322abbd435b7")
+	)
+	(wire
+		(pts
+			(xy 208.28 72.39) (xy 199.39 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4dae2607-91a2-42ee-bc3e-60cfaed43e53")
 	)
 	(wire
 		(pts
@@ -3752,6 +3814,16 @@
 	)
 	(wire
 		(pts
+			(xy 208.28 85.09) (xy 208.28 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bbdded79-5444-47f9-959b-ba27a79a70d0")
+	)
+	(wire
+		(pts
 			(xy 168.91 41.91) (xy 175.26 41.91)
 		)
 		(stroke
@@ -3942,7 +4014,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 72.39) (xy 199.39 72.39)
+			(xy 210.82 72.39) (xy 208.28 72.39)
 		)
 		(stroke
 			(width 0)
@@ -4293,7 +4365,7 @@
 	)
 	(hierarchical_label "SYS+"
 		(shape input)
-		(at 208.28 72.39 0)
+		(at 210.82 72.39 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6416,6 +6488,76 @@
 			(project ""
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
 					(reference "Q1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 208.28 81.28 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7dbda02d-bc6b-443c-bb59-1ea4444a8e49")
+		(property "Reference" "D3"
+			(at 210.82 79.6924 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "D_Schottky"
+			(at 210.82 82.2324 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 208.28 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Schottky diode"
+			(at 208.28 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b39e8458-cb32-41ee-9c93-58ae3c2895d8")
+		)
+		(pin "2"
+			(uuid "46323c06-53f4-4463-a624-f79b42797f50")
+		)
+		(instances
+			(project ""
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
+					(reference "D3")
 					(unit 1)
 				)
 			)
