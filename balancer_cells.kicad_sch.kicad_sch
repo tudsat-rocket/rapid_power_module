@@ -2096,6 +2096,17 @@
 		)
 		(uuid "a34e2c9b-1ef9-4864-b8b6-7f6cfc96c86d")
 	)
+	(text "todo:\n-is bat+ input or output?\n-is rst_shut input or output?\n-is ts2 input or output?\n-is bal_alert input or output?"
+		(exclude_from_sim no)
+		(at 162.306 28.194 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "eaf6d2a4-20af-4c69-93c3-d8ece6dcaf53")
+	)
 	(junction
 		(at 115.57 77.47)
 		(diameter 0)
@@ -3733,7 +3744,7 @@
 		)
 	)
 	(hierarchical_label "I2C_SCL"
-		(shape input)
+		(shape bidirectional)
 		(at 171.45 125.73 0)
 		(effects
 			(font
@@ -3777,7 +3788,7 @@
 		(uuid "b2e7fb06-af0a-4a6b-9a35-4e6d6af851de")
 	)
 	(hierarchical_label "I2C_SDA"
-		(shape input)
+		(shape bidirectional)
 		(at 171.45 123.19 0)
 		(effects
 			(font

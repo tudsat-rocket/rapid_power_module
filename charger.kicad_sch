@@ -2239,6 +2239,17 @@
 		)
 		(uuid "3439db6d-4ae3-42ab-8408-daad9aecc188")
 	)
+	(text "todo: \n-is INT input or output?\n-is sys+ input or output?\n-is bat+ input or output?"
+		(exclude_from_sim no)
+		(at 201.168 31.242 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3c7388f2-77a4-4a61-bcaa-3fdf4f7bcee9")
+	)
 	(text "todo: find viable diode"
 		(exclude_from_sim no)
 		(at 226.314 80.01 0)
@@ -4272,7 +4283,7 @@
 		(uuid "c7d8464d-1b44-4505-a7b0-a0fb4b1a558b")
 	)
 	(hierarchical_label "I2C_SDA"
-		(shape input)
+		(shape bidirectional)
 		(at 109.22 100.33 180)
 		(effects
 			(font
@@ -4283,7 +4294,7 @@
 		(uuid "fa6830ac-cd9b-4cfb-b0da-8f6344ce13b9")
 	)
 	(hierarchical_label "I2C_SCL"
-		(shape input)
+		(shape bidirectional)
 		(at 109.22 97.79 180)
 		(effects
 			(font
