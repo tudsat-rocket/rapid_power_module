@@ -753,11 +753,19 @@
     ],
     [
       "bfae272a-4bf5-4960-b276-b4c1a7fb3062",
-      "Balancer and Cells"
+      "Balancer and Cells Legacy"
     ],
     [
       "29a18ff5-2f4c-44c0-998a-9c2a7b324824",
       "Charger"
+    ],
+    [
+      "f9ba2c7f-e63c-4860-86c8-ae922535c6b3",
+      "SA Balancer"
+    ],
+    [
+      "a2db06c0-fcb3-479f-839e-bb4fa8b9e6ba",
+      "NSA Balancer"
     ]
   ],
   "text_variables": {}

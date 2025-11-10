@@ -9,4 +9,6 @@
   (lib (name "bq25798")(type "KiCad")(uri "${KIPRJMOD}/common/bq25798.kicad_sym")(options "")(descr ""))
   (lib (name "power_labels")(type "KiCad")(uri "${KIPRJMOD}/common/power_labels.kicad_sym")(options "")(descr ""))
   (lib (name "rapid_power_module")(type "KiCad")(uri "${KIPRJMOD}/common/rapid_power_module.kicad_sym")(options "")(descr ""))
+  (lib (name "bq76905")(type "KiCad")(uri "${KIPRJMOD}/common/BQ76905.kicad_sym")(options "")(descr ""))
+  (lib (name "bq77915")(type "KiCad")(uri "${KIPRJMOD}/common/BQ77915.kicad_sym")(options "")(descr ""))
 )

@@ -2330,10 +2330,10 @@
 		)
 		(uuid "6724ade1-87c2-4a8a-8428-16c6491f1976")
 	)
-	(text_box "@ToDO: Calculate correct resistor values. These are for the 103AT-2, while the LCSC points to a similar but not the same one\nFor AT103-2 these values equate to T_low = 0°C and T_high = 60°C\n\nfind viable SMD thermistor"
+	(text_box "@ToDO: Calculate correct resistor values. These are for the 103AT-2, while the LCSC points to a similar but not the same one\nFor AT103-2 these values equate to T_low = 0°C and T_high = 60°C\n\nfind viable SMD thermistor: Done; C2889048"
 		(exclude_from_sim no)
 		(at 205.74 125.73 0)
-		(size 41.91 17.78)
+		(size 46.99 17.78)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -2533,16 +2533,16 @@
 		(uuid "62ace5b8-69ce-4cf7-ac7f-cbe6666b337f")
 	)
 	(junction
+		(at 66.04 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7f2652a8-805a-4171-9130-646a53107897")
+	)
+	(junction
 		(at 168.91 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "88ce9094-bd79-4db4-9009-293dc0443c81")
-	)
-	(junction
-		(at 66.04 41.91)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8ad33985-def0-4e75-be1f-70f342a1c6ac")
 	)
 	(junction
 		(at 111.76 44.45)
@@ -2840,16 +2840,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 39.37) (xy 66.04 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ab168d4-04bb-43cf-8ac2-3798646bf651")
-	)
-	(wire
-		(pts
 			(xy 73.66 80.01) (xy 73.66 81.28)
 		)
 		(stroke
@@ -3027,6 +3017,16 @@
 			(type default)
 		)
 		(uuid "398e26e9-4468-47de-969f-423082e20d2f")
+	)
+	(wire
+		(pts
+			(xy 66.04 26.67) (xy 66.04 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a06d284-6f6d-46e1-ac53-d99814d25889")
 	)
 	(wire
 		(pts
@@ -3457,6 +3457,16 @@
 			(type default)
 		)
 		(uuid "815ae0dd-a29e-430b-9a62-16173c57b248")
+	)
+	(wire
+		(pts
+			(xy 66.04 38.1) (xy 66.04 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "824a88f9-4425-449e-b4a9-8a41aedf801e")
 	)
 	(wire
 		(pts
@@ -4240,7 +4250,7 @@
 	)
 	(hierarchical_label "V_in"
 		(shape input)
-		(at 66.04 39.37 90)
+		(at 66.04 26.67 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5596,7 +5606,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P2.54mm_Vertical"
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
 			(at 190.5 135.89 0)
 			(effects
 				(font
@@ -5623,7 +5633,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C3000142"
+		(property "LCSC" "C2889048"
 			(at 191.77 135.89 90)
 			(effects
 				(font
@@ -7138,6 +7148,83 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
 					(reference "R32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 66.04 34.29 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9d56f19c-5398-41c5-86e6-a6a4790668a1")
+		(property "Reference" "D12"
+			(at 68.834 34.544 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 69.85 34.6075 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 66.04 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C22452.pdf"
+			(at 66.04 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Schottky diode"
+			(at 66.04 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22452"
+			(at 66.04 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "85d3450a-ba5a-45f4-b172-ef1358e7aad8")
+		)
+		(pin "1"
+			(uuid "8ab9ea48-b4ae-42cd-a216-5c98243c2b9d")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
+					(reference "D12")
 					(unit 1)
 				)
 			)
