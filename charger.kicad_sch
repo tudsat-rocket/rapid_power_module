@@ -2239,26 +2239,25 @@
 		)
 		(uuid "3439db6d-4ae3-42ab-8408-daad9aecc188")
 	)
-	(text "todo: \n-is INT input or output?\n-is sys+ input or output?\n-is bat+ input or output?"
+	(text "todo: \nmaybe put d3 behind r5"
 		(exclude_from_sim no)
-		(at 201.168 31.242 0)
+		(at 227.584 95.758 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
 		)
-		(uuid "3c7388f2-77a4-4a61-bcaa-3fdf4f7bcee9")
+		(uuid "37975361-55bb-43cd-9628-58da6ad21a7d")
 	)
-	(text "todo: find viable diode"
+	(text "This would circumvent the \ncharger MOSFET which guarantees\nVoltage on SYS+ as long as the balancer \ndoes not cut off the cells"
 		(exclude_from_sim no)
-		(at 226.314 80.01 0)
+		(at 229.87 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
-		(uuid "60ddbab0-8a35-4ee5-a4e8-b9475a23af05")
+		(uuid "602746c6-53e6-438d-96c7-4d08d7c1f952")
 	)
 	(text "todo: how to enable ship mode?"
 		(exclude_from_sim no)
@@ -2310,10 +2309,10 @@
 		)
 		(uuid "64c026c8-656e-467e-ad50-96a140254373")
 	)
-	(text_box "INT requires external pull up to 3.3V Rail"
+	(text_box "INT requires external pull up to 3.3V Rail; done"
 		(exclude_from_sim no)
 		(at 175.26 109.22 0)
-		(size 44.45 3.81)
+		(size 49.53 3.81)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -2449,12 +2448,6 @@
 		(uuid "10480698-a532-44eb-a6bc-0e701e0ff4e4")
 	)
 	(junction
-		(at 208.28 72.39)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1235f1bd-14e9-4a8f-a123-497afb6a3d47")
-	)
-	(junction
 		(at 111.76 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2501,12 +2494,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3bd9d7de-8b3b-4d0c-9b5f-438018e8864e")
-	)
-	(junction
-		(at 208.28 88.9)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "49261215-049d-4465-9488-596716d94457")
 	)
 	(junction
 		(at 168.91 41.91)
@@ -2567,6 +2554,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9cfe6a15-a166-49c0-b6a2-813c5422be84")
+	)
+	(junction
+		(at 207.01 72.39)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a20240cb-db92-4a3e-a0e9-827b6350e1e6")
 	)
 	(junction
 		(at 199.39 72.39)
@@ -2850,16 +2843,6 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 72.39) (xy 208.28 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1d61d617-d3ea-4c76-807a-d2ac77b95b5e")
-	)
-	(wire
-		(pts
 			(xy 204.47 100.33) (xy 201.93 100.33)
 		)
 		(stroke
@@ -2920,16 +2903,6 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 88.9) (xy 208.28 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "289c3349-044c-4c39-b7fa-975387c3f917")
-	)
-	(wire
-		(pts
 			(xy 66.04 41.91) (xy 66.04 45.72)
 		)
 		(stroke
@@ -2980,6 +2953,16 @@
 	)
 	(wire
 		(pts
+			(xy 191.77 86.36) (xy 191.77 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "357d5884-c0ec-4682-9d35-fa60982688dc")
+	)
+	(wire
+		(pts
 			(xy 66.04 50.8) (xy 66.04 53.34)
 		)
 		(stroke
@@ -3020,16 +3003,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 26.67) (xy 66.04 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a06d284-6f6d-46e1-ac53-d99814d25889")
-	)
-	(wire
-		(pts
 			(xy 194.31 78.74) (xy 194.31 81.28)
 		)
 		(stroke
@@ -3040,7 +3013,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 88.9) (xy 209.55 88.9)
+			(xy 166.37 88.9) (xy 209.55 88.9)
 		)
 		(stroke
 			(width 0)
@@ -3080,7 +3053,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 72.39) (xy 199.39 72.39)
+			(xy 199.39 72.39) (xy 207.01 72.39)
 		)
 		(stroke
 			(width 0)
@@ -3370,6 +3343,16 @@
 	)
 	(wire
 		(pts
+			(xy 207.01 72.39) (xy 207.01 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77cf1a7b-2734-440a-ba2e-fab2c729636f")
+	)
+	(wire
+		(pts
 			(xy 88.9 81.28) (xy 83.82 81.28)
 		)
 		(stroke
@@ -3460,7 +3443,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 38.1) (xy 66.04 41.91)
+			(xy 66.04 26.67) (xy 66.04 41.91)
 		)
 		(stroke
 			(width 0)
@@ -3550,6 +3533,16 @@
 	)
 	(wire
 		(pts
+			(xy 207.01 72.39) (xy 210.82 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "91605700-5d62-4a8b-91a5-bac488cdbdf0")
+	)
+	(wire
+		(pts
 			(xy 184.15 73.66) (xy 184.15 72.39)
 		)
 		(stroke
@@ -3597,6 +3590,16 @@
 			(type default)
 		)
 		(uuid "a2723e9f-0147-4b40-8dd6-9c9474444150")
+	)
+	(wire
+		(pts
+			(xy 191.77 86.36) (xy 207.01 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2d41ae5-0278-48d8-a5d5-94b76fb9821e")
 	)
 	(wire
 		(pts
@@ -3707,16 +3710,6 @@
 			(type default)
 		)
 		(uuid "b9f56dc7-d039-4c14-828a-67111c0de9da")
-	)
-	(wire
-		(pts
-			(xy 208.28 85.09) (xy 208.28 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bbdded79-5444-47f9-959b-ba27a79a70d0")
 	)
 	(wire
 		(pts
@@ -3907,16 +3900,6 @@
 			(type default)
 		)
 		(uuid "dab20bd4-b401-49e3-9881-439cd05e6637")
-	)
-	(wire
-		(pts
-			(xy 210.82 72.39) (xy 208.28 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dbfbfe7c-3669-4e26-a4bb-a7a0e0d347dd")
 	)
 	(wire
 		(pts
@@ -4238,7 +4221,7 @@
 		(uuid "3e43d35c-05b3-4469-a511-12fc0fb2539b")
 	)
 	(hierarchical_label "INT"
-		(shape input)
+		(shape output)
 		(at 165.1 110.49 0)
 		(effects
 			(font
@@ -4271,7 +4254,7 @@
 		(uuid "a89a727d-bdb8-4988-8f64-5b069be683d8")
 	)
 	(hierarchical_label "SYS+"
-		(shape input)
+		(shape output)
 		(at 210.82 72.39 0)
 		(effects
 			(font
@@ -6401,76 +6384,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 208.28 81.28 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7dbda02d-bc6b-443c-bb59-1ea4444a8e49")
-		(property "Reference" "D3"
-			(at 210.82 79.6924 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "D_Schottky"
-			(at 210.82 82.2324 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 208.28 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 208.28 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Schottky diode"
-			(at 208.28 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b39e8458-cb32-41ee-9c93-58ae3c2895d8")
-		)
-		(pin "2"
-			(uuid "46323c06-53f4-4463-a624-f79b42797f50")
-		)
-		(instances
-			(project ""
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
-					(reference "D3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 92.71 57.15 0)
 		(unit 1)
@@ -7154,83 +7067,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D_Schottky")
-		(at 66.04 34.29 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "9d56f19c-5398-41c5-86e6-a6a4790668a1")
-		(property "Reference" "D12"
-			(at 68.834 34.544 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "~"
-			(at 69.85 34.6075 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 66.04 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C22452.pdf"
-			(at 66.04 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Schottky diode"
-			(at 66.04 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C22452"
-			(at 66.04 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "85d3450a-ba5a-45f4-b172-ef1358e7aad8")
-		)
-		(pin "1"
-			(uuid "8ab9ea48-b4ae-42cd-a216-5c98243c2b9d")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
-					(reference "D12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND1")
 		(at 201.93 101.6 0)
 		(unit 1)
@@ -7290,6 +7126,83 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
 					(reference "#PWR011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 207.01 82.55 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a9a01ebd-3dd0-4a58-9d48-19dfe9d5060d")
+		(property "Reference" "D3"
+			(at 204.216 82.296 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 203.2 82.2325 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMA"
+			(at 207.01 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C22452.pdf"
+			(at 207.01 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "High Current Diode"
+			(at 207.01 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C3011043"
+			(at 207.01 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "39cffd99-5d21-4961-b559-52e02d850be9")
+		)
+		(pin "1"
+			(uuid "15c770e9-3d29-40d5-838a-623793526811")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
+					(reference "D3")
 					(unit 1)
 				)
 			)
