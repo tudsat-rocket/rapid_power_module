@@ -2,6 +2,7 @@
 *-cache.lib
 *.net
 *.gbr
+*.bak
 *.gbrjob
 *.drl
 *.zip
