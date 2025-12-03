@@ -5410,6 +5410,16 @@
 		)
 		(uuid "01d069fb-2fc8-4b1d-85ac-365b21753dc3")
 	)
+	(text "INFO: those pins support CAN bootloader"
+		(exclude_from_sim no)
+		(at 382.27 103.124 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "025c2666-337a-47b6-82fe-2f7397a093df")
+	)
 	(text "controller"
 		(exclude_from_sim no)
 		(at 220.98 16.764 0)
@@ -5470,16 +5480,6 @@
 		)
 		(uuid "5a66e4ca-585b-4d6f-b8b4-a3f14d66d006")
 	)
-	(text "todo: add can bootloader"
-		(exclude_from_sim no)
-		(at 44.45 130.048 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "5e902f93-1f0c-46ff-ac6b-6ae08811fd02")
-	)
 	(text "programming adapters"
 		(exclude_from_sim no)
 		(at 14.478 16.764 0)
@@ -5501,16 +5501,6 @@
 			(justify left)
 		)
 		(uuid "81004aa8-b7d0-4c07-bfcf-c509715e297f")
-	)
-	(text "todo: add can bootloader (AN3154)"
-		(exclude_from_sim no)
-		(at 381 110.998 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "81d59ec1-0e53-4a10-85e0-0d6ac645a0a1")
 	)
 	(text "active low (power good)"
 		(exclude_from_sim no)
@@ -5952,10 +5942,6 @@
 	(no_connect
 		(at 314.96 66.04)
 		(uuid "abcade9a-7598-4adc-81f0-a8b964b1d922")
-	)
-	(no_connect
-		(at 350.52 93.98)
-		(uuid "b1767c3b-2f46-42a6-acef-3540fafc535b")
 	)
 	(no_connect
 		(at 350.52 60.96)
@@ -7943,7 +7929,7 @@
 	)
 	(wire
 		(pts
-			(xy 353.06 109.22) (xy 350.52 109.22)
+			(xy 351.79 109.22) (xy 350.52 109.22)
 		)
 		(stroke
 			(width 0)
@@ -7960,6 +7946,16 @@
 			(type default)
 		)
 		(uuid "f69ad03e-31a6-4bb8-9a66-e49e6bdfdd75")
+	)
+	(wire
+		(pts
+			(xy 350.52 93.98) (xy 351.79 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7ede35c-6679-4d2a-95b5-3cd0c558b938")
 	)
 	(wire
 		(pts
@@ -8001,9 +7997,9 @@
 		)
 		(uuid "fc818771-8387-453e-82fb-13fe989814d3")
 	)
-	(global_label "CAN_RX"
+	(global_label "CHRG_IND_LED_4"
 		(shape input)
-		(at 353.06 109.22 0)
+		(at 351.79 93.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8011,9 +8007,9 @@
 			)
 			(justify left)
 		)
-		(uuid "12eea672-1311-407a-a27b-d7ae80365068")
+		(uuid "04fcea91-48cd-45ba-ac35-d086a086a4f9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 363.1814 109.22 0)
+			(at 370.6804 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8221,6 +8217,28 @@
 			)
 		)
 	)
+	(global_label "CAN_RX"
+		(shape input)
+		(at 351.79 101.6 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5a9316e8-711b-4f0c-8425-faf0fc6ae8f0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 361.9114 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "CHRG_IND_LED_3"
 		(shape input)
 		(at 326.39 220.98 0)
@@ -8234,28 +8252,6 @@
 		(uuid "5ec05dd4-a220-40aa-94f8-083a9539c312")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 345.2804 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "CAN_TX"
-		(shape input)
-		(at 353.06 111.76 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "60167970-2c94-4dcb-a22b-5953f637fddb")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 362.879 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8553,7 +8549,7 @@
 	)
 	(global_label "I2C1_SCL"
 		(shape input)
-		(at 351.79 104.14 0)
+		(at 351.79 109.22 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8561,9 +8557,9 @@
 			)
 			(justify left)
 		)
-		(uuid "cbf73858-1acb-4689-bdf1-8d9f31c2963c")
+		(uuid "c3aae00f-742c-4c9f-bdb8-20ca1e0ecff9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 363.5442 104.14 0)
+			(at 363.5442 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8586,28 +8582,6 @@
 		(uuid "d46eb4c2-1655-4dab-b7db-5905d61cf45a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 363.6047 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "CHRG_IND_LED_4"
-		(shape input)
-		(at 351.79 101.6 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "d7070e13-28f6-409f-9220-0d868534efc4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 370.6804 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8811,6 +8785,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "CAN_TX"
+		(shape input)
+		(at 351.79 104.14 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f9370f18-63f7-4d39-a9d2-6888a29261c5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 361.609 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -9040,6 +9036,73 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "D7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "GND_1")
+		(lib_id "power:GND")
+		(at 76.2 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "038da3fc-a01b-4375-8062-63497c5e6259")
+		(property "Reference" "#PWR073"
+			(at 76.2 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 76.2 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 76.2 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 76.2 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a1a38693-8ec3-423c-934f-ae4640823905")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "#PWR073")
 					(unit 1)
 				)
 			)
@@ -14459,6 +14522,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 76.2 59.69 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a8734dbb-badf-4411-8234-da5c0963197f")
+		(property "Reference" "C39"
+			(at 80.01 58.4199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 80.01 60.9599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 77.1652 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 76.2 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 76.2 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ecb3118b-f059-4c9d-8fdb-4cdead3ef2cf")
+		)
+		(pin "2"
+			(uuid "4b784dbf-cfa2-4602-bd3a-7b251bae524a")
+		)
+		(instances
+			(project ""
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "C39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_name "GND_1")
 		(lib_id "power:GND")
 		(at 372.11 231.14 0)
@@ -14852,6 +14985,71 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "D17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 76.2 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b49aa50e-b492-44c1-b329-0f4ba14bc02e")
+		(property "Reference" "#PWR069"
+			(at 76.2 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 75.946 52.324 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 76.2 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 76.2 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "43b56f43-2c11-48f8-9c94-8e8344a94908")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "#PWR069")
 					(unit 1)
 				)
 			)
