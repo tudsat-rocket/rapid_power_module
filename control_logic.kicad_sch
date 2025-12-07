@@ -5430,16 +5430,6 @@
 		)
 		(uuid "03f6004f-10af-446f-be21-207f0668f0a9")
 	)
-	(text "mv 16 -> 2"
-		(exclude_from_sim no)
-		(at 359.41 48.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "16b5c53d-d928-4f53-adfd-8fb654595b53")
-	)
 	(text "\"connect INT, STAT1, STAT2 and PG \nto a logic rail via 10k resistor\" \n-> (bq25750 man. page 5)"
 		(exclude_from_sim no)
 		(at 262.89 66.802 0)
@@ -5491,7 +5481,7 @@
 		)
 		(uuid "7e6aeac7-6495-45c7-9513-522049f5f0dc")
 	)
-	(text "todo: \n-ensure 5v\n-why are we connecting 3v3 and not nrst?\n-add a second i2c-swd-header \n(one for charger)\n-shouldnt we also protect BOOT?"
+	(text "todo: \n-ensure 5v\n-why are we connecting 3v3 and not nrst?\n-shouldnt we also protect BOOT?"
 		(exclude_from_sim no)
 		(at 64.008 80.264 0)
 		(effects
@@ -5525,16 +5515,6 @@
 			)
 		)
 		(uuid "95686d42-4b48-4990-88a8-11d809c368dc")
-	)
-	(text "int from 25 to 51\nPG from 39 to 36\nREGIN und BREG verbunden mit STM32"
-		(exclude_from_sim no)
-		(at 296.418 110.998 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "9f9cf89f-7568-49ff-8f65-c325466b9974")
 	)
 	(text "charging done"
 		(exclude_from_sim no)
@@ -5896,6 +5876,10 @@
 		(uuid "47482766-c6db-4ab2-9417-95112b08ed00")
 	)
 	(no_connect
+		(at 350.52 53.34)
+		(uuid "53ca1df8-65dd-4a20-8f6b-35f45109b604")
+	)
+	(no_connect
 		(at 350.52 73.66)
 		(uuid "696ab92a-9d0b-401f-a14d-63e83a6b436b")
 	)
@@ -5944,6 +5928,10 @@
 		(uuid "abcade9a-7598-4adc-81f0-a8b964b1d922")
 	)
 	(no_connect
+		(at 314.96 76.2)
+		(uuid "b54a38f7-c758-4284-9406-234b45f9e4b2")
+	)
+	(no_connect
 		(at 350.52 60.96)
 		(uuid "bb1f9afe-7333-495a-8e24-2dca3a7539a9")
 	)
@@ -5966,6 +5954,10 @@
 	(no_connect
 		(at 350.52 66.04)
 		(uuid "e55f809d-a8ef-408d-98b2-8a325412da2c")
+	)
+	(no_connect
+		(at 314.96 99.06)
+		(uuid "efe752aa-b5d1-4e4a-aeac-d284efe8d434")
 	)
 	(wire
 		(pts
@@ -6309,16 +6301,6 @@
 	)
 	(wire
 		(pts
-			(xy 350.52 114.3) (xy 353.06 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2fcd9b3c-3e64-4bc1-9032-c6f30ec7a5b9")
-	)
-	(wire
-		(pts
 			(xy 287.02 35.56) (xy 298.45 35.56)
 		)
 		(stroke
@@ -6536,16 +6518,6 @@
 			(type default)
 		)
 		(uuid "4e54a781-cf5d-4781-91d0-bc162786218f")
-	)
-	(wire
-		(pts
-			(xy 350.52 116.84) (xy 353.06 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "51fe0e14-fc0a-4bfc-b922-97927212d16f")
 	)
 	(wire
 		(pts
@@ -6826,16 +6798,6 @@
 			(type default)
 		)
 		(uuid "6f82a16c-279b-4d77-ae36-a31891234cfc")
-	)
-	(wire
-		(pts
-			(xy 353.06 53.34) (xy 350.52 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6ff97973-d295-4794-a73b-d05c1881fe32")
 	)
 	(wire
 		(pts
@@ -7149,16 +7111,6 @@
 	)
 	(wire
 		(pts
-			(xy 313.69 99.06) (xy 314.96 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "99afc59f-48e0-4b94-be8c-e8cc7d2804cf")
-	)
-	(wire
-		(pts
 			(xy 358.14 25.4) (xy 346.71 25.4)
 		)
 		(stroke
@@ -7296,16 +7248,6 @@
 			(type default)
 		)
 		(uuid "a9c844e4-ff54-4036-aa08-e4c1bfd0a458")
-	)
-	(wire
-		(pts
-			(xy 353.06 111.76) (xy 350.52 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad7d1a9c-e4eb-401b-87d2-d77a0014c484")
 	)
 	(wire
 		(pts
@@ -8811,17 +8753,6 @@
 			)
 		)
 	)
-	(hierarchical_label "I2C2_SCL"
-		(shape bidirectional)
-		(at 353.06 114.3 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0dca0a4f-6e35-49a9-b6b3-0eb6b4ba611a")
-	)
 	(hierarchical_label "CAN+"
 		(shape input)
 		(at 54.61 142.24 0)
@@ -8877,17 +8808,6 @@
 		)
 		(uuid "840e59ce-75e6-47f2-a4ce-544f3142015d")
 	)
-	(hierarchical_label "RST_SHUT"
-		(shape output)
-		(at 313.69 99.06 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "8ca2c38b-d044-4a2a-bcf3-aeff5ab65b56")
-	)
 	(hierarchical_label "main_voltage"
 		(shape input)
 		(at 36.83 186.69 180)
@@ -8910,28 +8830,6 @@
 		)
 		(uuid "a2025783-971f-46fa-b971-4d1695564c60")
 	)
-	(hierarchical_label "I2C2_SDA"
-		(shape bidirectional)
-		(at 353.06 116.84 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "b78bfc86-bfa4-40e2-bd25-752ddefb27b0")
-	)
-	(hierarchical_label "BAL_ALERT"
-		(shape input)
-		(at 314.96 76.2 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "bcc3b61f-66bd-4a80-9410-b19a96f16bc6")
-	)
 	(hierarchical_label "CE_N"
 		(shape output)
 		(at 313.69 88.9 180)
@@ -8953,17 +8851,6 @@
 			(justify left)
 		)
 		(uuid "eb4143b5-a3a8-49d4-b4aa-6fda22217289")
-	)
-	(hierarchical_label "TS2"
-		(shape input)
-		(at 353.06 53.34 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "fac8ee62-130c-40b4-a3e0-661e819d1cb3")
 	)
 	(symbol
 		(lib_id "Device:LED_Small")
