@@ -5366,7 +5366,7 @@
 	)
 	(rectangle
 		(start 13.97 13.97)
-		(end 107.95 123.19)
+		(end 90.17 123.19)
 		(stroke
 			(width 0)
 			(type default)
@@ -5480,17 +5480,6 @@
 			(justify left)
 		)
 		(uuid "7e6aeac7-6495-45c7-9513-522049f5f0dc")
-	)
-	(text "todo: \n-ensure 5v\n-why are we connecting 3v3 and not nrst?\n-shouldnt we also protect BOOT?"
-		(exclude_from_sim no)
-		(at 64.008 80.264 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "81004aa8-b7d0-4c07-bfcf-c509715e297f")
 	)
 	(text "active low (power good)"
 		(exclude_from_sim no)

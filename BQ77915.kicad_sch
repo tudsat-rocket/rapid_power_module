@@ -1777,6 +1777,18 @@
 		)
 	)
 	(rectangle
+		(start 182.626 145.288)
+		(end 267.716 164.338)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 86cd6ac1-20fd-40cd-9d4e-dcd69e3d03cd)
+	)
+	(rectangle
 		(start 185.42 86.36)
 		(end 274.32 121.92)
 		(stroke
@@ -1824,6 +1836,17 @@
 		)
 		(uuid "610b3fef-2d07-4f59-ba48-43f1af90205a")
 	)
+	(text "Low Side Switching:\nTherefore if OV is detected, charging gets disabled by deactivating Q5.\nNote that current can still flow into the negative pole of the batteries \nvia D6 (i.e. discharge is still allowed).\nIf UV is detected, discharge gets disabled by deactivating Q6.\nNote that current can still flow out of the negative pole of the batteries \nvia D13 (i.e. charging is still allowed).\nTo circumvent UVP (e.g. for the launch) we can short Q6  through \nUVP_OVERRIDE- and UVP_OVERRIDE+ (see arming connectors in the main schematic)."
+		(exclude_from_sim no)
+		(at 182.88 154.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9cda72f6-80b1-461f-8e68-38dd5640c678")
+	)
 	(text "Regarding the thermistor:\nThe tipping-points of our balancer are - BY DESIGN - 45°C for OTC and 65°C for OTD\nas well as 0°C UTC and -10°C UTD (the latter 2 are not very relevant for us).\nIn order to trigger those, for V_TS (i.e. the voltage across the thermistor) must hold:\nV_TS = 0.2056*V_TB (for OTD) and V_TS = 0.3294*V_TB (for OTC).\nThen R_TS can be calculated as R_TS = R_TS_PU*V_TS/(V_TB-V_TS) with fixed R_TS.\nFor the upper mentioned voltage ratios we get R_TS_PU = 3.864*R_TS (for OTD) \nand R_TS_PU = 2.036 * R_TS (for OTC).\nFor fixed R_TS_PU = 10k we can conclude that the thermistor must satisfy:"
 		(exclude_from_sim no)
 		(at 186.182 96.266 0)
@@ -1835,9 +1858,9 @@
 		)
 		(uuid "c57cedb9-994c-4a1f-873f-3a1009fc88f5")
 	)
-	(text "todo: \n-do we want hibernate mode? (i.e. no balancing or fault detection and low power consumption -> good for shipping mode)\n-this is only the schematic of the \"typical application\" (see 10.2 page 39). maybe we want to adjust something (take a look at 10. page 33)\n-all grounds in tis schematic should be a different GND level (PACK_GND) that is NOT connected to the rest of the PCB's GNDs"
+	(text "todo: \n-do we want hibernate mode? (i.e. no balancing or fault detection and low power consumption -> good for shipping mode)\n-all grounds in tis schematic should be a different GND level (PACK_GND) that is NOT connected to the rest of the PCB's GNDs"
 		(exclude_from_sim no)
-		(at 14.732 175.006 0)
+		(at 14.732 193.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1953,12 +1976,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7b4d86e0-67ad-466b-97b0-192f747d5171")
-	)
-	(junction
-		(at 107.95 66.04)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8330e8d5-70bc-4c4d-b9ed-3fa94a501885")
 	)
 	(junction
 		(at 48.26 96.52)
@@ -2092,7 +2109,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 142.24) (xy 156.21 151.13)
+			(xy 156.21 142.24) (xy 156.21 152.4)
 		)
 		(stroke
 			(width 0)
@@ -2152,7 +2169,7 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 151.13) (xy 156.21 151.13)
+			(xy 154.94 152.4) (xy 156.21 152.4)
 		)
 		(stroke
 			(width 0)
@@ -2362,7 +2379,7 @@
 	)
 	(wire
 		(pts
-			(xy 180.34 142.24) (xy 180.34 151.13)
+			(xy 180.34 142.24) (xy 180.34 152.4)
 		)
 		(stroke
 			(width 0)
@@ -2472,7 +2489,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 142.24) (xy 167.64 151.13)
+			(xy 167.64 142.24) (xy 167.64 152.4)
 		)
 		(stroke
 			(width 0)
@@ -2582,16 +2599,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 66.04) (xy 107.95 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "88049f30-9d75-4945-b287-014879324602")
-	)
-	(wire
-		(pts
 			(xy 140.97 142.24) (xy 146.05 142.24)
 		)
 		(stroke
@@ -2672,7 +2679,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 151.13) (xy 147.32 151.13)
+			(xy 146.05 152.4) (xy 147.32 152.4)
 		)
 		(stroke
 			(width 0)
@@ -2712,7 +2719,7 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 21.59) (xy 161.29 21.59)
+			(xy 48.26 21.59) (xy 207.01 21.59)
 		)
 		(stroke
 			(width 0)
@@ -2729,16 +2736,6 @@
 			(type default)
 		)
 		(uuid "a3e8d103-b822-4c20-9337-679f4e8ab4bb")
-	)
-	(wire
-		(pts
-			(xy 107.95 64.77) (xy 107.95 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a50ddae8-b2d3-4abf-8f93-a15a736de04c")
 	)
 	(wire
 		(pts
@@ -2782,7 +2779,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 151.13) (xy 180.34 151.13)
+			(xy 177.8 152.4) (xy 180.34 152.4)
 		)
 		(stroke
 			(width 0)
@@ -2792,7 +2789,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 151.13) (xy 170.18 151.13)
+			(xy 167.64 152.4) (xy 170.18 152.4)
 		)
 		(stroke
 			(width 0)
@@ -2982,16 +2979,6 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 66.04) (xy 107.95 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dbe265b8-2858-4a6c-9ad8-a22ad041fd94")
-	)
-	(wire
-		(pts
 			(xy 173.99 82.55) (xy 179.07 82.55)
 		)
 		(stroke
@@ -3052,7 +3039,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 142.24) (xy 146.05 151.13)
+			(xy 146.05 142.24) (xy 146.05 152.4)
 		)
 		(stroke
 			(width 0)
@@ -3481,7 +3468,7 @@
 	)
 	(hierarchical_label "BAT+"
 		(shape bidirectional)
-		(at 161.29 21.59 0)
+		(at 207.01 21.59 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3580,7 +3567,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 106.68 66.04 270)
+		(at 107.95 64.77 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3589,7 +3576,7 @@
 		(fields_autoplaced yes)
 		(uuid "03aa02a1-51d8-4d61-8804-9adb15c3c36b")
 		(property "Reference" "#PWR068"
-			(at 100.33 66.04 0)
+			(at 101.6 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3598,7 +3585,7 @@
 			)
 		)
 		(property "Value" "BAL_GND"
-			(at 102.87 66.0399 90)
+			(at 104.14 64.7699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3607,7 +3594,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 106.68 66.04 0)
+			(at 107.95 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3616,7 +3603,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 66.04 0)
+			(at 107.95 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3625,7 +3612,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 66.04 0)
+			(at 107.95 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3802,7 +3789,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C_IN"
+		(property "Value" "100n"
 			(at 67.31 101.5999 0)
 			(effects
 				(font
@@ -3872,7 +3859,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C_IN"
+		(property "Value" "100n"
 			(at 67.31 91.4399 0)
 			(effects
 				(font
@@ -3918,6 +3905,76 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
 					(reference "C31")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 106.68 129.54 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0c52e59d-db41-4cbd-8ed2-7052e112ad71")
+		(property "Reference" "C37"
+			(at 110.49 128.2699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 110.49 130.8099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 107.6452 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 106.68 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 106.68 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b700c5dc-d1ca-42ac-95bc-b1acd0a09225")
+		)
+		(pin "1"
+			(uuid "921f32cc-9e5e-4a25-9b8e-17678eaa46b5")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "C37")
 					(unit 1)
 				)
 			)
@@ -3997,7 +4054,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1aa0375e-e140-4ecf-bed8-45394735d5c3")
-		(property "Reference" "R25"
+		(property "Reference" "R_TS_PU"
 			(at 152.654 72.136 90)
 			(effects
 				(font
@@ -4005,7 +4062,7 @@
 				)
 			)
 		)
-		(property "Value" "R_TS_PU"
+		(property "Value" "10k"
 			(at 152.654 73.66 90)
 			(effects
 				(font
@@ -4049,7 +4106,7 @@
 		(instances
 			(project ""
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "R25")
+					(reference "R_TS_PU")
 					(unit 1)
 				)
 			)
@@ -4188,76 +4245,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 81.28 129.54 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2b7bc6fc-6bea-4b82-a1e3-60394aa5457d")
-		(property "Reference" "C36"
-			(at 78.74 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_S"
-			(at 78.74 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 80.3148 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 81.28 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 81.28 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "e42f94e3-86c5-4c1c-9dc6-21fc0f4d8446")
-		)
-		(pin "1"
-			(uuid "86111067-e294-42cd-a0ad-eeaec3fd1627")
-		)
-		(instances
-			(project ""
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C36")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 71.12 41.91 0)
 		(unit 1)
@@ -4341,7 +4328,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C_IN"
+		(property "Value" "100n"
 			(at 67.31 111.7599 0)
 			(effects
 				(font
@@ -4387,6 +4374,140 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
 					(reference "C33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 107.95 67.31 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3118d325-8542-4720-9aca-965782553488")
+		(property "Reference" "#PWR081"
+			(at 101.6 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "BAL_GND"
+			(at 104.14 67.3099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 107.95 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 107.95 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 107.95 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "74930c7a-cc36-4a3f-be80-03b0c0d93775")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "#PWR081")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 93.98 120.65 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3c40393d-48a7-4714-9b8f-3f836fd521ee")
+		(property "Reference" "C38"
+			(at 93.98 124.46 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100n"
+			(at 93.98 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 97.79 119.6848 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 93.98 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 93.98 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "5a71cd63-ed52-463f-b7e0-f35ceda2af1b")
+		)
+		(pin "1"
+			(uuid "c6c48d49-b70c-4d3e-bfcc-04b2ddaf2fa9")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "C38")
 					(unit 1)
 				)
 			)
@@ -4594,7 +4715,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 151.13 151.13 0)
+		(at 151.13 152.4 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4603,7 +4724,7 @@
 		(dnp no)
 		(uuid "4593efea-8016-4150-9238-982ae8450cc2")
 		(property "Reference" "D13"
-			(at 151.13 154.94 0)
+			(at 151.13 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4611,7 +4732,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 151.13 153.162 0)
+			(at 151.13 154.432 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4619,7 +4740,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 151.13 151.13 0)
+			(at 151.13 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4628,7 +4749,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 151.13 151.13 0)
+			(at 151.13 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4637,7 +4758,7 @@
 			)
 		)
 		(property "Description" "Diode"
-			(at 151.13 151.13 0)
+			(at 151.13 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4646,7 +4767,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 151.13 151.13 0)
+			(at 151.13 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4655,7 +4776,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 151.13 151.13 0)
+			(at 151.13 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4673,76 +4794,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
 					(reference "D13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 63.5 77.47 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "47245b6a-ae2b-4aac-9787-d27f6b057bd4")
-		(property "Reference" "C30"
-			(at 67.31 76.1999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_IN"
-			(at 67.31 78.7399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 64.4652 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 63.5 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 63.5 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "b1e2acd8-2d14-4855-9c10-b2d9a0fb4ec1")
-		)
-		(pin "1"
-			(uuid "0bb85f73-8556-4732-ab14-591167dec274")
-		)
-		(instances
-			(project ""
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C30")
 					(unit 1)
 				)
 			)
@@ -4841,7 +4892,7 @@
 				)
 			)
 		)
-		(property "Value" "C_VDD"
+		(property "Value" "1u"
 			(at 77.47 47.244 90)
 			(effects
 				(font
@@ -5046,7 +5097,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R_GS"
+		(property "Value" "1M"
 			(at 139.7 139.954 0)
 			(effects
 				(font
@@ -5108,7 +5159,7 @@
 		(dnp no)
 		(uuid "58064b48-ad7d-443b-9857-c8111b44f872")
 		(property "Reference" "Q5"
-			(at 173.99 146.05 90)
+			(at 174.244 145.288 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5116,7 +5167,7 @@
 			)
 		)
 		(property "Value" "NMOS"
-			(at 173.99 148.59 90)
+			(at 174.244 147.828 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5263,6 +5314,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 63.5 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5fb8f64e-8693-4643-ab4d-d64a7c4c85d8")
+		(property "Reference" "C30"
+			(at 67.31 76.1999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 67.31 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 64.4652 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 63.5 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 63.5 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "2e38d08f-1d0b-42b0-ae78-679c5e2d8bcc")
+		)
+		(pin "1"
+			(uuid "bee1cc23-6dcd-4247-928b-a9e50a9775d5")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "C30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 107.95 62.23 270)
 		(unit 1)
@@ -5339,7 +5460,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "68fabeb4-f9e0-41ce-99ac-c8d6262f2cbd")
-		(property "Reference" "R28"
+		(property "Reference" "R_LD"
 			(at 83.82 62.23 0)
 			(effects
 				(font
@@ -5348,7 +5469,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "R_LD"
+		(property "Value" "450k"
 			(at 83.82 59.69 0)
 			(effects
 				(font
@@ -5393,7 +5514,7 @@
 		(instances
 			(project ""
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "R28")
+					(reference "R_LD")
 					(unit 1)
 				)
 			)
@@ -5474,7 +5595,7 @@
 		(dnp no)
 		(uuid "6d5e2639-8026-4348-990b-9a42ca92d2de")
 		(property "Reference" "Q6"
-			(at 151.13 146.05 90)
+			(at 151.638 145.288 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5482,7 +5603,7 @@
 			)
 		)
 		(property "Value" "NMOS"
-			(at 151.13 148.59 90)
+			(at 151.638 147.828 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5647,7 +5768,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R_S"
+		(property "Value" "100"
 			(at 87.884 137.16 0)
 			(effects
 				(font
@@ -5707,7 +5828,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "76fa1653-2d12-452b-b92d-ad75bfb175a8")
-		(property "Reference" "R22"
+		(property "Reference" "R_HIB"
 			(at 89.408 76.708 0)
 			(effects
 				(font
@@ -5715,7 +5836,7 @@
 				)
 			)
 		)
-		(property "Value" "R_HIB"
+		(property "Value" "10k"
 			(at 89.408 78.486 0)
 			(effects
 				(font
@@ -5759,77 +5880,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "R22")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 93.98 120.65 90)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7b784fcd-ad87-4515-acb4-ef17bbc2ed98")
-		(property "Reference" "C38"
-			(at 95.758 125.73 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_S"
-			(at 95.758 123.952 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 97.79 121.6152 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 93.98 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 93.98 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "1a2b038e-44f7-492c-a896-2bead8d0f7a1")
-		)
-		(pin "1"
-			(uuid "1debbd2b-5fcd-4cce-8920-d0e19126d9c9")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C38")
+					(reference "R_HIB")
 					(unit 1)
 				)
 			)
@@ -5837,7 +5888,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 173.99 151.13 0)
+		(at 173.99 152.4 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5846,7 +5897,7 @@
 		(dnp no)
 		(uuid "7c6a4069-9f9d-47a1-8739-f4e0cd8c0729")
 		(property "Reference" "D6"
-			(at 173.736 155.194 0)
+			(at 173.736 156.464 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5854,7 +5905,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 173.736 153.162 0)
+			(at 173.736 154.432 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5862,7 +5913,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 173.99 151.13 0)
+			(at 173.99 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5871,7 +5922,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 173.99 151.13 0)
+			(at 173.99 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5880,7 +5931,7 @@
 			)
 		)
 		(property "Description" "Diode"
-			(at 173.99 151.13 0)
+			(at 173.99 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5889,7 +5940,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 173.99 151.13 0)
+			(at 173.99 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5898,7 +5949,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 173.99 151.13 0)
+			(at 173.99 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6004,7 +6055,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R_S"
+		(property "Value" "100"
 			(at 100.076 137.16 0)
 			(effects
 				(font
@@ -6073,7 +6124,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C_VDD"
+		(property "Value" "1u"
 			(at 73.66 37.592 0)
 			(effects
 				(font
@@ -6464,75 +6515,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 106.68 129.54 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c148fde0-bca1-43ef-84ca-211e509e6e08")
-		(property "Reference" "C37"
-			(at 109.22 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_S"
-			(at 109.22 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 107.6452 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 106.68 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 106.68 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "c4fca615-6519-427f-aefa-db32c3dc7f3e")
-		)
-		(pin "1"
-			(uuid "e928744f-beb3-478c-8e79-588ed1944941")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C37")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "bq77915:BQ7791500PWR")
 		(at 107.95 59.69 0)
 		(unit 1)
@@ -6668,6 +6650,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 81.28 129.54 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d11da308-076e-435d-9fa5-363b1d00299a")
+		(property "Reference" "C36"
+			(at 77.47 128.2699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 77.47 130.8099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 80.3148 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 81.28 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 81.28 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c09d3e25-3c9f-4495-8b50-417fa299f6cd")
+		)
+		(pin "1"
+			(uuid "9a75b386-0baa-47d5-8264-cd1987aa177f")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "C36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_name "Battery_Cell_1")
 		(lib_id "Device:Battery_Cell")
 		(at 48.26 91.44 0)
@@ -6755,7 +6807,7 @@
 				)
 			)
 		)
-		(property "Value" "R_VDD"
+		(property "Value" "1k"
 			(at 63.754 29.718 90)
 			(effects
 				(font
