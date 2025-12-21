@@ -2144,6 +2144,17 @@
 		)
 		(uuid "07b6cb23-22b0-4a23-97b0-e8474dbb9d83")
 	)
+	(text "todo:\n- add diode for HCO?\n- does this setup make sense? "
+		(exclude_from_sim no)
+		(at 51.054 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "30cec71d-05bf-4d55-b060-9d4479c58397")
+	)
 	(text "connectors"
 		(exclude_from_sim no)
 		(at 26.67 29.464 0)
