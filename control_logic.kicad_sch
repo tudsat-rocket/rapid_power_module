@@ -5430,16 +5430,6 @@
 		)
 		(uuid "03f6004f-10af-446f-be21-207f0668f0a9")
 	)
-	(text "\"connect INT, STAT1, STAT2 and PG \nto a logic rail via 10k resistor\" \n-> (bq25750 man. page 5)"
-		(exclude_from_sim no)
-		(at 262.89 66.802 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "33d290b7-55ca-4d44-8d40-63f747617067")
-	)
 	(text "Charge Indicator LEDs"
 		(exclude_from_sim no)
 		(at 328.93 200.406 0)
@@ -5480,42 +5470,6 @@
 			(justify left)
 		)
 		(uuid "7e6aeac7-6495-45c7-9513-522049f5f0dc")
-	)
-	(text "active low (power good)"
-		(exclude_from_sim no)
-		(at 257.556 86.868 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-		)
-		(uuid "93247d6a-2dcf-41b4-bf5a-c6320d423012")
-	)
-	(text "charge in progress"
-		(exclude_from_sim no)
-		(at 257.556 81.28 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-		)
-		(uuid "95686d42-4b48-4990-88a8-11d809c368dc")
-	)
-	(text "charging done"
-		(exclude_from_sim no)
-		(at 259.842 84.074 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-		)
-		(uuid "a31d01a1-9357-49bf-8f0f-e886b02f163c")
 	)
 	(text "DNP"
 		(exclude_from_sim no)
@@ -5845,6 +5799,14 @@
 		(uuid "fe2bedf9-0adb-49eb-8e8d-cc3c5ca297b1")
 	)
 	(no_connect
+		(at 350.52 58.42)
+		(uuid "0155618b-0c7b-4ecf-8c15-9d655b0f996c")
+	)
+	(no_connect
+		(at 314.96 93.98)
+		(uuid "0ff29528-9012-4a9f-8a08-123c7ca11411")
+	)
+	(no_connect
 		(at 314.96 86.36)
 		(uuid "18cbe69e-0eb2-4fda-a7ba-4f326edf3293")
 	)
@@ -5889,6 +5851,10 @@
 		(uuid "83386079-2991-4cba-aaa9-4f818a839dd0")
 	)
 	(no_connect
+		(at 350.52 111.76)
+		(uuid "83a9d5ea-a628-486c-8f10-952ef50edbf9")
+	)
+	(no_connect
 		(at 314.96 78.74)
 		(uuid "87f61d77-29a9-4f5c-afc4-d8da430df2a2")
 	)
@@ -5903,6 +5869,10 @@
 	(no_connect
 		(at 314.96 71.12)
 		(uuid "98fe070d-2883-4441-a53a-d0f552656ecf")
+	)
+	(no_connect
+		(at 350.52 114.3)
+		(uuid "a0d75ebf-5d6f-40ff-b428-9afffcc7e483")
 	)
 	(no_connect
 		(at 314.96 73.66)
@@ -5935,6 +5905,14 @@
 	(no_connect
 		(at 314.96 68.58)
 		(uuid "c8feab0d-5a28-4e6a-9756-9f868b43abff")
+	)
+	(no_connect
+		(at 350.52 127)
+		(uuid "cdc47307-11a8-49b1-8ac9-4302d252feb4")
+	)
+	(no_connect
+		(at 350.52 116.84)
+		(uuid "e2205a51-fa15-4bda-87a1-8a1f45401de8")
 	)
 	(no_connect
 		(at 314.96 96.52)
@@ -6997,16 +6975,6 @@
 			(type default)
 		)
 		(uuid "8c8acca0-9eb1-4335-8da4-af50416efc64")
-	)
-	(wire
-		(pts
-			(xy 313.69 93.98) (xy 314.96 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8e0f0353-aa25-4b39-a66a-0bf69abd6321")
 	)
 	(wire
 		(pts
@@ -8775,17 +8743,6 @@
 		)
 		(uuid "7295b33b-db91-4ca8-99f8-926e6f6bfebf")
 	)
-	(hierarchical_label "QON_N"
-		(shape output)
-		(at 313.69 93.98 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "7ba521a8-d59b-4fb3-b055-83f6fee7d104")
-	)
 	(hierarchical_label "I2C1_SDA"
 		(shape bidirectional)
 		(at 35.56 110.49 270)
@@ -9221,7 +9178,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7k"
+		(property "Value" "10k"
 			(at 48.768 101.854 0)
 			(effects
 				(font
@@ -9673,7 +9630,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7k"
+		(property "Value" "10k"
 			(at 39.37 102.108 0)
 			(effects
 				(font

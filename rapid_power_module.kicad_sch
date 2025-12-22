@@ -2144,7 +2144,7 @@
 		)
 		(uuid "07b6cb23-22b0-4a23-97b0-e8474dbb9d83")
 	)
-	(text "todo:\n- add diode for HCO?\n- does this setup make sense? "
+	(text "todo:\n- add diode for HCO?"
 		(exclude_from_sim no)
 		(at 51.054 110.49 0)
 		(effects
@@ -2349,6 +2349,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "58db9b13-bd82-474c-ac79-db82e2997539")
+	)
+	(junction
+		(at 369.57 34.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "640fef6f-86e8-437d-a355-ff8960ad59f1")
 	)
 	(junction
 		(at 36.83 45.72)
@@ -2666,16 +2672,6 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 80.01) (xy 214.63 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4085426e-4758-4522-9ab1-e6560ba32226")
-	)
-	(wire
-		(pts
 			(xy 54.61 45.72) (xy 54.61 60.96)
 		)
 		(stroke
@@ -2833,6 +2829,16 @@
 			(type default)
 		)
 		(uuid "603dbcee-97fb-4288-b5d2-4d87dd3c3297")
+	)
+	(wire
+		(pts
+			(xy 369.57 34.29) (xy 379.73 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62c5f636-5bbb-4fe7-8838-e6a0cb741447")
 	)
 	(wire
 		(pts
@@ -2996,13 +3002,13 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 149.86) (xy 294.64 149.86)
+			(xy 379.73 34.29) (xy 379.73 36.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8bc4ebb0-3344-421a-bb31-c14220eef1a0")
+		(uuid "8d928460-b62e-4c0a-bb30-9a39b659a93d")
 	)
 	(wire
 		(pts
@@ -3243,16 +3249,6 @@
 			(type default)
 		)
 		(uuid "b18172cb-df3d-451d-ba35-4dcc0a9975b9")
-	)
-	(wire
-		(pts
-			(xy 177.8 80.01) (xy 214.63 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bd88a942-25ed-444f-b6a7-8197118c7454")
 	)
 	(wire
 		(pts
@@ -4930,72 +4926,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
 					(reference "#PWR034")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 287.02 149.86 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "457371a7-cf63-437c-9edd-d9b9f2a0f29e")
-		(property "Reference" "#PWR035"
-			(at 287.02 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "SYS_GND"
-			(at 287.02 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 287.02 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 287.02 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 287.02 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "93336c99-54aa-4f22-844e-c221ee7a4f56")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -7162,6 +7092,71 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 379.73 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a4c6631d-2d25-4746-9a31-881e22378ab2")
+		(property "Reference" "#PWR05"
+			(at 379.73 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "BAL_GND"
+			(at 379.73 41.148 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 379.73 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 379.73 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 379.73 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1acb90f6-4513-4033-8369-c8d32f5f0902")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
+					(reference "#PWR05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 48.26 158.75 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8149,29 +8144,9 @@
 				(justify left top)
 			)
 		)
-		(pin "BAT+" input
-			(at 224.79 147.32 0)
-			(uuid "63057fa9-ed73-4571-b921-62853fb37f38")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "CE_N" input
 			(at 209.55 132.08 90)
 			(uuid "1a57ac9b-88d9-43f0-9e6a-5708976e3699")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "QON_N" input
-			(at 214.63 132.08 90)
-			(uuid "2979b2b2-0305-4091-98ad-15cb8d5651f2")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8222,6 +8197,16 @@
 		(pin "SYS+" output
 			(at 224.79 137.16 0)
 			(uuid "00802bf4-8c95-462c-98d4-14ac7d1311d6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "BAT+" bidirectional
+			(at 224.79 147.32 0)
+			(uuid "3ddee0a0-ff23-42ac-980b-72c0f3b8d48e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8330,16 +8315,6 @@
 				(justify left)
 			)
 		)
-		(pin "QON_N" output
-			(at 177.8 80.01 0)
-			(uuid "33739a8c-2511-4756-b434-b066ba6df774")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "charging_voltage" input
 			(at 161.29 50.8 90)
 			(uuid "24aa26e4-a2dc-4a6a-b8c0-94e75413c9f4")
@@ -8405,16 +8380,6 @@
 		(pin "BAT+" bidirectional
 			(at 294.64 147.32 180)
 			(uuid "24df7a53-5d94-4fae-b979-7e3a09df4be1")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "BAT-" bidirectional
-			(at 294.64 149.86 180)
-			(uuid "37a246f4-adcc-4977-a5c8-09f5e0703572")
 			(effects
 				(font
 					(size 1.27 1.27)
