@@ -2242,17 +2242,6 @@
 		)
 		(uuid "3439db6d-4ae3-42ab-8408-daad9aecc188")
 	)
-	(text "TODO: Connect a 1nF, 50V rated, 0402 package, ceramic \ncapacitor from SDRV to GND or SDRV to BAT when the \nship FET is not used (component missing)"
-		(exclude_from_sim no)
-		(at 224.536 97.79 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "87d0d4bf-9ff2-4374-864c-b60a8ccfed31")
-	)
 	(text_box "ILIM_HIZ pulled to REGN to set the Charging Current Lmit to max. Register Value limits it to 1A by default anyways"
 		(exclude_from_sim no)
 		(at 36.83 116.84 0)
@@ -2356,7 +2345,7 @@
 	(text_box "CE pulled down to enable charging by default\n\nQON pulled down to permanently disable ship mode"
 		(exclude_from_sim no)
 		(at 64.77 140.97 0)
-		(size 41.91 13.97)
+		(size 41.91 11.43)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -2893,7 +2882,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 100.33) (xy 167.64 100.33)
+			(xy 166.37 100.33) (xy 167.64 100.33)
 		)
 		(stroke
 			(width 0)
@@ -3150,6 +3139,16 @@
 			(type default)
 		)
 		(uuid "681c28e4-9672-4551-bf2c-8c054a6160b4")
+	)
+	(wire
+		(pts
+			(xy 161.29 100.33) (xy 158.75 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6916c69c-1e54-43d4-93ab-b78e3e5972ba")
 	)
 	(wire
 		(pts
@@ -4735,6 +4734,83 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 163.83 100.33 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "20797a94-1c06-411f-909d-6efe290e71ce")
+		(property "Reference" "C16"
+			(at 163.576 97.79 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1n"
+			(at 161.036 101.346 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 163.83 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 163.83 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 163.83 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1523"
+			(at 163.83 100.33 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "bacdb934-662c-441b-bb52-e3b4f462fec7")
+		)
+		(pin "1"
+			(uuid "1ec2da8e-b5c2-4f41-ab03-4194ef0a4918")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
+					(reference "C16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND1")
 		(at 177.8 146.05 0)
 		(unit 1)
@@ -5143,83 +5219,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
 					(reference "#PWR014")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 161.29 100.33 270)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3915a204-6228-46db-8862-88469275d3ce")
-		(property "Reference" "C15"
-			(at 161.036 97.79 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10u"
-			(at 158.496 101.346 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 161.29 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 161.29 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 161.29 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C307331"
-			(at 161.29 100.33 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "8ce1bdf1-fc1a-4110-b63b-fc26ab636c09")
-		)
-		(pin "1"
-			(uuid "e0ff45f1-b290-44ad-a9ce-b63724a4afa5")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
-					(reference "C15")
 					(unit 1)
 				)
 			)
