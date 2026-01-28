@@ -10217,7 +10217,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "470n"
+		(property "Value" "330n"
 			(at 58.42 195.58 0)
 			(effects
 				(font
@@ -12035,7 +12035,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "4ed7c4b9-f01f-490a-ba5e-d6b8a362a502")
 		(property "Reference" "R35"

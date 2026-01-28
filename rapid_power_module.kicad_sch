@@ -2109,6 +2109,18 @@
 		(uuid 68ac46c0-e882-4756-9515-09c511f56a93)
 	)
 	(rectangle
+		(start 187.96 167.64)
+		(end 288.29 179.07)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 83ac5ca5-572a-421f-9c3c-edd474bda932)
+	)
+	(rectangle
 		(start 17.78 35.56)
 		(end 97.79 72.39)
 		(stroke
@@ -2218,6 +2230,17 @@
 		)
 		(uuid "e4fda223-99b6-4f5c-b606-4a90e7e3233c")
 	)
+	(text "INFO: Charger SYS+ output only supports 6A continuous/10A peak but we need 20A (for the HCOs). \nThat's why we don't use it and connect the main voltage directly to the battery instead. \nBAT+ will however most likely behave weirdly when no batteries are attached.\nTo have a second option, we could add this optional MOLEX to SYS+.\nThen we could at least use main_voltage even with no batteries attached."
+		(exclude_from_sim no)
+		(at 188.468 173.736 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e541a3c9-ff98-4237-8ad4-375e4183a2a9")
+	)
 	(text "mounting"
 		(exclude_from_sim no)
 		(at 104.648 35.56 0)
@@ -2230,7 +2253,7 @@
 		)
 		(uuid "ecf3b919-3133-484b-89b4-e8b85a27a324")
 	)
-	(text "/\\ this one is optional"
+	(text "/\\ this one is optional\n(gets included if we have enough space)"
 		(exclude_from_sim no)
 		(at 93.98 146.05 0)
 		(effects
@@ -2280,7 +2303,7 @@
 		(uuid "0d446b5b-d50a-4ba3-bdb9-7bf5038c8c0a")
 	)
 	(junction
-		(at 102.87 129.54)
+		(at 105.41 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "143a6ae8-2eba-448d-9afd-35223382741c")
@@ -2442,7 +2465,7 @@
 		(uuid "f171ed98-f7a7-4aab-9225-3f59407d8b18")
 	)
 	(junction
-		(at 102.87 137.16)
+		(at 105.41 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f56ca684-cc9e-46a6-92fe-b51997ea5868")
@@ -2646,6 +2669,16 @@
 			(type default)
 		)
 		(uuid "2329622b-bb5e-4641-8b13-d08dc9b964f0")
+	)
+	(wire
+		(pts
+			(xy 53.34 93.98) (xy 52.07 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23b793ca-cc5a-4386-b2aa-278a3734938d")
 	)
 	(wire
 		(pts
@@ -2919,7 +2952,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 93.98) (xy 64.77 93.98)
+			(xy 60.96 93.98) (xy 64.77 93.98)
 		)
 		(stroke
 			(width 0)
@@ -3029,7 +3062,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 137.16) (xy 107.95 137.16)
+			(xy 105.41 137.16) (xy 110.49 137.16)
 		)
 		(stroke
 			(width 0)
@@ -3109,7 +3142,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 137.16) (xy 102.87 137.16)
+			(xy 101.6 137.16) (xy 105.41 137.16)
 		)
 		(stroke
 			(width 0)
@@ -3289,7 +3322,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 129.54) (xy 102.87 129.54)
+			(xy 101.6 129.54) (xy 105.41 129.54)
 		)
 		(stroke
 			(width 0)
@@ -3409,7 +3442,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 129.54) (xy 107.95 129.54)
+			(xy 105.41 129.54) (xy 110.49 129.54)
 		)
 		(stroke
 			(width 0)
@@ -3752,71 +3785,6 @@
 				)
 				(justify right)
 				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND1")
-		(at 30.48 157.48 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00357b3a-b3b1-436a-b696-f15af3b06b43")
-		(property "Reference" "#PWR0124"
-			(at 36.83 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PGND"
-			(at 36.068 157.734 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 30.48 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 30.48 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 30.48 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "cbf4b7b2-df0c-4712-90b3-c901bf7f9f64")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "#PWR0124")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -4877,7 +4845,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 107.95 133.35 0)
+		(at 110.49 133.35 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4885,7 +4853,7 @@
 		(dnp yes)
 		(uuid "3defad10-dd24-49b4-8169-0bdd2832cef6")
 		(property "Reference" "C29"
-			(at 110.49 132.08 0)
+			(at 113.03 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4894,7 +4862,7 @@
 			)
 		)
 		(property "Value" "10n"
-			(at 110.49 134.62 0)
+			(at 113.03 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4903,7 +4871,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 108.9152 137.16 0)
+			(at 111.4552 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4912,7 +4880,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB103_C60133.pdf"
-			(at 107.95 133.35 0)
+			(at 110.49 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4921,7 +4889,7 @@
 			)
 		)
 		(property "Description" "50V 10nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 107.95 133.35 0)
+			(at 110.49 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4930,7 +4898,7 @@
 			)
 		)
 		(property "LCSC" "C60133"
-			(at 107.95 133.35 0)
+			(at 110.49 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4939,7 +4907,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 107.95 133.35 0)
+			(at 110.49 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5537,73 +5505,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND1")
-		(at 85.09 135.89 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "616b427b-f22a-406d-8a97-17ae71758906")
-		(property "Reference" "#PWR020"
-			(at 91.44 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PGND"
-			(at 90.678 136.144 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 85.09 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 85.09 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9a1801d6-d453-447f-bdec-08440caaca6a")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "#PWR020")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
-		(at 99.06 133.35 0)
+		(at 101.6 133.35 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5611,7 +5514,7 @@
 		(dnp yes)
 		(uuid "636dfa25-0872-49ee-9900-c16d5c48fd02")
 		(property "Reference" "C28"
-			(at 101.6 132.08 0)
+			(at 104.14 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5620,7 +5523,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 101.6 134.62 0)
+			(at 104.14 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5629,7 +5532,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 100.0252 137.16 0)
+			(at 102.5652 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5638,7 +5541,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
-			(at 99.06 133.35 0)
+			(at 101.6 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5647,7 +5550,7 @@
 			)
 		)
 		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 99.06 133.35 0)
+			(at 101.6 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5656,7 +5559,7 @@
 			)
 		)
 		(property "LCSC" "C194427"
-			(at 99.06 133.35 0)
+			(at 101.6 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5665,7 +5568,7 @@
 			)
 		)
 		(property "Manufacturer" "Murata Electronics"
-			(at 99.06 133.35 0)
+			(at 101.6 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6022,7 +5925,7 @@
 	(symbol
 		(lib_name "VDC_1")
 		(lib_id "power:VDC")
-		(at 102.87 129.54 0)
+		(at 105.41 129.54 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6030,7 +5933,7 @@
 		(dnp no)
 		(uuid "7d3534e2-d4bc-40d5-93b6-b1ae20896d63")
 		(property "Reference" "#PWR032"
-			(at 102.87 133.35 0)
+			(at 105.41 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6039,7 +5942,7 @@
 			)
 		)
 		(property "Value" "+VSW"
-			(at 102.616 125.984 0)
+			(at 105.156 125.984 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6047,7 +5950,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 102.87 129.54 0)
+			(at 105.41 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6056,7 +5959,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 102.87 129.54 0)
+			(at 105.41 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6065,7 +5968,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VDC\""
-			(at 102.87 129.54 0)
+			(at 105.41 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6646,7 +6549,7 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 55.88 93.98 270)
+		(at 57.15 93.98 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6654,7 +6557,7 @@
 		(dnp no)
 		(uuid "92598293-f530-4aff-8b7d-f037ad7313e7")
 		(property "Reference" "FB2"
-			(at 55.88 87.63 90)
+			(at 57.15 87.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6662,7 +6565,7 @@
 			)
 		)
 		(property "Value" "120R"
-			(at 55.88 90.17 90)
+			(at 57.15 90.17 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6670,7 +6573,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
-			(at 55.88 92.202 90)
+			(at 57.15 92.202 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6679,7 +6582,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121447_TAI-TECH-HCB2012KF-121T50_C304323.pdf"
-			(at 55.88 93.98 0)
+			(at 57.15 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6688,7 +6591,7 @@
 			)
 		)
 		(property "Description" "20mΩ ±25% 120Ω@100MHz 0805 Ferrite Beads ROHS"
-			(at 55.88 93.98 0)
+			(at 57.15 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6697,7 +6600,7 @@
 			)
 		)
 		(property "LCSC#" "C304323"
-			(at 55.88 93.98 0)
+			(at 57.15 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6706,7 +6609,7 @@
 			)
 		)
 		(property "Manufacturer" "TAI-TECH"
-			(at 55.88 93.98 0)
+			(at 57.15 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6715,7 +6618,7 @@
 			)
 		)
 		(property "Part#" "HCB2012KF-121T50"
-			(at 55.88 93.98 0)
+			(at 57.15 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7628,6 +7531,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 30.48 157.48 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ade19ff3-125d-465e-a2b7-6fcb89a50b92")
+		(property "Reference" "#PWR053"
+			(at 36.83 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "SYS_GND"
+			(at 34.29 157.4799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 30.48 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 30.48 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 30.48 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "97423df4-cabb-452b-b9de-2aec92c9803d")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
+					(reference "#PWR053")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_02x04_Top_Bottom")
 		(at 43.18 60.96 0)
 		(unit 1)
@@ -7866,6 +7836,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 85.09 135.89 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c394a546-ef30-4245-9606-a310af0b4d90")
+		(property "Reference" "#PWR020"
+			(at 91.44 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "SYS_GND"
+			(at 88.9 135.8899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 85.09 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 85.09 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "465b18e8-2987-4463-85e0-0a70650da2c2")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
+					(reference "#PWR020")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 53.34 154.94 0)
 		(unit 1)
@@ -7954,7 +7991,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 102.87 137.16 0)
+		(at 105.41 137.16 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7963,7 +8000,7 @@
 		(fields_autoplaced yes)
 		(uuid "c639577e-b02e-46c2-b795-87a1fb59256b")
 		(property "Reference" "#PWR033"
-			(at 102.87 143.51 0)
+			(at 105.41 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7972,7 +8009,7 @@
 			)
 		)
 		(property "Value" "SYS_GND"
-			(at 102.87 142.24 0)
+			(at 105.41 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7980,7 +8017,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 102.87 137.16 0)
+			(at 105.41 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7989,7 +8026,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 102.87 137.16 0)
+			(at 105.41 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7998,7 +8035,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 102.87 137.16 0)
+			(at 105.41 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
