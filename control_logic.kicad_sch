@@ -3594,131 +3594,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "R_Small_1"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.016 1.016)
-					)
-				)
-			)
-			(property "Value" "R_Small"
-				(at 1.778 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Resistor, small symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "R resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_Small_1_0_1"
-				(rectangle
-					(start -0.762 1.778)
-					(end 0.762 -1.778)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_Small_1_1_1"
-				(pin passive line
-					(at 0 2.54 270)
-					(length 0.762)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 0.762)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "R_Small_3"
 			(pin_numbers
 				(hide yes)
@@ -5402,7 +5277,7 @@
 	)
 	(text "Clock"
 		(exclude_from_sim no)
-		(at 361.95 193.802 0)
+		(at 358.902 193.294 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -5685,7 +5560,7 @@
 		(uuid "a7e26b94-af7d-476c-a922-43fcf6655f0b")
 	)
 	(junction
-		(at 44.45 190.5)
+		(at 49.53 190.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a93bd1af-52e5-4ea9-ab83-0e3ed2a4b1ec")
@@ -5821,6 +5696,10 @@
 	(no_connect
 		(at 350.52 48.26)
 		(uuid "33962cbc-f82a-45bc-a305-ec68734deb2b")
+	)
+	(no_connect
+		(at 314.96 81.28)
+		(uuid "3d3d53c0-1bc7-4bfb-8a7b-66edbaf3e87e")
 	)
 	(no_connect
 		(at 350.52 88.9)
@@ -5988,7 +5867,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 190.5) (xy 48.26 190.5)
+			(xy 49.53 190.5) (xy 60.96 190.5)
 		)
 		(stroke
 			(width 0)
@@ -6398,17 +6277,7 @@
 	)
 	(wire
 		(pts
-			(xy 288.29 72.39) (xy 288.29 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "476db341-6b21-4e0c-abe9-8e3084bd5df8")
-	)
-	(wire
-		(pts
-			(xy 44.45 190.5) (xy 44.45 194.31)
+			(xy 49.53 190.5) (xy 49.53 194.31)
 		)
 		(stroke
 			(width 0)
@@ -6568,6 +6437,16 @@
 	)
 	(wire
 		(pts
+			(xy 288.29 73.66) (xy 288.29 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59d10cb4-a01a-4886-a5ac-71351e3ab074")
+	)
+	(wire
+		(pts
 			(xy 39.37 224.79) (xy 26.67 224.79)
 		)
 		(stroke
@@ -6615,16 +6494,6 @@
 			(type default)
 		)
 		(uuid "5d30cf58-d8df-425a-b753-6562e5a6d259")
-	)
-	(wire
-		(pts
-			(xy 55.88 190.5) (xy 60.96 190.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5dd25948-960a-4693-8065-fe57f8fe8495")
 	)
 	(wire
 		(pts
@@ -6838,7 +6707,7 @@
 	)
 	(wire
 		(pts
-			(xy 288.29 63.5) (xy 288.29 67.31)
+			(xy 288.29 63.5) (xy 288.29 66.04)
 		)
 		(stroke
 			(width 0)
@@ -7728,7 +7597,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 186.69) (xy 44.45 190.5)
+			(xy 49.53 186.69) (xy 49.53 190.5)
 		)
 		(stroke
 			(width 0)
@@ -8756,7 +8625,7 @@
 	)
 	(hierarchical_label "main_voltage"
 		(shape input)
-		(at 36.83 186.69 180)
+		(at 41.91 186.69 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8767,7 +8636,7 @@
 	)
 	(hierarchical_label "charging_voltage"
 		(shape input)
-		(at 36.83 194.31 180)
+		(at 41.91 194.31 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8797,82 +8666,6 @@
 			(justify left)
 		)
 		(uuid "eb4143b5-a3a8-49d4-b4aa-6fda22217289")
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 322.58 213.36 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0111fc78-27a8-48b8-b716-494a8df0958c")
-		(property "Reference" "D7"
-			(at 322.58 211.328 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "green"
-			(at 323.088 216.154 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 322.58 213.36 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 322.58 213.36 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 322.58 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2296"
-			(at 322.58 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "84a8d0fc-dbf1-469f-9f6d-c19452019a17")
-		)
-		(pin "2"
-			(uuid "5ea36570-c1d0-4b20-bd0d-ae7e9232a05e")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "D7")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_name "GND_1")
@@ -9074,7 +8867,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 346.71 30.48 0)
+		(at 346.71 30.48 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9082,7 +8875,7 @@
 		(dnp no)
 		(uuid "06808b18-ee99-4082-ac01-026ef1e101b9")
 		(property "Reference" "C73"
-			(at 349.25 29.21 0)
+			(at 347.98 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9091,7 +8884,7 @@
 			)
 		)
 		(property "Value" "10n"
-			(at 349.25 31.75 0)
+			(at 345.44 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9100,7 +8893,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 347.6752 34.29 0)
+			(at 342.9 31.4452 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9126,7 +8919,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C60133"
+		(property "LCSC" "C60133"
 			(at 346.71 30.48 0)
 			(effects
 				(font
@@ -9206,6 +8999,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 43.18 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25744"
 			(at 43.18 100.33 0)
 			(effects
 				(font
@@ -9349,7 +9151,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C368809"
+		(property "LCSC" "C368809"
 			(at 265.43 30.48 0)
 			(effects
 				(font
@@ -9502,7 +9304,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C76946"
+		(property "LCSC" "C76946"
 			(at 372.11 223.52 0)
 			(effects
 				(font
@@ -9530,82 +9332,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "C77")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 322.58 220.98 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0e14c0f9-0b68-4792-8375-fd4af191168f")
-		(property "Reference" "D16"
-			(at 322.58 218.948 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "green"
-			(at 323.088 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 322.58 220.98 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 322.58 220.98 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 322.58 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2297"
-			(at 322.58 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "16137289-961b-4dab-acc0-398bc6258ddd")
-		)
-		(pin "2"
-			(uuid "55a82e92-152c-4dee-b855-00147bef0c1f")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "D16")
 					(unit 1)
 				)
 			)
@@ -9666,7 +9392,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C105871"
+		(property "LCSC" "C25744"
 			(at 40.64 100.33 0)
 			(effects
 				(font
@@ -9752,82 +9478,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "#PWR077")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 283.21 217.17 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1519fb95-640d-47e6-91a4-cbf4eca55e0b")
-		(property "Reference" "R89"
-			(at 282.956 219.456 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 283.21 214.63 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 283.21 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 283.21 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 283.21 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C11702"
-			(at 283.21 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "61a38674-6a21-4626-9c86-58de9d16891d")
-		)
-		(pin "1"
-			(uuid "c69d62bf-c82f-4abf-a188-57f421929b71")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "R89")
 					(unit 1)
 				)
 			)
@@ -9950,7 +9600,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C14709"
+		(property "LCSC" "C14709"
 			(at 368.3 25.4 0)
 			(effects
 				(font
@@ -10053,82 +9703,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "#PWR063")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 317.5 213.36 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1e57ca50-ee53-4390-9d9f-528e25df5ab2")
-		(property "Reference" "R15"
-			(at 317.246 215.646 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 317.5 210.82 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 317.5 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 317.5 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 317.5 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C11702"
-			(at 317.5 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "11985c62-5142-406d-8e61-f51fc7d50225")
-		)
-		(pin "1"
-			(uuid "73f6a1d8-321f-4a77-a956-b0caf60b48bd")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -10253,7 +9827,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C1623"
+		(property "LCSC" "C1615"
 			(at 60.96 194.31 0)
 			(effects
 				(font
@@ -10457,6 +10031,82 @@
 	)
 	(symbol
 		(lib_id "Device:LED_Small")
+		(at 322.58 220.98 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2b3e841f-735f-428c-b901-489c3d109af7")
+		(property "Reference" "D5"
+			(at 322.58 218.948 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "green"
+			(at 323.088 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 322.58 220.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 322.58 220.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 322.58 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2297"
+			(at 322.58 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "81973af9-10bc-419d-92c2-ea2a9b41da89")
+		)
+		(pin "2"
+			(uuid "e81a7c7c-ccd6-42d1-9667-7fa9ea2b3af8")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "D5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Small")
 		(at 288.29 217.17 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10480,7 +10130,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
 			(at 288.29 217.17 90)
 			(effects
 				(font
@@ -10783,7 +10433,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C307331"
+		(property "LCSC" "C307331"
 			(at 298.45 30.48 0)
 			(effects
 				(font
@@ -10993,7 +10643,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C191417"
+		(property "LCSC" "C191417"
 			(at 39.37 147.32 0)
 			(effects
 				(font
@@ -11098,7 +10748,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C92102"
+		(property "LCSC" "C92102"
 			(at 39.37 215.9 0)
 			(effects
 				(font
@@ -11542,76 +11192,6 @@
 		)
 	)
 	(symbol
-		(lib_name "R_Small_1")
-		(lib_id "Device:R_Small")
-		(at 288.29 69.85 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3f3c5851-3977-4286-aaf8-4ea9bab810f8")
-		(property "Reference" "R72"
-			(at 288.798 67.564 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 288.544 72.644 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 288.29 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 288.29 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 288.29 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "04f0bdfd-593d-414a-9739-b73c7eee08a5")
-		)
-		(pin "1"
-			(uuid "53572ee5-78bc-45e9-94a3-9283066664ed")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "R72")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 340.36 25.4 90)
 		(unit 1)
@@ -11733,7 +11313,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C76946"
+		(property "LCSC" "C76946"
 			(at 397.51 223.52 0)
 			(effects
 				(font
@@ -11820,7 +11400,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C52923"
+		(property "LCSC" "C52923"
 			(at 358.14 30.48 0)
 			(effects
 				(font
@@ -11848,6 +11428,82 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "C74")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 317.5 220.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4dcaf8bc-7b6a-4ca1-b3d2-e85d1ded19f1")
+		(property "Reference" "R14"
+			(at 317.5 223.012 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 317.5 218.44 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 317.5 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 317.5 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 317.5 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C11702"
+			(at 317.5 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "fa21cca8-ead0-4dc6-abf3-75f71ba1a5f5")
+		)
+		(pin "1"
+			(uuid "ae54187f-5072-433c-bd02-6c391af077df")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "R14")
 					(unit 1)
 				)
 			)
@@ -11994,7 +11650,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C307331"
+		(property "LCSC" "C307331"
 			(at 321.31 30.48 0)
 			(effects
 				(font
@@ -12184,6 +11840,82 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:LED_Small")
+		(at 322.58 228.6 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "51cfc443-2076-4f0e-8a58-5ac39308b237")
+		(property "Reference" "D6"
+			(at 322.58 226.568 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "green"
+			(at 323.088 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 322.58 228.6 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 322.58 228.6 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 322.58 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2297"
+			(at 322.58 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a540f17a-9ec0-454a-adf1-646565b1b8bc")
+		)
+		(pin "2"
+			(uuid "3d5aa734-e12b-4c5b-8123-e2863d7ab4f7")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "D6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 39.37 226.06 0)
 		(unit 1)
@@ -12278,7 +12010,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 226.06 54.61 0)
 			(effects
 				(font
@@ -12305,6 +12037,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C11702"
+			(at 226.06 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c8771d43-b131-4448-991a-ade7bc6323bf")
 		)
@@ -12315,82 +12056,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "R34")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 317.5 228.6 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "58d39633-6d99-4062-bf57-122211a625ee")
-		(property "Reference" "R17"
-			(at 317.754 230.886 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 317.5 226.06 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 317.5 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 317.5 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 317.5 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C11702"
-			(at 317.5 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2e0f0471-bbc9-4d6e-9016-35ce2d611412")
-		)
-		(pin "1"
-			(uuid "2168a48a-030d-4d36-ab03-cd1f5bbbd2fa")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -12451,7 +12116,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C12891"
+		(property "LCSC" "C12891"
 			(at 52.07 220.98 0)
 			(effects
 				(font
@@ -12548,7 +12213,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C58069"
+		(property "LCSC" "C58069"
 			(at 69.85 190.5 0)
 			(effects
 				(font
@@ -12727,15 +12392,15 @@
 	)
 	(symbol
 		(lib_id "Device:LED_Small")
-		(at 322.58 228.6 180)
+		(at 322.58 213.36 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "67c77deb-811c-4bf4-a2c3-2796107c17b7")
-		(property "Reference" "D23"
-			(at 322.58 226.568 0)
+		(uuid "68904f6b-89e8-4441-bb37-cff53af47c0b")
+		(property "Reference" "D4"
+			(at 322.58 211.328 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12743,15 +12408,15 @@
 			)
 		)
 		(property "Value" "green"
-			(at 323.088 231.14 0)
+			(at 323.088 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 322.58 228.6 90)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 322.58 213.36 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12760,7 +12425,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 322.58 228.6 90)
+			(at 322.58 213.36 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12769,7 +12434,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 322.58 228.6 0)
+			(at 322.58 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12778,7 +12443,7 @@
 			)
 		)
 		(property "LCSC" "C2297"
-			(at 322.58 228.6 0)
+			(at 322.58 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12787,15 +12452,178 @@
 			)
 		)
 		(pin "1"
-			(uuid "38385169-c8fa-4eef-bfed-fb5ccbff9239")
+			(uuid "337f1bb6-ff9e-4e93-889e-89dc05a79066")
 		)
 		(pin "2"
-			(uuid "b45de226-3415-436d-9bf9-5a94040d2f43")
+			(uuid "b1e95d7c-f98c-4710-b193-e23a9dbc3288")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "D23")
+					(reference "D4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 317.5 205.74 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "68ebc203-1cc1-4b89-be99-55e64b04eaea")
+		(property "Reference" "R12"
+			(at 317.5 207.772 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 317.5 203.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 317.5 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 317.5 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 317.5 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C11702"
+			(at 317.5 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "df89efa0-0d6f-474b-9d59-eee797aa4bf0")
+		)
+		(pin "1"
+			(uuid "a0ec2679-7749-4732-aaa2-a9d631526812")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "R12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 76.2 59.69 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "69f43cd3-b118-4bc9-a319-c18b80d3ba37")
+		(property "Reference" "C15"
+			(at 78.74 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 78.74 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 77.1652 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121858_Murata-Electronics-GRM155R71H104KE14D_C77020.pdf"
+			(at 76.2 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "50V 100nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 76.2 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 76.2 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 76.2 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "64595529-dd05-49f5-951e-93f2b3e019a0")
+		)
+		(pin "2"
+			(uuid "265eac65-5f2c-4b96-bc30-1dd7dfdaeffd")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -13035,7 +12863,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "74ecc495-2379-4e6d-9acc-77cc545f1d63")
 		(property "Reference" "J12"
@@ -13092,34 +12920,7 @@
 				(hide yes)
 			)
 		)
-		(property "DigiKey#" "N/A"
-			(at 58.42 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "N/A"
-			(at 58.42 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "N/A"
-			(at 58.42 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part#" "N/A"
+		(property "LCSC" "x"
 			(at 58.42 107.95 0)
 			(effects
 				(font
@@ -13216,7 +13017,7 @@
 	)
 	(symbol
 		(lib_id "Device:D_Schottky")
-		(at 40.64 186.69 180)
+		(at 45.72 186.69 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13224,7 +13025,7 @@
 		(dnp no)
 		(uuid "7d478924-78c7-4f77-8925-d3fd104fe8a0")
 		(property "Reference" "D8"
-			(at 40.894 183.896 0)
+			(at 45.974 183.896 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13232,7 +13033,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 40.9575 182.88 0)
+			(at 46.0375 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13241,7 +13042,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 40.64 186.69 0)
+			(at 45.72 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13250,7 +13051,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C22452.pdf"
-			(at 40.64 186.69 0)
+			(at 45.72 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13259,7 +13060,7 @@
 			)
 		)
 		(property "Description" "Schottky diode"
-			(at 40.64 186.69 0)
+			(at 45.72 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13268,7 +13069,7 @@
 			)
 		)
 		(property "LCSC" "C22452"
-			(at 40.64 186.69 0)
+			(at 45.72 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13543,7 +13344,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C307331"
+		(property "LCSC" "C307331"
 			(at 68.58 137.16 0)
 			(effects
 				(font
@@ -13577,32 +13378,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_Small")
-		(at 322.58 205.74 180)
+		(lib_id "Device:R")
+		(at 288.29 69.85 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8fd52cba-e223-4404-bd30-5e65b73f584c")
-		(property "Reference" "D5"
-			(at 322.326 203.708 0)
+		(uuid "8ed67d76-8972-490f-b1ea-fa2cc91801ec")
+		(property "Reference" "R9"
+			(at 287.02 67.564 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "green"
-			(at 322.326 208.28 0)
+		(property "Value" "10k"
+			(at 287.02 71.628 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 322.58 205.74 90)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 286.512 69.85 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13611,7 +13415,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 322.58 205.74 90)
+			(at 288.29 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13619,8 +13423,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 322.58 205.74 0)
+		(property "Description" "Resistor"
+			(at 288.29 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13628,8 +13432,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2286"
-			(at 322.58 205.74 0)
+		(property "LCSC" "C25744"
+			(at 288.29 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13638,15 +13442,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "7943838a-4a1e-4842-b3ef-f7a1b70a0167")
+			(uuid "eceab484-2a3b-4ba0-92ce-7e02b3915bbc")
 		)
 		(pin "2"
-			(uuid "46bca16f-5505-4343-9be2-2aecde4de8a7")
+			(uuid "69981640-eeaf-4e70-afd9-aead87a60872")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "D5")
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -13962,6 +13766,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "x"
+			(at 46.99 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "7"
 			(uuid "f02abe50-c536-4738-8428-13af313c8014")
 		)
@@ -14120,7 +13933,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C52923"
+		(property "LCSC" "C52923"
 			(at 378.46 30.48 0)
 			(effects
 				(font
@@ -14349,76 +14162,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "#PWR067")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 76.2 59.69 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a8734dbb-badf-4411-8234-da5c0963197f")
-		(property "Reference" "C39"
-			(at 80.01 58.4199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 80.01 60.9599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 77.1652 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 76.2 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 76.2 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ecb3118b-f059-4c9d-8fdb-4cdead3ef2cf")
-		)
-		(pin "2"
-			(uuid "4b784dbf-cfa2-4602-bd3a-7b251bae524a")
-		)
-		(instances
-			(project ""
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "C39")
 					(unit 1)
 				)
 			)
@@ -14677,6 +14420,82 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "R76")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 317.5 213.36 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b075bd66-54d0-488d-bce6-de97b7a0dfd5")
+		(property "Reference" "R13"
+			(at 317.5 215.392 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 317.5 210.82 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 317.5 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 317.5 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 317.5 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C11702"
+			(at 317.5 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "5b9fd883-5a48-4c35-b6fb-cc6860ee68c4")
+		)
+		(pin "1"
+			(uuid "83e31897-c583-4acb-864c-64fa1def82af")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "R13")
 					(unit 1)
 				)
 			)
@@ -14942,7 +14761,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C60133"
+		(property "LCSC" "C60133"
 			(at 391.16 30.48 0)
 			(effects
 				(font
@@ -14977,7 +14796,7 @@
 	)
 	(symbol
 		(lib_id "Device:D_Schottky")
-		(at 40.64 194.31 180)
+		(at 45.72 194.31 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14985,7 +14804,7 @@
 		(dnp no)
 		(uuid "ba6b1997-2498-4591-af80-d69c20579487")
 		(property "Reference" "D10"
-			(at 40.894 191.516 0)
+			(at 45.974 191.516 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14993,7 +14812,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 40.9575 190.5 0)
+			(at 46.0375 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15002,7 +14821,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 40.64 194.31 0)
+			(at 45.72 194.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15011,7 +14830,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C22452.pdf"
-			(at 40.64 194.31 0)
+			(at 45.72 194.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15020,7 +14839,7 @@
 			)
 		)
 		(property "Description" "Schottky diode"
-			(at 40.64 194.31 0)
+			(at 45.72 194.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15029,7 +14848,7 @@
 			)
 		)
 		(property "LCSC" "C22452"
-			(at 40.64 194.31 0)
+			(at 45.72 194.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15104,7 +14923,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2149245"
+		(property "LCSC" "C2149245"
 			(at 384.81 215.9 0)
 			(effects
 				(font
@@ -15220,6 +15039,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_SPST")
+		(at 232.41 96.52 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bdb1847a-9c8c-4c11-876e-e9022dfd93e8")
+		(property "Reference" "SW2"
+			(at 233.553 95.6853 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TS342A2P"
+			(at 233.553 98.2222 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK"
+			(at 232.41 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 232.41 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 232.41 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C5373431"
+			(at 232.41 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5827618a-fe3e-4e22-b3e5-75e3515ccc46")
+		)
+		(pin "2"
+			(uuid "b192f28b-d7ce-4a57-b45c-d934ec5a638f")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 372.11 210.82 0)
 		(unit 1)
@@ -15273,7 +15171,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C21190"
+		(property "LCSC" "C11702"
 			(at 372.11 210.82 0)
 			(effects
 				(font
@@ -15360,7 +15258,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C307331"
+		(property "LCSC" "C307331"
 			(at 287.02 30.48 0)
 			(effects
 				(font
@@ -15388,6 +15286,82 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "C69")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Small")
+		(at 322.58 205.74 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c2c0250b-746d-4b98-a107-d6cd0d141221")
+		(property "Reference" "D3"
+			(at 322.58 203.708 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "green"
+			(at 323.088 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 322.58 205.74 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 322.58 205.74 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 322.58 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2297"
+			(at 322.58 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d27dde04-69bd-4f5d-b225-24ab9e4d2161")
+		)
+		(pin "2"
+			(uuid "87ce9e56-942e-485a-bda9-19494dfbb65b")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -15607,7 +15581,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C307331"
+		(property "LCSC" "C307331"
 			(at 78.74 194.31 0)
 			(effects
 				(font
@@ -15644,6 +15618,82 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "C60")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 283.21 217.17 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d06adce4-aecb-46d8-8d2f-4b15aa0a2d81")
+		(property "Reference" "R10"
+			(at 283.21 219.202 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 283.21 214.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 283.21 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 283.21 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 283.21 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C11702"
+			(at 283.21 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c02c7473-8718-400c-9ea1-73b1319e2c71")
+		)
+		(pin "1"
+			(uuid "c33b7758-1096-42f6-818c-6c4408c1ebe0")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "R10")
 					(unit 1)
 				)
 			)
@@ -15709,82 +15759,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "#PWR0113")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 283.21 224.79 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d4851482-da9d-42d1-8839-c395a5e649a4")
-		(property "Reference" "R90"
-			(at 283.464 227.076 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 283.21 222.25 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 283.21 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 283.21 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 283.21 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C11702"
-			(at 283.21 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "6d06134b-70ee-443a-9058-2758b066ce71")
-		)
-		(pin "1"
-			(uuid "c3f79cb3-da55-4ace-82fe-80f16a99c15b")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "R90")
 					(unit 1)
 				)
 			)
@@ -15911,7 +15885,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C307331"
+		(property "LCSC" "C307331"
 			(at 309.88 30.48 0)
 			(effects
 				(font
@@ -15939,103 +15913,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "C71")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_SPST")
-		(at 232.41 96.52 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d7906eb3-5fcf-4a1a-a256-17bad4624273")
-		(property "Reference" "SW2"
-			(at 233.553 95.6853 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "KMR721NGLFS"
-			(at 233.553 98.2222 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2"
-			(at 232.41 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2202171630_C-K-KMR721NGLFS_C2911418.pdf"
-			(at 232.41 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 232.41 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2911418"
-			(at 232.41 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "C&K"
-			(at 232.41 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part#" "KMR721NGLFS"
-			(at 232.41 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e18a8d30-7e76-44cb-8b66-f1d3e98ca286")
-		)
-		(pin "2"
-			(uuid "abd715b3-0b72-4df1-8e7c-4749a03a0e04")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -16199,15 +16076,15 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 317.5 205.74 90)
+		(at 317.5 228.6 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "e4df956a-f9f9-4d24-8a65-f91bba88263c")
-		(property "Reference" "R14"
-			(at 317.5 207.772 90)
+		(uuid "e1b2f83f-49f6-4150-9c57-8b3e0ba0a126")
+		(property "Reference" "R15"
+			(at 317.5 230.632 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16215,15 +16092,15 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 317.5 203.2 90)
+			(at 317.5 226.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 317.5 205.74 0)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 317.5 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16232,7 +16109,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 317.5 205.74 0)
+			(at 317.5 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16241,7 +16118,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 317.5 205.74 0)
+			(at 317.5 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16250,7 +16127,7 @@
 			)
 		)
 		(property "LCSC" "C11702"
-			(at 317.5 205.74 0)
+			(at 317.5 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16259,15 +16136,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "5af6cbcf-1b41-4c6f-aacc-ea1fd93fa60e")
+			(uuid "ed84bbf4-0734-4c90-93e7-a4ac9db3973f")
 		)
 		(pin "1"
-			(uuid "2ab6c6a5-4c5f-48f1-a399-ba43ec206f4a")
+			(uuid "2edbe4b4-71df-42a8-b486-f1e33ad2a6c9")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "R14")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -16340,82 +16217,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 317.5 220.98 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e6823a1e-32b5-4e71-8bd2-39a7761fa239")
-		(property "Reference" "R16"
-			(at 317.754 223.266 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 317.5 218.44 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 317.5 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 317.5 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 317.5 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C11702"
-			(at 317.5 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "de3baee1-a5e4-4a08-a995-3785ba6a5ef8")
-		)
-		(pin "1"
-			(uuid "e1268a35-8270-47d6-bf45-965123775e5f")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "R16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
 		(at 53.34 102.87 0)
 		(unit 1)
@@ -16481,100 +16282,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:FerriteBead")
-		(at 52.07 190.5 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "edbf7405-5f83-4525-9748-4b7b21bdca5d")
-		(property "Reference" "FB3"
-			(at 52.07 184.15 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "120R"
-			(at 52.07 186.69 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
-			(at 52.07 188.722 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121447_TAI-TECH-HCB2012KF-121T50_C304323.pdf"
-			(at 52.07 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "20mΩ ±25% 120Ω@100MHz 0805 Ferrite Beads ROHS"
-			(at 52.07 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "C304323"
-			(at 52.07 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "TAI-TECH"
-			(at 52.07 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part#" "HCB2012KF-121T50"
-			(at 52.07 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7e740bd5-74de-4059-85b3-569b409ee8c5")
-		)
-		(pin "2"
-			(uuid "b2e503e7-e1d0-4e61-82f0-5c4aaccefd61")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "FB3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 26.67 220.98 180)
 		(unit 1)
@@ -16629,7 +16336,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C13585"
+		(property "LCSC" "C13585"
 			(at 26.67 220.98 0)
 			(effects
 				(font
@@ -16696,7 +16403,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
 			(at 288.29 224.79 90)
 			(effects
 				(font
@@ -16766,7 +16473,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "KMR721NGLFS"
+		(property "Value" "TS342A2P"
 			(at 227.203 63.9322 90)
 			(effects
 				(font
@@ -16775,7 +16482,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK"
 			(at 226.06 62.23 0)
 			(effects
 				(font
@@ -16784,7 +16491,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2202171630_C-K-KMR721NGLFS_C2911418.pdf"
+		(property "Datasheet" ""
 			(at 226.06 62.23 0)
 			(effects
 				(font
@@ -16802,25 +16509,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2911418"
-			(at 226.06 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "C&K"
-			(at 226.06 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part#" "KMR721NGLFS"
+		(property "LCSC" "C5373431"
 			(at 226.06 62.23 0)
 			(effects
 				(font
@@ -16839,6 +16528,82 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
 					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 283.21 224.79 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "feaa69d1-b3d0-43f7-811a-edc45aad0f21")
+		(property "Reference" "R11"
+			(at 283.21 226.822 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 283.21 222.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 283.21 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 283.21 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 283.21 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C11702"
+			(at 283.21 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "8efdf570-e0b2-4540-b256-9cef53ee1b32")
+		)
+		(pin "1"
+			(uuid "c346673c-872b-4f6c-8a93-02aeaf3510ce")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
+					(reference "R11")
 					(unit 1)
 				)
 			)

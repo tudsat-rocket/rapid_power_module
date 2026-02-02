@@ -441,6 +441,131 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "R_Small_3"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.016 1.016)
+					)
+				)
+			)
+			(property "Value" "R_Small"
+				(at 1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor, small symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_Small_3_0_1"
+				(rectangle
+					(start -0.762 1.778)
+					(end 0.762 -1.778)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_Small_3_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 0.762)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 0.762)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "bq77915:BQ7791500PWR"
 			(pin_names
 				(offset 0.254)
@@ -1156,8 +1281,8 @@
 		)
 	)
 	(rectangle
-		(start 60.198 126.492)
-		(end 122.428 137.922)
+		(start 58.928 140.462)
+		(end 121.158 151.892)
 		(stroke
 			(width 0)
 			(type default)
@@ -1204,9 +1329,9 @@
 		)
 		(uuid "610b3fef-2d07-4f59-ba48-43f1af90205a")
 	)
-	(text "Calculation for R_IN:\nI_BAL = 25mA and V_MAX(cell) = 4.2V -> R_ges = 168 Ohm\nR_ges = R_BAL + 2 * R_IN -> R_IN = 78 Ohm\n(with R_BAL = typically 12 Ohm)"
+	(text "Calculation for R_IN:\nI_BAL = 25mA and V_MAX(cell) = 4.2V -> R_ges = 168 Ohm\nR_ges = R_BAL + 2 * R_IN -> R_IN = 78 Ohm\n(with R_BAL = typically 12 Ohm)\n==> using 75 Ohm because it's a JLC BASIC-Part"
 		(exclude_from_sim no)
-		(at 60.96 132.08 0)
+		(at 59.69 146.05 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1230,7 +1355,7 @@
 		(at 63.5 96.52)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "09da8626-cab5-4894-a3f4-1ab9779fbec5")
+		(uuid "01e96c99-e2aa-498c-8b61-9b4e27b8bd67")
 	)
 	(junction
 		(at 48.26 114.3)
@@ -1257,10 +1382,34 @@
 		(uuid "397e96db-9e1c-42d6-97ca-d60e6ef173bf")
 	)
 	(junction
+		(at 48.26 127)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "46479184-3615-48c7-8261-f622ed3f9959")
+	)
+	(junction
+		(at 91.44 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4ed7b93f-485b-4365-aa97-7bc44cd09884")
+	)
+	(junction
 		(at 48.26 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "78930ac1-8739-44a2-ac4d-bf2acc8cc5b0")
+	)
+	(junction
+		(at 81.28 127)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "805a8add-5c12-43fb-ba0e-a40b4383ff21")
+	)
+	(junction
+		(at 81.28 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "88168c3f-31de-4955-b91a-37942040c558")
 	)
 	(junction
 		(at 48.26 96.52)
@@ -1269,10 +1418,16 @@
 		(uuid "894ca752-623b-4ea5-91f7-f50b6708e2db")
 	)
 	(junction
-		(at 107.95 78.74)
+		(at 81.28 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "8a87f7a9-42b5-4819-8cb2-9ffbaf9fa52e")
+		(uuid "a6b15b3e-9694-4e43-a6d3-38bcda852cc5")
+	)
+	(junction
+		(at 91.44 127)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ab322c5d-a842-4cf2-b3fc-bf7693548ee0")
 	)
 	(junction
 		(at 48.26 31.75)
@@ -1291,6 +1446,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d30b37d3-1b4c-4e8a-b4e2-8692a33682ce")
+	)
+	(junction
+		(at 91.44 105.41)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "de633641-dbc3-4205-80c1-08061db95a36")
 	)
 	(junction
 		(at 48.26 72.39)
@@ -1321,6 +1482,16 @@
 	(no_connect
 		(at 148.59 64.77)
 		(uuid "aa3ef4f8-6c5d-4df7-bef0-56b4905c1320")
+	)
+	(wire
+		(pts
+			(xy 91.44 121.92) (xy 91.44 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03a1f927-0abf-45fc-a5e9-72a712cc7ba7")
 	)
 	(wire
 		(pts
@@ -1364,6 +1535,46 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 92.71) (xy 91.44 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e403a7e-c336-44e1-8436-9b1d1faa62e1")
+	)
+	(wire
+		(pts
+			(xy 90.17 127) (xy 91.44 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ea91dd1-4091-41e9-91ba-193f0fa0e500")
+	)
+	(wire
+		(pts
+			(xy 83.82 72.39) (xy 83.82 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "121d2c43-8313-45eb-a821-5463257af632")
+	)
+	(wire
+		(pts
+			(xy 81.28 121.92) (xy 81.28 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21464e00-7f9f-47d4-babe-df9d395e109e")
+	)
+	(wire
+		(pts
 			(xy 102.87 44.45) (xy 107.95 44.45)
 		)
 		(stroke
@@ -1404,7 +1615,17 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 31.75) (xy 59.69 31.75)
+			(xy 88.9 92.71) (xy 91.44 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39dd27ee-46b9-4238-b9d6-f6a0e979dc38")
+	)
+	(wire
+		(pts
+			(xy 48.26 31.75) (xy 62.23 31.75)
 		)
 		(stroke
 			(width 0)
@@ -1414,7 +1635,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 82.55) (xy 107.95 82.55)
+			(xy 104.14 82.55) (xy 107.95 82.55)
 		)
 		(stroke
 			(width 0)
@@ -1434,13 +1655,23 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 77.47) (xy 107.95 78.74)
+			(xy 91.44 127) (xy 123.19 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4a94ad71-20a8-4025-8e07-ce71998285b1")
+		(uuid "4637fc19-dad5-4958-a0f0-940cd42909c9")
+	)
+	(wire
+		(pts
+			(xy 88.9 77.47) (xy 88.9 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4921aa01-8953-4a3d-bd43-1cfbc1daa695")
 	)
 	(wire
 		(pts
@@ -1474,6 +1705,46 @@
 	)
 	(wire
 		(pts
+			(xy 99.06 113.03) (xy 99.06 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5cc34236-3345-4d8d-8bd2-03c2411208b1")
+	)
+	(wire
+		(pts
+			(xy 91.44 105.41) (xy 91.44 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "629eb9eb-5f2d-464b-b008-e4f620e688ba")
+	)
+	(wire
+		(pts
+			(xy 81.28 80.01) (xy 81.28 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6bf5db38-fb32-4443-a715-f08a117dbe53")
+	)
+	(wire
+		(pts
+			(xy 88.9 77.47) (xy 107.95 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6bfc2a37-81ba-4f87-aff7-71b84cf8f5a6")
+	)
+	(wire
+		(pts
 			(xy 102.87 31.75) (xy 102.87 44.45)
 		)
 		(stroke
@@ -1481,6 +1752,16 @@
 			(type default)
 		)
 		(uuid "6ef203e5-b49f-4c8d-8ea3-433c37897033")
+	)
+	(wire
+		(pts
+			(xy 81.28 102.87) (xy 81.28 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6fb672b2-84c8-48bd-814d-70e386207abf")
 	)
 	(wire
 		(pts
@@ -1494,16 +1775,6 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 78.74) (xy 107.95 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "746a2689-37bc-4b5b-ac32-43bfd3ded17c")
-	)
-	(wire
-		(pts
 			(xy 106.68 46.99) (xy 107.95 46.99)
 		)
 		(stroke
@@ -1511,6 +1782,16 @@
 			(type default)
 		)
 		(uuid "76b7234d-8fea-4a4b-85f7-a2e3aeef74b4")
+	)
+	(wire
+		(pts
+			(xy 81.28 102.87) (xy 82.55 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "780d371e-00da-4517-b033-0137a08d1943")
 	)
 	(wire
 		(pts
@@ -1534,23 +1815,33 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 78.74) (xy 107.95 80.01)
+			(xy 48.26 127) (xy 48.26 133.35)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "86930a18-49c6-4078-b01d-5e416ebc93d2")
+		(uuid "80aba067-9bfb-43f8-a289-7bb6f570ceb7")
 	)
 	(wire
 		(pts
-			(xy 83.82 73.66) (xy 83.82 74.93)
+			(xy 76.2 105.41) (xy 81.28 105.41)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8b5ffcca-d413-4ad9-94f1-244b2940a8e5")
+		(uuid "8cda2e4c-89f0-479b-b668-3195e027d933")
+	)
+	(wire
+		(pts
+			(xy 81.28 127) (xy 82.55 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8fb44eff-12cc-4411-979f-79ff9b89e355")
 	)
 	(wire
 		(pts
@@ -1604,6 +1895,26 @@
 	)
 	(wire
 		(pts
+			(xy 91.44 102.87) (xy 91.44 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f4d59e8-7b7f-4ef5-805a-b862647d1b74")
+	)
+	(wire
+		(pts
+			(xy 81.28 80.01) (xy 107.95 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0302f55-009c-437f-99ee-0502ab743a2b")
+	)
+	(wire
+		(pts
 			(xy 48.26 31.75) (xy 44.45 31.75)
 		)
 		(stroke
@@ -1614,7 +1925,17 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 114.3) (xy 48.26 121.92)
+			(xy 91.44 105.41) (xy 99.06 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a975ea1c-053e-4f2d-a67c-bc6ab89ea8c4")
+	)
+	(wire
+		(pts
+			(xy 48.26 114.3) (xy 48.26 127)
 		)
 		(stroke
 			(width 0)
@@ -1714,7 +2035,17 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 62.23) (xy 83.82 66.04)
+			(xy 81.28 105.41) (xy 81.28 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e26b8fb1-89e4-4913-b11e-3666fff5cd37")
+	)
+	(wire
+		(pts
+			(xy 83.82 62.23) (xy 83.82 67.31)
 		)
 		(stroke
 			(width 0)
@@ -1751,6 +2082,36 @@
 			(type default)
 		)
 		(uuid "e93ed196-0e72-4909-88f3-0efc48e87374")
+	)
+	(wire
+		(pts
+			(xy 76.2 113.03) (xy 76.2 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0634612-69ba-4e0c-8d61-ce8741c79aef")
+	)
+	(wire
+		(pts
+			(xy 48.26 127) (xy 81.28 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f09112be-dbeb-4004-9cab-34d9b7e6e5db")
+	)
+	(wire
+		(pts
+			(xy 90.17 102.87) (xy 91.44 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5ae1e5d-473b-4cb1-84b3-728369ee9ebb")
 	)
 	(wire
 		(pts
@@ -2002,6 +2363,17 @@
 			)
 		)
 	)
+	(hierarchical_label "BAT-"
+		(shape bidirectional)
+		(at 123.19 127 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "77ec8a89-3f1e-4f16-b1ed-d58762c5e69e")
+	)
 	(hierarchical_label "BAT+"
 		(shape bidirectional)
 		(at 44.45 31.75 180)
@@ -2108,7 +2480,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PW24_TEX"
+		(property "Footprint" "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm"
 			(at 107.95 41.91 0)
 			(effects
 				(font
@@ -2129,6 +2501,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 107.95 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2876946"
 			(at 107.95 41.91 0)
 			(effects
 				(font
@@ -2220,16 +2601,102 @@
 	)
 	(symbol
 		(lib_id "Device:C")
+		(at 77.47 41.91 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0bdad248-2dcb-4186-873f-235d5225f0ab")
+		(property "Reference" "C18"
+			(at 78.74 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1u"
+			(at 76.2 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 73.66 42.8752 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"
+			(at 77.47 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "25V 1uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 77.47 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 77.47 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 77.47 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bbd66a00-0be4-406a-b11d-d722ebd145aa")
+		)
+		(pin "2"
+			(uuid "f2ace817-a481-4804-b4ff-568e3dccaceb")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "C18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
 		(at 63.5 100.33 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "053c932d-8f13-4612-a45e-d8a807b44ab0")
-		(property "Reference" "C32"
-			(at 67.31 99.0599 0)
+		(uuid "0d34eb63-80bd-4848-a48e-cc0b5e6bae80")
+		(property "Reference" "C22"
+			(at 66.04 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2238,7 +2705,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 67.31 101.5999 0)
+			(at 66.04 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2246,7 +2713,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 64.4652 104.14 0)
 			(effects
 				(font
@@ -2255,7 +2722,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8554627388281098240"
 			(at 63.5 100.33 0)
 			(effects
 				(font
@@ -2264,7 +2731,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "50V 100nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
 			(at 63.5 100.33 0)
 			(effects
 				(font
@@ -2273,51 +2740,66 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "acbe010b-8f6b-4f80-a9f8-c1c08e135cc2")
+		(property "LCSC" "C307331"
+			(at 63.5 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 63.5 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "f9763a7c-cc8a-4f33-bc5b-dc23bb2e101e")
+			(uuid "f26cc4a7-0d4f-4f3a-b6ff-d26d16b37de0")
+		)
+		(pin "2"
+			(uuid "538d3628-6974-4f3f-a6d2-2e532d1bc755")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C32")
+					(reference "C22")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 63.5 90.17 0)
+		(lib_id "Device:R")
+		(at 86.36 127 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0a911213-ddf5-4e71-9680-f383557ea45b")
-		(property "Reference" "C31"
-			(at 67.31 88.8999 0)
+		(uuid "147c5ad6-9f50-466b-8df4-0174c30a46c3")
+		(property "Reference" "R_SNS1"
+			(at 86.36 124.968 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "100n"
-			(at 67.31 91.4399 0)
+		(property "Value" "1m"
+			(at 86.614 129.54 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 64.4652 93.98 0)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 86.36 128.778 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2326,7 +2808,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 63.5 90.17 0)
+			(at 86.36 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2334,8 +2816,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 63.5 90.17 0)
+		(property "Description" "Resistor"
+			(at 86.36 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2343,16 +2825,25 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "856180a6-76de-4a7a-a1e0-dbc4b7ef722a")
+		(property "LCSC" "C728297"
+			(at 86.36 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "a8bdf56d-c060-4b08-a7bf-e8485443daf5")
+			(uuid "a88cf7c1-2d27-40f8-9431-49c3c1ba9ac1")
+		)
+		(pin "2"
+			(uuid "697f53a6-a8b3-4af4-8e5c-4d1e71f822a4")
 		)
 		(instances
-			(project "rapid_power_module"
+			(project ""
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C31")
+					(reference "R_SNS1")
 					(unit 1)
 				)
 			)
@@ -2360,7 +2851,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 91.44 82.55 270)
+		(at 96.52 82.55 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2368,7 +2859,7 @@
 		(dnp no)
 		(uuid "1867e1c3-596f-4ebe-bc54-2f10aca96d90")
 		(property "Reference" "#PWR051"
-			(at 85.09 82.55 0)
+			(at 90.17 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2377,7 +2868,7 @@
 			)
 		)
 		(property "Value" "BAL_GND"
-			(at 84.582 82.55 90)
+			(at 92.71 84.836 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2385,7 +2876,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 91.44 82.55 0)
+			(at 96.52 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2394,7 +2885,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 91.44 82.55 0)
+			(at 96.52 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2403,7 +2894,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 91.44 82.55 0)
+			(at 96.52 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2424,32 +2915,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 95.25 82.55 270)
+		(lib_name "R_Small_3")
+		(lib_id "Device:R_Small")
+		(at 64.77 31.75 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1aa0375e-e140-4ecf-bed8-45394735d5c3")
-		(property "Reference" "R_TS_PU"
-			(at 94.996 86.36 90)
+		(uuid "1ac89cb0-80cd-4af9-9d1d-1cf174b2e1c3")
+		(property "Reference" "R8"
+			(at 64.77 27.94 90)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 64.77 29.718 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "10k"
-			(at 94.996 84.836 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 95.25 80.772 90)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 64.77 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2458,7 +2950,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 95.25 82.55 0)
+			(at 64.77 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2466,8 +2958,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 95.25 82.55 0)
+		(property "Description" "Resistor, small symbol"
+			(at 64.77 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2475,16 +2967,25 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "31ae47c3-8625-4e0a-a4c9-920d9a90da23")
+		(property "LCSC" "C11702"
+			(at 64.77 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "42516ed6-bbdd-4d95-ae0a-76711076b952")
+			(uuid "4aa20276-ff3b-4a6a-b792-574a003aacd0")
+		)
+		(pin "2"
+			(uuid "90490ea3-339e-4eec-992d-3c357f38ca5b")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "R_TS_PU")
+					(reference "R8")
 					(unit 1)
 				)
 			)
@@ -2556,6 +3057,86 @@
 		)
 	)
 	(symbol
+		(lib_name "Battery_Cell_1")
+		(lib_id "Device:Battery_Cell")
+		(at 48.26 107.95 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2d690e55-6ad2-48b3-baa6-9bfd29461bf2")
+		(property "Reference" "BT2"
+			(at 40.386 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Battery_Cell"
+			(at 35.052 108.966 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Inductor Wuerth:BAT_1043"
+			(at 48.26 106.426 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.de/datasheet/2/215/1043-745411.pdf"
+			(at 48.26 106.426 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Single-cell battery"
+			(at 48.26 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "x"
+			(at 48.26 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "P"
+			(uuid "106ba235-86f0-4a7a-abf0-ca3f859a6447")
+		)
+		(pin "N"
+			(uuid "7fb9e884-fd53-4cf1-b6d5-44945762d319")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "BT2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 71.12 41.91 0)
 		(unit 1)
@@ -2615,76 +3196,6 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
 					(reference "#PWR038")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 63.5 110.49 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2efab622-0e3d-4ce8-ac5b-a9074aa97105")
-		(property "Reference" "C33"
-			(at 67.31 109.2199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 67.31 111.7599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 64.4652 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 63.5 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 63.5 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7caef912-693b-4201-b6bd-9402db91b0e4")
-		)
-		(pin "1"
-			(uuid "8fd37dfd-3db2-4171-9d9f-e67324051a94")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C33")
 					(unit 1)
 				)
 			)
@@ -2758,17 +3269,35 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 48.26 121.92 0)
+		(lib_id "Device:R")
+		(at 100.33 82.55 270)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3d546058-80e2-4c52-8063-940a4cb830c7")
-		(property "Reference" "#PWR045"
-			(at 48.26 128.27 0)
+		(uuid "33a7c318-0806-4373-b747-12f9b7491e00")
+		(property "Reference" "R_TS_PU1"
+			(at 98.044 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 103.632 84.836 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 100.33 84.328 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2776,16 +3305,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "BAL_GND"
-			(at 48.26 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 48.26 121.92 0)
+		(property "Datasheet" "~"
+			(at 100.33 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2793,8 +3314,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 48.26 121.92 0)
+		(property "Description" "Resistor"
+			(at 100.33 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2802,8 +3323,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 48.26 121.92 0)
+		(property "LCSC" "C25744"
+			(at 100.33 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2812,12 +3333,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "4b4695dc-b89b-4ca2-bf18-58380eed8413")
+			(uuid "4c20f405-be4c-4cab-a010-2b36fa9868d0")
+		)
+		(pin "2"
+			(uuid "61662546-eb26-40d2-bf13-67f25e10bc31")
 		)
 		(instances
-			(project ""
+			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "#PWR045")
+					(reference "R_TS_PU1")
 					(unit 1)
 				)
 			)
@@ -2831,7 +3355,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4522de25-2564-4e55-831c-443a3550f637")
+		(uuid "3b906c07-b5ca-435a-9dc5-73979b1c1674")
 		(property "Reference" "R_IN3"
 			(at 55.88 92.456 90)
 			(effects
@@ -2840,7 +3364,7 @@
 				)
 			)
 		)
-		(property "Value" "78"
+		(property "Value" "75"
 			(at 55.88 94.234 90)
 			(effects
 				(font
@@ -2848,7 +3372,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 55.88 98.298 90)
 			(effects
 				(font
@@ -2875,11 +3399,20 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C4275"
+			(at 55.88 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
-			(uuid "6a817d7f-9ced-42c7-b6c3-87b59f91d055")
+			(uuid "f53dc40d-d555-4481-a3db-51dfc149702d")
 		)
 		(pin "1"
-			(uuid "05f56a2d-27f7-4899-b381-1f208ac77491")
+			(uuid "8481330d-c3c1-478a-aeb5-00077353202e")
 		)
 		(instances
 			(project "rapid_power_module"
@@ -2891,32 +3424,32 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 77.47 41.91 270)
+		(lib_id "Device:R")
+		(at 81.28 118.11 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4852a4f1-6a47-403b-b2e2-1190cb3f1edf")
-		(property "Reference" "C35"
-			(at 77.47 45.72 90)
+		(uuid "3c131528-b0d6-428c-8b31-9efbd9823297")
+		(property "Reference" "R17"
+			(at 84.328 116.332 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "1u"
-			(at 77.47 47.244 90)
+		(property "Value" "100"
+			(at 84.328 120.142 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 73.66 42.8752 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 83.058 118.11 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2925,7 +3458,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 77.47 41.91 0)
+			(at 81.28 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2933,8 +3466,17 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 77.47 41.91 0)
+		(property "Description" "Resistor"
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22775"
+			(at 81.28 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2943,50 +3485,113 @@
 			)
 		)
 		(pin "1"
-			(uuid "7a3a25b2-e1ae-43af-90e7-1ede28330ccc")
+			(uuid "2c9b6dd8-5fb0-4616-a87d-7939aac264e7")
 		)
 		(pin "2"
-			(uuid "47217c4d-36ee-458c-a872-e16838c5d7fb")
+			(uuid "6eeacc2b-e10c-4021-bf58-556994289a10")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C35")
+					(reference "R17")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 63.5 77.47 0)
+		(lib_id "power:GND")
+		(at 48.26 133.35 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "5fb8f64e-8693-4643-ab4d-d64a7c4c85d8")
-		(property "Reference" "C30"
-			(at 67.31 76.1999 0)
+		(uuid "3d546058-80e2-4c52-8063-940a4cb830c7")
+		(property "Reference" "#PWR045"
+			(at 48.26 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(hide yes)
 			)
 		)
-		(property "Value" "100n"
-			(at 67.31 78.7399 0)
+		(property "Value" "BAL_GND"
+			(at 48.26 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 64.4652 81.28 0)
+			(at 48.26 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 48.26 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 48.26 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4b4695dc-b89b-4ca2-bf18-58380eed8413")
+		)
+		(instances
+			(project ""
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "#PWR045")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 55.88 83.82 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5c34d445-a1d8-4480-8c9c-ad987fb6c2a4")
+		(property "Reference" "R_IN2"
+			(at 55.88 79.756 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "75"
+			(at 55.88 81.534 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 55.88 85.598 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2995,7 +3600,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 63.5 77.47 0)
+			(at 55.88 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3003,8 +3608,17 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 63.5 77.47 0)
+		(property "Description" "Resistor"
+			(at 55.88 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C4275"
+			(at 55.88 83.82 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3013,15 +3627,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "2e38d08f-1d0b-42b0-ae78-679c5e2d8bcc")
+			(uuid "433e8d0a-407c-4a45-b10b-3348314095d8")
 		)
 		(pin "1"
-			(uuid "bee1cc23-6dcd-4247-928b-a9e50a9775d5")
+			(uuid "3e0ba944-7b5c-4b60-b182-7cbc4edb0b9b")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C30")
+					(reference "R_IN2")
 					(unit 1)
 				)
 			)
@@ -3095,6 +3709,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 99.06 118.11 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "64269e4f-038a-47a8-b93b-6d5e8f3bd537")
+		(property "Reference" "#PWR059"
+			(at 99.06 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "BAL_GND"
+			(at 99.06 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 99.06 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 99.06 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 99.06 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8537fce5-a934-4c50-b954-97fc96187363")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "#PWR059")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 91.44 63.5 0)
 		(mirror x)
@@ -3104,7 +3784,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "68fabeb4-f9e0-41ce-99ac-c8d6262f2cbd")
-		(property "Reference" "R_LD"
+		(property "Reference" "R_LD1"
 			(at 90.17 62.23 0)
 			(effects
 				(font
@@ -3113,7 +3793,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "450k"
+		(property "Value" "453k"
 			(at 90.17 64.77 0)
 			(effects
 				(font
@@ -3122,7 +3802,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 89.662 63.5 90)
 			(effects
 				(font
@@ -3149,6 +3829,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C27009"
+			(at 91.44 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "92fbdf83-78db-4b82-bc75-65e9f30c58ef")
 		)
@@ -3158,7 +3847,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "R_LD")
+					(reference "R_LD1")
 					(unit 1)
 				)
 			)
@@ -3297,41 +3986,34 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 57.15 114.3 270)
+		(lib_id "Device:C")
+		(at 99.06 109.22 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8dc2b491-a871-4076-95f5-7f2e12a31103")
-		(property "Reference" "R_IN4"
-			(at 57.15 118.364 90)
+		(uuid "7a6e62c0-0f5c-464c-a865-84258bb1989f")
+		(property "Reference" "C10"
+			(at 101.6 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "78"
-			(at 57.15 116.586 90)
+		(property "Value" "100n"
+			(at 101.6 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 57.15 112.522 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 57.15 114.3 0)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 100.0252 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3339,8 +4021,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 57.15 114.3 0)
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8554627388281098240"
+			(at 99.06 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3348,83 +4030,43 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "de823d8f-9e84-4356-a603-f848a2d40261")
+		(property "Description" "50V 100nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 99.06 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 99.06 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 99.06 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "3736a9cf-b52c-4457-a317-e92a33d4047a")
+			(uuid "0e1fd283-1d9b-4f12-baf8-0f313911843c")
+		)
+		(pin "2"
+			(uuid "f2189d4d-d19f-46b3-bbe0-f03d7dcdac28")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "R_IN4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 55.88 83.82 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "98bce124-5e8c-41d9-999f-38ee86205382")
-		(property "Reference" "R_IN2"
-			(at 55.88 79.756 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "78"
-			(at 55.88 81.534 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 55.88 85.598 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 55.88 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "0b79b138-dfd0-4598-9d33-7e33e6baf471")
-		)
-		(pin "1"
-			(uuid "f27e9eed-732d-4d6e-af7c-8e80014c2e24")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "R_IN2")
+					(reference "C10")
 					(unit 1)
 				)
 			)
@@ -3438,8 +4080,8 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "99c62235-3529-472c-baa4-6b6e0450752f")
-		(property "Reference" "C34"
+		(uuid "7f5f0cac-6445-4ba4-9f31-f68f807130f5")
+		(property "Reference" "C17"
 			(at 73.66 35.56 0)
 			(effects
 				(font
@@ -3449,7 +4091,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 73.66 37.592 0)
+			(at 73.66 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3457,7 +4099,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 72.0852 40.64 0)
 			(effects
 				(font
@@ -3466,7 +4108,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf"
 			(at 71.12 36.83 0)
 			(effects
 				(font
@@ -3475,7 +4117,25 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "25V 1uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 71.12 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 71.12 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 71.12 36.83 0)
 			(effects
 				(font
@@ -3485,15 +4145,355 @@
 			)
 		)
 		(pin "1"
-			(uuid "4567f3ab-905d-4245-839e-4c98bc51a659")
+			(uuid "780f2eb1-796f-4753-828f-5bb4f6802e48")
 		)
 		(pin "2"
-			(uuid "eb8e5668-5da3-4805-a80d-8bcc4fc92b18")
+			(uuid "15db0e49-fe71-4441-8eec-32b890daa537")
 		)
 		(instances
-			(project ""
+			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "C34")
+					(reference "C17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 86.36 102.87 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "843871f4-37e0-4713-a866-b14ba7ca648a")
+		(property "Reference" "C12"
+			(at 87.884 106.426 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 88.138 99.568 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 90.17 101.9048 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8554627388281098240"
+			(at 86.36 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "50V 100nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 86.36 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 86.36 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 86.36 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6f31fdf1-7c9e-424f-ad09-0c21e46bc2c6")
+		)
+		(pin "2"
+			(uuid "6cd0a0d7-266d-494c-ad11-dbf9086f2bae")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "C12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "R_Small_3")
+		(lib_id "Device:R_Small")
+		(at 83.82 69.85 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "88c31b32-edc6-4572-b253-20e64b88d9d8")
+		(property "Reference" "R16"
+			(at 85.344 68.326 0)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1k"
+			(at 85.344 70.866 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 83.82 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 83.82 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 83.82 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C11702"
+			(at 83.82 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "53b42864-17bd-4e46-81a8-fb576c39fae2")
+		)
+		(pin "2"
+			(uuid "e4f8db93-5099-4d93-a6ae-f51631867918")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 63.5 90.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8903c1bd-17de-4b74-a47b-e854c30888e7")
+		(property "Reference" "C21"
+			(at 66.04 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 66.04 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 64.4652 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8554627388281098240"
+			(at 63.5 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "50V 100nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 63.5 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 63.5 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 63.5 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "45371e00-cc67-40cf-8b20-78817f80d624")
+		)
+		(pin "2"
+			(uuid "bd3a3da7-a236-4bec-b026-7e52bb1eb738")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "C21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 76.2 109.22 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "973ae9ee-ff5b-4c74-aab6-172981cdd53f")
+		(property "Reference" "C11"
+			(at 75.184 111.506 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 75.184 107.188 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 75.2348 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8554627388281098240"
+			(at 76.2 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "50V 100nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 76.2 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 76.2 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 76.2 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "716da908-c609-4325-93cf-6fdd27f89159")
+		)
+		(pin "2"
+			(uuid "a335961d-2569-4652-845e-2da397713c70")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "C11")
 					(unit 1)
 				)
 			)
@@ -3547,6 +4547,15 @@
 			)
 		)
 		(property "Description" "Single-cell battery"
+			(at 48.26 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "x"
 			(at 48.26 78.74 0)
 			(effects
 				(font
@@ -3639,31 +4648,31 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 83.82 69.85 0)
+		(at 91.44 118.11 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ae03524b-0c21-44ee-9717-c239c9024ca9")
-		(property "Reference" "R_PRES"
-			(at 78.74 68.834 0)
+		(uuid "ae735ac0-aa87-4e88-9f65-2f9f1d04c0d8")
+		(property "Reference" "R18"
+			(at 94.488 116.332 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "1k"
-			(at 81.28 70.866 0)
+		(property "Value" "100"
+			(at 94.234 120.142 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 82.042 69.85 90)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 93.218 118.11 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3672,7 +4681,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 83.82 69.85 0)
+			(at 91.44 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3681,7 +4690,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 83.82 69.85 0)
+			(at 91.44 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3689,16 +4698,25 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "e705a9e7-0a45-47cd-9391-114e84fa30b3")
+		(property "LCSC" "C22775"
+			(at 91.44 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "95044c64-dcd5-4f15-9bae-9cbaacf23306")
+			(uuid "503aa52f-8529-4162-9e0a-2fd628b50676")
+		)
+		(pin "2"
+			(uuid "84a3d1d4-4ed5-4f31-876b-18ae494af3a6")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "R_PRES")
+					(reference "R18")
 					(unit 1)
 				)
 			)
@@ -3721,7 +4739,7 @@
 				)
 			)
 		)
-		(property "Value" "78"
+		(property "Value" "75"
 			(at 55.88 70.104 90)
 			(effects
 				(font
@@ -3729,7 +4747,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 55.88 74.168 90)
 			(effects
 				(font
@@ -3756,6 +4774,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C4275"
+			(at 55.88 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5b33bfad-35d8-4660-b637-7bd31810eb38")
 		)
@@ -3766,6 +4793,162 @@
 			(project ""
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
 					(reference "R_IN1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 57.15 114.3 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bf763f6e-1dc9-415b-a7d0-3f5f997dfd63")
+		(property "Reference" "R_IN4"
+			(at 57.15 118.364 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "75"
+			(at 57.15 116.586 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 57.15 112.522 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 57.15 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 57.15 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C4275"
+			(at 57.15 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c445f520-258b-4104-a766-432bc0e7fd3c")
+		)
+		(pin "1"
+			(uuid "3d78dd2c-b742-4cec-a6d0-410ed316b603")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "R_IN4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Battery_Cell_1")
+		(lib_id "Device:Battery_Cell")
+		(at 48.26 91.44 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c19d5321-beed-4585-a506-c63272c7585b")
+		(property "Reference" "BT1"
+			(at 40.386 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Battery_Cell"
+			(at 35.052 92.456 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Inductor Wuerth:BAT_1043"
+			(at 48.26 89.916 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.de/datasheet/2/215/1043-745411.pdf"
+			(at 48.26 89.916 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Single-cell battery"
+			(at 48.26 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "x"
+			(at 48.26 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "P"
+			(uuid "19652c0c-340a-4c8e-bc89-abb678da339a")
+		)
+		(pin "N"
+			(uuid "e9a54fe3-a1eb-4076-8925-0673fbc33ddb")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "BT1")
 					(unit 1)
 				)
 			)
@@ -3796,7 +4979,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PW24_TEX"
+		(property "Footprint" "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm"
 			(at 107.95 59.69 0)
 			(effects
 				(font
@@ -3817,6 +5000,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 107.95 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2876946"
 			(at 107.95 59.69 0)
 			(effects
 				(font
@@ -3907,45 +5099,34 @@
 		)
 	)
 	(symbol
-		(lib_name "Battery_Cell_1")
-		(lib_id "Device:Battery_Cell")
-		(at 48.26 91.44 0)
-		(mirror y)
+		(lib_id "Device:C")
+		(at 63.5 77.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d358bf9a-f1ba-463e-8d09-e9722fb258d0")
-		(property "Reference" "BT5"
-			(at 40.386 90.17 0)
+		(uuid "ef0f1e4b-e9a9-4122-8172-b16eb14097dc")
+		(property "Reference" "C19"
+			(at 66.04 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
-		(property "Value" "Battery_Cell"
-			(at 35.052 92.456 0)
+		(property "Value" "100n"
+			(at 66.04 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Inductor Wuerth:BAT_1043"
-			(at 48.26 89.916 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.de/datasheet/2/215/1043-745411.pdf"
-			(at 48.26 89.916 90)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 64.4652 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3953,8 +5134,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Single-cell battery"
-			(at 48.26 91.44 0)
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8554627388281098240"
+			(at 63.5 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3962,48 +5143,8 @@
 				(hide yes)
 			)
 		)
-		(pin "P"
-			(uuid "1184ab30-d361-4039-8535-5008f0efceb2")
-		)
-		(pin "N"
-			(uuid "4c4a0bba-b2a0-47c6-9428-8b1084a529ea")
-		)
-		(instances
-			(project "rapid_power_module"
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "BT5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 63.5 31.75 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e194692c-7683-4130-9562-c8a1d793b3ed")
-		(property "Reference" "R8"
-			(at 63.5 27.94 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1k"
-			(at 63.754 29.718 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 63.5 33.528 90)
+		(property "Description" "50V 100nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 63.5 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4011,8 +5152,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 63.5 31.75 0)
+		(property "LCSC" "C307331"
+			(at 63.5 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4020,96 +5161,25 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 63.5 31.75 0)
+		(property "Manufacturer" "Murata Electronics"
+			(at 63.5 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(pin "2"
-			(uuid "0810e9d9-8841-4ad3-b410-cd1a3249f4e7")
 		)
 		(pin "1"
-			(uuid "e0325db2-7b5b-4fd9-afc0-74f40201d0a6")
+			(uuid "9f7ab1c3-d679-47b0-9f41-04128aefed2a")
 		)
-		(instances
-			(project ""
-				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "R8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "Battery_Cell_1")
-		(lib_id "Device:Battery_Cell")
-		(at 48.26 107.95 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e474c393-b9d2-4c33-8dea-5efc0e66c299")
-		(property "Reference" "BT6"
-			(at 40.386 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Battery_Cell"
-			(at 35.052 108.966 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Inductor Wuerth:BAT_1043"
-			(at 48.26 106.426 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.de/datasheet/2/215/1043-745411.pdf"
-			(at 48.26 106.426 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Single-cell battery"
-			(at 48.26 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "P"
-			(uuid "1257676e-0b34-4258-b951-489e0c75bc7a")
-		)
-		(pin "N"
-			(uuid "bc3797ee-c1be-433e-bd44-d909b5acb593")
+		(pin "2"
+			(uuid "09437d6f-716a-4271-b987-7805283656da")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "BT6")
+					(reference "C19")
 					(unit 1)
 				)
 			)
@@ -4117,15 +5187,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 105.41 78.74 270)
+		(at 76.2 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f2f4e3e0-688b-4058-9746-eaf098538a06")
-		(property "Reference" "#PWR043"
-			(at 99.06 78.74 0)
+		(fields_autoplaced yes)
+		(uuid "f57dcd68-b326-47b3-8dce-bb05fd1e600d")
+		(property "Reference" "#PWR064"
+			(at 76.2 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4134,7 +5205,7 @@
 			)
 		)
 		(property "Value" "BAL_GND"
-			(at 97.536 78.74 90)
+			(at 76.2 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4142,7 +5213,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 105.41 78.74 0)
+			(at 76.2 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4151,7 +5222,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 105.41 78.74 0)
+			(at 76.2 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4160,7 +5231,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 105.41 78.74 0)
+			(at 76.2 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4169,12 +5240,99 @@
 			)
 		)
 		(pin "1"
-			(uuid "0be9f758-af8e-4af8-a05e-d56d4b6cc1da")
+			(uuid "e4f7d64e-4eaa-4cd1-93fe-a8ec0d3eaac6")
 		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "#PWR043")
+					(reference "#PWR064")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 63.5 110.49 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f6897639-fa1a-4e85-b8b8-d013f896d7f5")
+		(property "Reference" "C24"
+			(at 66.04 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100n"
+			(at 66.04 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 64.4652 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8554627388281098240"
+			(at 63.5 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "50V 100nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 63.5 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 63.5 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 63.5 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "28f0b8bf-cc8f-4b92-8123-7746dcab476a")
+		)
+		(pin "2"
+			(uuid "16cf2624-fd73-498d-a116-a828f090a24a")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
+					(reference "C24")
 					(unit 1)
 				)
 			)

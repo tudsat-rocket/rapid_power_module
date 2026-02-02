@@ -525,7 +525,14 @@
     "meta": {
       "version": 4
     },
-    "net_colors": null,
+    "net_colors": {
+      "GND": "rgb(255, 0, 255)",
+      "Net-(F1-Pad2)": "rgb(255, 255, 0)",
+      "PACK+": "rgb(255, 153, 0)",
+      "PACK-": "rgb(255, 255, 0)",
+      "charging_voltage": "rgb(0, 194, 0)",
+      "main_voltage": "rgb(0, 255, 0)"
+    },
     "netclass_assignments": null,
     "netclass_patterns": [
       {
