@@ -2188,9 +2188,9 @@
 		)
 		(uuid "9c3cd279-7ab0-4256-893a-2bbd4c60259b")
 	)
-	(text "Arming Connector"
+	(text "Main Switch"
 		(exclude_from_sim no)
-		(at 35.814 80.518 0)
+		(at 29.972 80.518 0)
 		(effects
 			(font
 				(size 2.54 2.54)

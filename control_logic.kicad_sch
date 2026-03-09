@@ -8867,7 +8867,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 346.71 30.48 270)
+		(at 346.71 30.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8875,7 +8875,7 @@
 		(dnp no)
 		(uuid "06808b18-ee99-4082-ac01-026ef1e101b9")
 		(property "Reference" "C73"
-			(at 347.98 33.02 0)
+			(at 349.25 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8884,7 +8884,7 @@
 			)
 		)
 		(property "Value" "10n"
-			(at 345.44 33.02 0)
+			(at 349.25 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8893,7 +8893,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 342.9 31.4452 0)
+			(at 347.6752 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
