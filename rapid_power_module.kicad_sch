@@ -2190,7 +2190,7 @@
 		(uuid "37eff58a-bdb8-4b92-b75a-71a1de03ced4")
 	)
 	(junction
-		(at 48.26 158.75)
+		(at 50.8 158.75)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3f619f3b-a018-42ba-afe8-5a01f22e9b6f")
@@ -2292,7 +2292,7 @@
 		(uuid "dc2e32af-cac2-4ca9-a9f4-69a040ef2356")
 	)
 	(junction
-		(at 48.26 151.13)
+		(at 50.8 151.13)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "df5f7c9b-72b5-4795-95e0-b9c6e1d73b49")
@@ -2693,7 +2693,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 151.13) (xy 48.26 151.13)
+			(xy 46.99 151.13) (xy 50.8 151.13)
 		)
 		(stroke
 			(width 0)
@@ -2730,6 +2730,16 @@
 			(type default)
 		)
 		(uuid "4eee82c3-fb83-4303-97ab-9221fbfba204")
+	)
+	(wire
+		(pts
+			(xy 311.15 143.51) (xy 311.15 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50123e09-071f-487a-b95e-9ec901048bf1")
 	)
 	(wire
 		(pts
@@ -3233,6 +3243,16 @@
 	)
 	(wire
 		(pts
+			(xy 311.15 71.12) (xy 177.8 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2a0db13-52c5-457e-82ed-02f1ee304f4d")
+	)
+	(wire
+		(pts
 			(xy 379.73 34.29) (xy 369.57 34.29)
 		)
 		(stroke
@@ -3393,7 +3413,7 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 158.75) (xy 53.34 158.75)
+			(xy 50.8 158.75) (xy 55.88 158.75)
 		)
 		(stroke
 			(width 0)
@@ -3433,7 +3453,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 158.75) (xy 48.26 158.75)
+			(xy 46.99 158.75) (xy 50.8 158.75)
 		)
 		(stroke
 			(width 0)
@@ -3523,7 +3543,7 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 151.13) (xy 53.34 151.13)
+			(xy 50.8 151.13) (xy 55.88 151.13)
 		)
 		(stroke
 			(width 0)
@@ -3774,7 +3794,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 44.45 154.94 0)
+		(at 46.99 154.94 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3782,7 +3802,7 @@
 		(dnp no)
 		(uuid "08095ce7-5a75-4a9c-a2a8-a00334a968df")
 		(property "Reference" "C88"
-			(at 46.99 153.67 0)
+			(at 49.53 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3791,7 +3811,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 46.99 156.21 0)
+			(at 49.53 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3800,7 +3820,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 45.4152 158.75 0)
+			(at 47.9552 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3809,7 +3829,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
-			(at 44.45 154.94 0)
+			(at 46.99 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3818,7 +3838,7 @@
 			)
 		)
 		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 44.45 154.94 0)
+			(at 46.99 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3827,7 +3847,7 @@
 			)
 		)
 		(property "LCSC" "C194427"
-			(at 44.45 154.94 0)
+			(at 46.99 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3836,7 +3856,7 @@
 			)
 		)
 		(property "Manufacturer" "Murata Electronics"
-			(at 44.45 154.94 0)
+			(at 46.99 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5592,7 +5612,7 @@
 	(symbol
 		(lib_name "VDC_1")
 		(lib_id "power:VDC")
-		(at 48.26 151.13 0)
+		(at 50.8 151.13 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5600,7 +5620,7 @@
 		(dnp no)
 		(uuid "687f303f-9bfb-43de-b6b4-742e813e6430")
 		(property "Reference" "#PWR0173"
-			(at 48.26 154.94 0)
+			(at 50.8 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5609,7 +5629,7 @@
 			)
 		)
 		(property "Value" "+VSW"
-			(at 48.006 147.574 0)
+			(at 50.546 147.574 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5617,7 +5637,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 48.26 151.13 0)
+			(at 50.8 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5626,7 +5646,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 48.26 151.13 0)
+			(at 50.8 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5635,7 +5655,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VDC\""
-			(at 48.26 151.13 0)
+			(at 50.8 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7067,7 +7087,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 48.26 158.75 0)
+		(at 50.8 158.75 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7076,7 +7096,7 @@
 		(fields_autoplaced yes)
 		(uuid "a73845b7-0a3e-4c5a-8c9a-a36ceea85f8b")
 		(property "Reference" "#PWR042"
-			(at 48.26 165.1 0)
+			(at 50.8 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7085,7 +7105,7 @@
 			)
 		)
 		(property "Value" "SYS_GND"
-			(at 48.26 163.83 0)
+			(at 50.8 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7093,7 +7113,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 48.26 158.75 0)
+			(at 50.8 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7102,7 +7122,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 48.26 158.75 0)
+			(at 50.8 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7111,7 +7131,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 48.26 158.75 0)
+			(at 50.8 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7646,7 +7666,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 53.34 154.94 0)
+		(at 55.88 154.94 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7654,7 +7674,7 @@
 		(dnp no)
 		(uuid "c3dc6a8f-9455-45a5-83c5-f04099347d78")
 		(property "Reference" "C89"
-			(at 55.88 153.67 0)
+			(at 58.42 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7663,7 +7683,7 @@
 			)
 		)
 		(property "Value" "10n"
-			(at 55.88 156.21 0)
+			(at 58.42 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7672,7 +7692,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 54.3052 158.75 0)
+			(at 56.8452 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7681,7 +7701,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB103_C60133.pdf"
-			(at 53.34 154.94 0)
+			(at 55.88 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7690,7 +7710,7 @@
 			)
 		)
 		(property "Description" "50V 10nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
-			(at 53.34 154.94 0)
+			(at 55.88 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7699,7 +7719,7 @@
 			)
 		)
 		(property "LCSC" "C60133"
-			(at 53.34 154.94 0)
+			(at 55.88 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7708,7 +7728,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 53.34 154.94 0)
+			(at 55.88 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8361,6 +8381,16 @@
 				(justify right)
 			)
 		)
+		(pin "sense_I" input
+			(at 177.8 71.12 0)
+			(uuid "2eec5837-88cc-4f81-87c7-205dc33cce41")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
@@ -8421,6 +8451,16 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(pin "sense_I" output
+			(at 311.15 143.51 90)
+			(uuid "6b598542-5f32-41c1-b0dc-1c70dfc1d4a5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
