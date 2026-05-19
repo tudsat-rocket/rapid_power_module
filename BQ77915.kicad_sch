@@ -4298,7 +4298,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "2d690e55-6ad2-48b3-baa6-9bfd29461bf2")
 		(property "Reference" "BT2"
 			(at 54.356 142.24 0)
@@ -5701,9 +5701,9 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "9b108d72-8a48-4b20-bc63-f727dc5a45d6")
-		(property "Reference" "BT4"
+		(property "Reference" "BT3"
 			(at 54.356 113.03 0)
 			(effects
 				(font
@@ -5766,7 +5766,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/f9ba2c7f-e63c-4860-86c8-ae922535c6b3"
-					(reference "BT4")
+					(reference "BT3")
 					(unit 1)
 				)
 			)
@@ -6000,7 +6000,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c19d5321-beed-4585-a506-c63272c7585b")
 		(property "Reference" "BT1"
 			(at 54.356 125.73 0)
