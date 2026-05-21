@@ -3916,7 +3916,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "07094950-501d-42c5-8105-dd2224107646")
-		(property "Reference" "TP_V_MAIN"
+		(property "Reference" "TP2"
 			(at 66.1108 51.5619 0)
 			(effects
 				(font
@@ -3934,7 +3934,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 58.42 49.53 0)
 			(effects
 				(font
@@ -3967,7 +3967,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "TP_V_MAIN")
+					(reference "TP2")
 					(unit 1)
 				)
 			)
@@ -4342,7 +4342,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1155cad0-1deb-4bed-914a-305482ca6e2b")
-		(property "Reference" "TP_V_BAT"
+		(property "Reference" "TP4"
 			(at 279.4 142.7479 0)
 			(effects
 				(font
@@ -4360,7 +4360,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 281.94 147.32 0)
 			(effects
 				(font
@@ -4393,7 +4393,7 @@
 		(instances
 			(project ""
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "TP_V_BAT")
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -5342,7 +5342,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "481d1d0d-ce96-4c53-8943-dfc369d688aa")
-		(property "Reference" "TP_V_CH"
+		(property "Reference" "TP1"
 			(at 72.39 38.6079 0)
 			(effects
 				(font
@@ -5360,7 +5360,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 74.93 43.18 0)
 			(effects
 				(font
@@ -5393,7 +5393,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "TP_V_CH")
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -5769,7 +5769,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5f7dadb7-2367-48cf-a1fe-d1d5219e4398")
-		(property "Reference" "TP_V_Circumvent"
+		(property "Reference" "TP3"
 			(at 228.6 133.35 0)
 			(effects
 				(font
@@ -5787,7 +5787,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 232.41 137.16 0)
 			(effects
 				(font
@@ -5820,7 +5820,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
-					(reference "TP_V_Circumvent")
+					(reference "TP3")
 					(unit 1)
 				)
 			)

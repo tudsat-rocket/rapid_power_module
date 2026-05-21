@@ -7253,7 +7253,7 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 38.1) (xy 25.4 62.23)
+			(xy 24.13 38.1) (xy 24.13 62.23)
 		)
 		(stroke
 			(width 0)
@@ -7483,7 +7483,7 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 38.1) (xy 38.1 38.1)
+			(xy 24.13 38.1) (xy 38.1 38.1)
 		)
 		(stroke
 			(width 0)
@@ -7993,7 +7993,7 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 62.23) (xy 39.37 62.23)
+			(xy 24.13 62.23) (xy 39.37 62.23)
 		)
 		(stroke
 			(width 0)
@@ -10611,7 +10611,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1fa137dc-d964-403b-af94-1e2b10fa8dfa")
-		(property "Reference" "TP_3V3"
+		(property "Reference" "TP12"
 			(at 63.5 214.6299 90)
 			(effects
 				(font
@@ -10629,7 +10629,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 58.42 220.98 0)
 			(effects
 				(font
@@ -10662,7 +10662,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "TP_3V3")
+					(reference "TP12")
 					(unit 1)
 				)
 			)
@@ -10749,7 +10749,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "21159089-90d4-4f0e-8987-4e4cb137b5d9")
-		(property "Reference" "TP_CAN_TX"
+		(property "Reference" "TP9"
 			(at 33.02 137.6679 0)
 			(effects
 				(font
@@ -10767,7 +10767,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 35.56 142.24 0)
 			(effects
 				(font
@@ -10800,7 +10800,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "TP_CAN_TX")
+					(reference "TP9")
 					(unit 1)
 				)
 			)
@@ -13170,7 +13170,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4f65cd6d-0134-4a75-a366-04d609bcfe2f")
-		(property "Reference" "TP_CAN_RX"
+		(property "Reference" "TP11"
 			(at 36.322 146.304 0)
 			(effects
 				(font
@@ -13188,7 +13188,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 41.91 144.78 0)
 			(effects
 				(font
@@ -13221,7 +13221,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "TP_CAN_RX")
+					(reference "TP11")
 					(unit 1)
 				)
 			)
@@ -14432,7 +14432,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "75039dc4-3f0b-49f1-81c0-7dee41fabafc")
-		(property "Reference" "TP_SWDIO"
+		(property "Reference" "TP6"
 			(at 24.13 36.3219 0)
 			(effects
 				(font
@@ -14450,7 +14450,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 31.75 34.29 0)
 			(effects
 				(font
@@ -14483,7 +14483,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "TP_SWDIO")
+					(reference "TP6")
 					(unit 1)
 				)
 			)
@@ -14498,7 +14498,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "78563590-962f-45a2-8777-09f1e66d456d")
-		(property "Reference" "TP_5V"
+		(property "Reference" "TP5"
 			(at 20.828 210.82 90)
 			(effects
 				(font
@@ -14514,7 +14514,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 24.13 210.82 0)
 			(effects
 				(font
@@ -14547,7 +14547,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "TP_5V")
+					(reference "TP5")
 					(unit 1)
 				)
 			)
@@ -16642,7 +16642,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b34e3203-b3a1-46f8-a721-af422395e274")
-		(property "Reference" "TP_SWO"
+		(property "Reference" "TP10"
 			(at 34.544 42.672 0)
 			(effects
 				(font
@@ -16660,7 +16660,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 40.64 40.64 0)
 			(effects
 				(font
@@ -16693,7 +16693,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "TP_SWO")
+					(reference "TP10")
 					(unit 1)
 				)
 			)
@@ -16780,7 +16780,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b833ee3b-b081-48ee-8bb9-d838d8de81c8")
-		(property "Reference" "TP_SWCLK"
+		(property "Reference" "TP13"
 			(at 77.47 36.0679 0)
 			(effects
 				(font
@@ -16798,7 +16798,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 80.01 40.64 0)
 			(effects
 				(font
@@ -16831,7 +16831,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "TP_SWCLK")
+					(reference "TP13")
 					(unit 1)
 				)
 			)
@@ -17727,7 +17727,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c456fff6-b755-4738-b4ac-df49d94751d6")
-		(property "Reference" "TP_I2C_SCL"
+		(property "Reference" "TP7"
 			(at 33.02 103.3779 0)
 			(effects
 				(font
@@ -17745,7 +17745,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 35.56 107.95 0)
 			(effects
 				(font
@@ -17778,7 +17778,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "TP_I2C_SCL")
+					(reference "TP7")
 					(unit 1)
 				)
 			)
@@ -18937,7 +18937,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f7f9c5d8-11cf-4344-be6b-6dcaea343c9c")
-		(property "Reference" "TP_I2C_SDA"
+		(property "Reference" "TP8"
 			(at 33.02 112.5219 0)
 			(effects
 				(font
@@ -18955,7 +18955,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 25.4 110.49 0)
 			(effects
 				(font
@@ -18988,7 +18988,7 @@
 		(instances
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/5220dff6-c057-4538-a5b2-0b6e4cf779ce"
-					(reference "TP_I2C_SDA")
+					(reference "TP8")
 					(unit 1)
 				)
 			)
