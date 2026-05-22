@@ -41281,7 +41281,7 @@
 		)
 	)
 	(gr_text "Vehicle BUS 2"
-		(at 138.5 46.5 0)
+		(at 138.5 46.2 0)
 		(layer "F.SilkS")
 		(uuid "2bb52475-9ecb-41cd-8d1b-9cc6eb8dd322")
 		(effects
@@ -41368,7 +41368,7 @@
 		)
 	)
 	(gr_text "HCO2"
-		(at 120.3 121.1 0)
+		(at 120.1 120.8 0)
 		(layer "F.SilkS")
 		(uuid "9af39c2d-297b-41ee-bb2b-6a36844b6fe8")
 		(effects
@@ -41405,7 +41405,7 @@
 		)
 	)
 	(gr_text "GND"
-		(at 114.7 41.5 0)
+		(at 113.198101 42.7 0)
 		(layer "F.SilkS")
 		(uuid "9f64441f-48a5-467c-ad76-4a4ab01aeea1")
 		(effects
@@ -41479,7 +41479,7 @@
 		)
 	)
 	(gr_text "Vehicle BUS 1"
-		(at 120.5 46.5 0)
+		(at 120.4 46.2 0)
 		(layer "F.SilkS")
 		(uuid "d4f16285-a94e-4df8-ab25-115092e863f7")
 		(effects
@@ -41491,7 +41491,7 @@
 		)
 	)
 	(gr_text "HCO1"
-		(at 109 121.1 0)
+		(at 109.3 120.8 0)
 		(layer "F.SilkS")
 		(uuid "db27aa98-7ebf-4172-9930-95520818aa42")
 		(effects
