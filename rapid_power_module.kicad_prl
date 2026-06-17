@@ -5,7 +5,7 @@
     "auto_track_width": true,
     "hidden_netclasses": [],
     "hidden_nets": [],
-    "high_contrast_mode": 0,
+    "high_contrast_mode": 1,
     "net_color_mode": 2,
     "opacity": {
       "images": 0.6,
@@ -21,7 +21,7 @@
       "footprints": true,
       "graphics": true,
       "keepouts": true,
-      "lockedItems": false,
+      "lockedItems": true,
       "otherItems": true,
       "pads": true,
       "text": true,
@@ -50,7 +50,7 @@
       "conflict_shadows",
       "shapes"
     ],
-    "visible_layers": "ffffffff_ffffffff_ffffffff_ffffffff",
+    "visible_layers": "ffffffff_ffffffff_ffffffff_fff7ffff",
     "zone_display_mode": 0
   },
   "git": {
@@ -94,18 +94,18 @@
       11
     ],
     "col_widths": [
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      63
+      56,
+      68,
+      82,
+      70,
+      66,
+      98,
+      67,
+      73,
+      34,
+      35,
+      44,
+      50
     ],
     "custom_group_rules": [],
     "expanded_rows": [],

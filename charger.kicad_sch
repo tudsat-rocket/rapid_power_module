@@ -1885,6 +1885,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "temp of batery?"
+		(exclude_from_sim no)
+		(at 191.008 152.654 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "219a2eee-36ee-4407-806e-8fe9dd10ac7e")
+	)
 	(text "Buck-Boost-Converter"
 		(exclude_from_sim no)
 		(at 52.324 17.272 0)
@@ -1894,6 +1904,16 @@
 			)
 		)
 		(uuid "3439db6d-4ae3-42ab-8408-daad9aecc188")
+	)
+	(text "musst be able to handle voltage"
+		(exclude_from_sim no)
+		(at 191.262 90.932 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9045e6e4-e25c-4bc4-8f95-c598c75892ff")
 	)
 	(text_box "ILIM_HIZ pulled to REGN to set the Charging Current Lmit to max. Register Value limits it to 1A by default anyways"
 		(exclude_from_sim no)
@@ -2851,7 +2871,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 119.38) (xy 93.98 123.19)
+			(xy 93.98 115.57) (xy 93.98 118.11)
 		)
 		(stroke
 			(width 0)
@@ -3381,7 +3401,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 105.41) (xy 93.98 111.76)
+			(xy 93.98 105.41) (xy 93.98 107.95)
 		)
 		(stroke
 			(width 0)
@@ -3418,6 +3438,16 @@
 			(type default)
 		)
 		(uuid "e7eab902-1839-439c-b3c3-bb1a870cd88c")
+	)
+	(wire
+		(pts
+			(xy 93.98 125.73) (xy 93.98 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eafa67b0-641c-41e1-9acd-437b334da952")
 	)
 	(wire
 		(pts
@@ -3716,7 +3746,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 134.62 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -3727,7 +3757,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 134.62 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -3738,7 +3768,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 134.62 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -3749,7 +3779,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 134.62 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -4248,7 +4278,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 189.23 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -4259,7 +4289,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 189.23 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -4270,7 +4300,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 189.23 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -4281,7 +4311,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" "Samsung"
 			(at 189.23 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -4443,7 +4473,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 189.23 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4454,7 +4484,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 189.23 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4465,7 +4495,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 189.23 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4476,7 +4506,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 189.23 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4817,7 +4847,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 207.01 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4828,7 +4858,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 207.01 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4839,7 +4869,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 207.01 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4850,7 +4880,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 207.01 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4955,7 +4985,7 @@
 	)
 	(symbol
 		(lib_id "power:GND1")
-		(at 93.98 123.19 0)
+		(at 93.98 127 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4965,7 +4995,7 @@
 		(dnp no)
 		(uuid "3304f669-9b65-409f-a76c-de1b9db49f1b")
 		(property "Reference" "#PWR014"
-			(at 93.98 129.54 0)
+			(at 93.98 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4976,7 +5006,7 @@
 			)
 		)
 		(property "Value" "PGND"
-			(at 93.98 127 0)
+			(at 93.98 130.81 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4986,7 +5016,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 93.98 123.19 0)
+			(at 93.98 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4997,7 +5027,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 93.98 123.19 0)
+			(at 93.98 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5008,7 +5038,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 93.98 123.19 0)
+			(at 93.98 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5118,6 +5148,107 @@
 			(project "rapid_power_module"
 				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
 					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 93.98 121.92 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3f2d6e6d-8e9b-4f54-a875-4f47447e3985")
+		(property "Reference" "R17"
+			(at 91.948 121.92 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "500R"
+			(at 96.266 121.666 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 95.758 121.92 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 93.98 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Würth Artikel Nr.:" ""
+			(at 93.98 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" " C25123 "
+			(at 93.98 121.92 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ce4af9cb-951c-4b24-981d-0ef174321752")
+		)
+		(pin "2"
+			(uuid "ddfe5ac3-e296-42b0-9eee-c722f75519f1")
+		)
+		(instances
+			(project "rapid_power_module"
+				(path "/afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e/29a18ff5-2f4c-44c0-998a-9c2a7b324824"
+					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -5680,7 +5811,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 175.26 103.632 90)
 			(hide yes)
 			(show_name no)
@@ -5961,7 +6092,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 211.328 96.52 90)
 			(hide yes)
 			(show_name no)
@@ -5994,7 +6125,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C22775"
+		(property "LCSC" "C25076"
 			(at 209.55 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -6141,7 +6272,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 215.9 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -6152,7 +6283,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 215.9 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -6163,7 +6294,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 215.9 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -6174,7 +6305,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 215.9 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -6594,7 +6725,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 194.31 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -6605,7 +6736,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 194.31 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -6616,7 +6747,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 194.31 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -6627,7 +6758,18 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" "Samsung"
+			(at 194.31 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field7" ""
 			(at 194.31 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -7044,7 +7186,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 125.73 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -7055,7 +7197,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 125.73 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -7066,7 +7208,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 125.73 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -7077,7 +7219,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 125.73 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -7124,7 +7266,7 @@
 				)
 			)
 		)
-		(property "Value" "10k5"
+		(property "Value" "10k"
 			(at 115.316 131.826 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7134,7 +7276,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 114.808 132.08 90)
 			(hide yes)
 			(show_name no)
@@ -7178,7 +7320,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C22855"
+		(property "LCSC" "C25744 "
 			(at 113.03 132.08 90)
 			(hide yes)
 			(show_name no)
@@ -7248,7 +7390,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 180.34 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7259,7 +7401,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 180.34 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7270,7 +7412,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 180.34 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7281,7 +7423,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 180.34 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7351,7 +7493,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 81.28 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7362,7 +7504,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 81.28 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7373,7 +7515,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 81.28 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7384,7 +7526,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 81.28 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7634,7 +7776,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 72.39 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7645,7 +7787,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 72.39 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7656,7 +7798,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 72.39 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7667,7 +7809,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 72.39 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7737,7 +7879,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 90.17 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7748,7 +7890,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 90.17 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7759,7 +7901,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 90.17 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7770,7 +7912,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 90.17 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7840,7 +7982,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2101281737_Murata-Electronics-GRM188R6YA106MA73D_C194427.pdf"
+		(property "Datasheet" ""
 			(at 198.12 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7851,7 +7993,7 @@
 				)
 			)
 		)
-		(property "Description" "35V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 198.12 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7862,7 +8004,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 198.12 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7873,7 +8015,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 198.12 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -7991,7 +8133,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 93.98 115.57 180)
+		(at 93.98 111.76 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8001,7 +8143,7 @@
 		(dnp no)
 		(uuid "ece9d1c8-8904-405b-bbb3-01e9f7a4120a")
 		(property "Reference" "R3"
-			(at 91.948 115.57 90)
+			(at 91.948 111.76 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8010,8 +8152,8 @@
 				)
 			)
 		)
-		(property "Value" "10k5"
-			(at 96.266 115.316 90)
+		(property "Value" "10k"
+			(at 96.266 111.506 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8020,8 +8162,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 95.758 115.57 90)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 95.758 111.76 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8032,7 +8174,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 93.98 115.57 0)
+			(at 93.98 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8043,7 +8185,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 93.98 115.57 0)
+			(at 93.98 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8054,7 +8196,7 @@
 			)
 		)
 		(property "Würth Artikel Nr.:" ""
-			(at 93.98 115.57 0)
+			(at 93.98 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8064,8 +8206,8 @@
 				)
 			)
 		)
-		(property "LCSC" "C22855"
-			(at 93.98 115.57 90)
+		(property "LCSC" "C25744 "
+			(at 93.98 111.76 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

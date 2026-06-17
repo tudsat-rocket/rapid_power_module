@@ -52,8 +52,8 @@
         "zones": {
           "border_display_style": 2,
           "border_hatch_pitch": 0.5,
-          "corner_radius": 0.0,
-          "corner_smoothing": 0,
+          "corner_radius": 1.0,
+          "corner_smoothing": 2,
           "fill_mode": 0,
           "hatch_gap": 1.5,
           "hatch_orientation": 0.0,
@@ -63,10 +63,10 @@
           "min_clearance": 0.3,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
-          "pad_connection": 1,
+          "pad_connection": 2,
           "remove_islands": 0,
-          "thermal_relief_gap": 0.5,
-          "thermal_relief_spoke_width": 0.5
+          "thermal_relief_gap": 0.4,
+          "thermal_relief_spoke_width": 0.6
         }
       },
       "diff_pair_dimensions": [
@@ -218,9 +218,11 @@
         0.15,
         0.2,
         0.25,
+        0.4,
         0.5,
         1.0,
         1.5,
+        2.0,
         3.0,
         4.0,
         7.6,
@@ -788,7 +790,7 @@
         "uuid": "afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
       }
     ],
-    "used_designators": "",
+    "used_designators": "R17",
     "variants": []
   },
   "sheets": [

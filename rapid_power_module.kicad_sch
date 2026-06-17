@@ -2605,12 +2605,6 @@
 		(uuid "aeb9118b-4944-4141-b836-5a6756668cdd")
 	)
 	(junction
-		(at 360.68 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b06ca8ce-779c-471b-91e5-ee86a47b1d74")
-	)
-	(junction
 		(at 83.82 130.81)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2633,6 +2627,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ddc99f42-28ed-4236-bb72-aef16f38641e")
+	)
+	(junction
+		(at 360.68 34.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "de3a97af-f8f8-4a56-a36e-6abb2fe9a1a1")
 	)
 	(junction
 		(at 50.8 151.13)
@@ -3316,6 +3316,16 @@
 	)
 	(wire
 		(pts
+			(xy 351.79 34.29) (xy 360.68 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cfaf705-6ce0-40a6-8dab-e000911c44f0")
+	)
+	(wire
+		(pts
 			(xy 29.21 135.89) (xy 30.48 135.89)
 		)
 		(stroke
@@ -3523,16 +3533,6 @@
 			(type default)
 		)
 		(uuid "a8692f49-5d89-46c8-89f2-13261ecb4978")
-	)
-	(wire
-		(pts
-			(xy 351.79 34.29) (xy 360.68 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a9108a51-f369-4e62-a8d5-915229049e7b")
 	)
 	(wire
 		(pts
@@ -4833,7 +4833,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fuse:Fuseholder_Littelfuse_Nano2_154x"
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
 			(at 48.26 95.758 90)
 			(hide yes)
 			(show_name no)
@@ -4866,7 +4866,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C206916"
+		(property "LCSC" "C48332"
 			(at 48.26 93.98 90)
 			(hide yes)
 			(show_name no)
@@ -6269,7 +6269,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fuse:Fuseholder_Cylinder-5x20mm_Wuerth_696103101002-SMD_Horizontal_Open"
+		(property "Footprint" "Fuse:Fuse_2010_5025Metric_Pad1.52x2.65mm_HandSolder"
 			(at 29.718 107.95 90)
 			(hide yes)
 			(show_name no)
@@ -6280,7 +6280,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121616_AEM-T0603FF3000TM_C311062.pdf"
+		(property "Datasheet" ""
 			(at 27.94 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -6302,7 +6302,7 @@
 				)
 			)
 		)
-		(property "Würth Nr.:" "696103101002"
+		(property "LCSC" "C2762483 "
 			(at 27.94 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -6542,7 +6542,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fuse:Fuseholder_Littelfuse_Nano2_154x"
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
 			(at 237.49 151.638 90)
 			(hide yes)
 			(show_name no)
@@ -6575,7 +6575,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C206916"
+		(property "LCSC" "C48332"
 			(at 237.49 149.86 90)
 			(hide yes)
 			(show_name no)
