@@ -800,7 +800,7 @@
         "uuid": "afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
       }
     ],
-    "used_designators": "C1-55,R1-38,#FLG1-4,D1-13,#PWR1-107,BAT1-3,FB1,F1-3,R_TS_PU1,H1-4,J1-9,L1,R_IN1-4,R_LD1,SW1-2,TH1,TP1-13,U1-9,Y1",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [

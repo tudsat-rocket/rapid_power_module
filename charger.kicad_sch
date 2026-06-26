@@ -5830,7 +5830,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "46230e8b-b7e6-4941-9ce3-c29223ce560f")
 		(property "Reference" "TH1"
