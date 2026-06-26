@@ -52,7 +52,7 @@
         "zones": {
           "border_display_style": 2,
           "border_hatch_pitch": 0.5,
-          "corner_radius": 1.0,
+          "corner_radius": 0.5,
           "corner_smoothing": 2,
           "fill_mode": 0,
           "hatch_gap": 1.5,
@@ -60,13 +60,13 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.3,
+          "min_clearance": 0.2,
           "min_island_area": 10.0,
-          "min_thickness": 0.25,
-          "pad_connection": 2,
+          "min_thickness": 0.15,
+          "pad_connection": 1,
           "remove_islands": 0,
           "thermal_relief_gap": 0.4,
-          "thermal_relief_spoke_width": 0.6
+          "thermal_relief_spoke_width": 0.5
         }
       },
       "diff_pair_dimensions": [
@@ -76,7 +76,16 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "courtyards_overlap|133955000|77775000|8f045c65-7f1c-46b5-9802-fbaa64f85696|9ea0549e-b658-4759-8be1-ab1bfa77b184",
+          "widerstand kann unter die batterie gelötet werden"
+        ],
+        [
+          "items_not_allowed|97655000|37786200|313a00dd-c5d9-4f79-afb2-0f0b43edaca7|00000000-0000-0000-0000-000000000000",
+          "das dürfte kein fehler sein"
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -216,6 +225,7 @@
         0.0,
         0.1,
         0.15,
+        0.2,
         0.2,
         0.25,
         0.4,
@@ -790,7 +800,7 @@
         "uuid": "afc8cbd3-9ea8-40a2-afae-ed6bd0fe7e6e"
       }
     ],
-    "used_designators": "R17",
+    "used_designators": "C1-55,R1-38,#FLG1-4,D1-13,#PWR1-107,BAT1-3,FB1,F1-3,R_TS_PU1,H1-4,J1-9,L1,R_IN1-4,R_LD1,SW1-2,TH1,TP1-13,U1-9,Y1",
     "variants": []
   },
   "sheets": [
