@@ -10160,7 +10160,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB103_C60133.pdf"
+		(property "Datasheet" ""
 			(at 346.71 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -10171,7 +10171,7 @@
 				)
 			)
 		)
-		(property "Description" "50V 10nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 346.71 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -10182,7 +10182,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C60133"
+		(property "LCSC" "C15195"
 			(at 346.71 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -10193,7 +10193,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" ""
 			(at 346.71 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -10452,7 +10452,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A475KP5NRNC_C368809.pdf"
+		(property "Datasheet" ""
 			(at 265.43 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -10463,7 +10463,7 @@
 				)
 			)
 		)
-		(property "Description" "10V 4.7uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 265.43 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -10474,18 +10474,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C368809"
-			(at 265.43 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "LCSC" "C23733"
 			(at 265.43 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -10645,7 +10634,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121857_Murata-Electronics-GRM1555C1H100JA01D_C76946.pdf"
+		(property "Datasheet" ""
 			(at 372.11 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -10656,7 +10645,7 @@
 				)
 			)
 		)
-		(property "Description" "50V 10pF C0G ±5% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 372.11 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -10667,7 +10656,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C76946"
+		(property "LCSC" "C32949"
 			(at 372.11 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -10678,7 +10667,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 372.11 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -11459,7 +11448,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "27640db8-693c-424a-87b0-ae7ba15e33b5")
 		(property "Reference" "R9"
 			(at 71.12 35.56 90)
@@ -11471,8 +11459,8 @@
 				)
 			)
 		)
-		(property "Value" "22"
-			(at 71.12 38.1 90)
+		(property "Value" "22R"
+			(at 71.374 38.862 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13290,7 +13278,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2410121857_Murata-Electronics-GRM1555C1H100JA01D_C76946.pdf"
+		(property "Datasheet" ""
 			(at 397.51 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -13301,7 +13289,7 @@
 				)
 			)
 		)
-		(property "Description" "50V 10pF C0G ±5% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 397.51 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -13312,7 +13300,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C76946"
+		(property "LCSC" "C32949"
 			(at 397.51 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -13323,7 +13311,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" ""
 			(at 397.51 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -15229,8 +15217,8 @@
 				)
 			)
 		)
-		(property "Value" "22"
-			(at 34.29 38.1 90)
+		(property "Value" "22R"
+			(at 34.29 37.338 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17517,7 +17505,7 @@
 				)
 			)
 		)
-		(property "Value" "22"
+		(property "Value" "22R"
 			(at 34.29 26.924 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18295,7 +18283,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB103_C60133.pdf"
+		(property "Datasheet" ""
 			(at 391.16 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -18306,7 +18294,7 @@
 				)
 			)
 		)
-		(property "Description" "50V 10nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 391.16 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -18317,7 +18305,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C60133"
+		(property "LCSC" "C15195"
 			(at 391.16 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -18328,7 +18316,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" ""
 			(at 391.16 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -18773,7 +18761,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "TS342A2P"
+		(property "Value" ""
 			(at 233.553 98.2222 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18784,7 +18772,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK"
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_TS-1088-xR020"
 			(at 232.41 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -18817,7 +18805,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5373431"
+		(property "LCSC" "C720477"
 			(at 232.41 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -19184,8 +19172,8 @@
 				)
 			)
 		)
-		(property "Value" "22"
-			(at 39.37 45.72 90)
+		(property "Value" "22R"
+			(at 39.37 44.958 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20797,7 +20785,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "TS342A2P"
+		(property "Value" ""
 			(at 227.203 63.9322 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20808,7 +20796,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK"
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_TS-1088-xR020"
 			(at 226.06 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -20841,7 +20829,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C5373431"
+		(property "LCSC" "C720477"
 			(at 226.06 62.23 0)
 			(hide yes)
 			(show_name no)

@@ -4655,7 +4655,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A475KP5NRNC_C368809.pdf"
+		(property "Datasheet" ""
 			(at 106.68 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -4666,7 +4666,7 @@
 				)
 			)
 		)
-		(property "Description" "10V 4.7uF X5R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 106.68 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -4677,7 +4677,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C368809"
+		(property "LCSC" "C23733"
 			(at 106.68 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -4688,7 +4688,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" ""
 			(at 106.68 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -6218,7 +6218,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C4190"
+		(property "LCSC" "C25879"
 			(at 175.26 105.41 90)
 			(hide yes)
 			(show_name no)

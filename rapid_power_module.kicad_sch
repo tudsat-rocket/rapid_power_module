@@ -4448,7 +4448,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 46.99 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -5640,7 +5640,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB103_C60133.pdf"
+		(property "Datasheet" ""
 			(at 110.49 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -5651,7 +5651,7 @@
 				)
 			)
 		)
-		(property "Description" "50V 10nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 110.49 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -5662,7 +5662,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C60133"
+		(property "LCSC" "C15195"
 			(at 110.49 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -5673,7 +5673,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" ""
 			(at 110.49 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -6185,7 +6185,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB103_C60133.pdf"
+		(property "Datasheet" ""
 			(at 86.36 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -6196,7 +6196,7 @@
 				)
 			)
 		)
-		(property "Description" "50V 10nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 86.36 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -6207,7 +6207,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C60133"
+		(property "LCSC" "C15195"
 			(at 86.36 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -6218,7 +6218,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" ""
 			(at 86.36 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -6635,7 +6635,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 101.6 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -7162,7 +7162,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB103_C60133.pdf"
+		(property "Datasheet" ""
 			(at 55.88 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -7173,7 +7173,7 @@
 				)
 			)
 		)
-		(property "Description" "50V 10nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 55.88 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -7184,18 +7184,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C60133"
-			(at 55.88 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
+		(property "LCSC" "C15195"
 			(at 55.88 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -7651,7 +7640,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -8638,7 +8627,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C194427"
+		(property "LCSC" "C96446"
 			(at 77.47 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -9400,7 +9389,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-CC0402KRX7R9BB103_C60133.pdf"
+		(property "Datasheet" ""
 			(at 55.88 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -9411,7 +9400,7 @@
 				)
 			)
 		)
-		(property "Description" "50V 10nF X7R ±10% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+		(property "Description" ""
 			(at 55.88 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -9422,7 +9411,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C60133"
+		(property "LCSC" "C15195"
 			(at 55.88 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -9433,7 +9422,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" ""
 			(at 55.88 154.94 0)
 			(hide yes)
 			(show_name no)
