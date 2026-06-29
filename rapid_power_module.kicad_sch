@@ -6408,7 +6408,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "584b2cd6-4f5f-4d8a-9e0b-c55c13faa8c0")
 		(property "Reference" "F1"
 			(at 25.908 107.188 90)
